@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>changelog – githubtest</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../../../">
+<script src="../../../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../../../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../../../../../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../../../../index.html">
+    <span class="navbar-title">githubtest</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#changelog" id="toc-changelog" class="nav-link active" data-scroll-target="#changelog">Changelog</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">3.4.3 (2025-08-09)</a>
+  <ul class="collapse">
+  <li><a href="#changed" id="toc-changed" class="nav-link" data-scroll-target="#changed">Changed</a></li>
+  <li><a href="#added" id="toc-added" class="nav-link" data-scroll-target="#added">Added</a></li>
+  <li><a href="#fixed" id="toc-fixed" class="nav-link" data-scroll-target="#fixed">Fixed</a></li>
+  <li><a href="#misc" id="toc-misc" class="nav-link" data-scroll-target="#misc">Misc</a></li>
+  </ul></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">3.4.2 (2025-05-02)</a>
+  <ul class="collapse">
+  <li><a href="#fixed-1" id="toc-fixed-1" class="nav-link" data-scroll-target="#fixed-1">Fixed</a></li>
+  <li><a href="#changed-1" id="toc-changed-1" class="nav-link" data-scroll-target="#changed-1">Changed</a></li>
+  </ul></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">3.4.1 (2024-12-24)</a>
+  <ul class="collapse">
+  <li><a href="#changed-2" id="toc-changed-2" class="nav-link" data-scroll-target="#changed-2">Changed</a></li>
+  <li><a href="#added-1" id="toc-added-1" class="nav-link" data-scroll-target="#added-1">Added</a></li>
+  <li><a href="#removed" id="toc-removed" class="nav-link" data-scroll-target="#removed">Removed</a></li>
+  <li><a href="#fixed-2" id="toc-fixed-2" class="nav-link" data-scroll-target="#fixed-2">Fixed</a></li>
+  </ul></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">3.4.0 (2024-10-08)</a>
+  <ul class="collapse">
+  <li><a href="#added-2" id="toc-added-2" class="nav-link" data-scroll-target="#added-2">Added</a></li>
+  <li><a href="#fixed-3" id="toc-fixed-3" class="nav-link" data-scroll-target="#fixed-3">Fixed</a></li>
+  </ul></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">3.3.2 (2023-10-31)</a>
+  <ul class="collapse">
+  <li><a href="#fixed-4" id="toc-fixed-4" class="nav-link" data-scroll-target="#fixed-4">Fixed</a></li>
+  <li><a href="#added-3" id="toc-added-3" class="nav-link" data-scroll-target="#added-3">Added</a></li>
+  </ul></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">3.3.1 (2023-10-22)</a>
+  <ul class="collapse">
+  <li><a href="#changed-3" id="toc-changed-3" class="nav-link" data-scroll-target="#changed-3">Changed</a></li>
+  </ul></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6">3.3.0 (2023-09-30)</a>
+  <ul class="collapse">
+  <li><a href="#added-4" id="toc-added-4" class="nav-link" data-scroll-target="#added-4">Added</a></li>
+  <li><a href="#removed-1" id="toc-removed-1" class="nav-link" data-scroll-target="#removed-1">Removed</a></li>
+  <li><a href="#changed-4" id="toc-changed-4" class="nav-link" data-scroll-target="#changed-4">Changed</a></li>
+  <li><a href="#fixed-5" id="toc-fixed-5" class="nav-link" data-scroll-target="#fixed-5">Fixed</a></li>
+  </ul></li>
+  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7">3.2.0 (2023-06-07)</a>
+  <ul class="collapse">
+  <li><a href="#changed-5" id="toc-changed-5" class="nav-link" data-scroll-target="#changed-5">Changed</a></li>
+  <li><a href="#added-5" id="toc-added-5" class="nav-link" data-scroll-target="#added-5">Added</a></li>
+  <li><a href="#fixed-6" id="toc-fixed-6" class="nav-link" data-scroll-target="#fixed-6">Fixed</a></li>
+  </ul></li>
+  <li><a href="#section-8" id="toc-section-8" class="nav-link" data-scroll-target="#section-8">3.1.0 (2023-03-06)</a>
+  <ul class="collapse">
+  <li><a href="#added-6" id="toc-added-6" class="nav-link" data-scroll-target="#added-6">Added</a></li>
+  <li><a href="#removed-2" id="toc-removed-2" class="nav-link" data-scroll-target="#removed-2">Removed</a></li>
+  <li><a href="#changed-6" id="toc-changed-6" class="nav-link" data-scroll-target="#changed-6">Changed</a></li>
+  </ul></li>
+  <li><a href="#section-9" id="toc-section-9" class="nav-link" data-scroll-target="#section-9">3.0.1 (2022-11-18)</a>
+  <ul class="collapse">
+  <li><a href="#fixed-7" id="toc-fixed-7" class="nav-link" data-scroll-target="#fixed-7">Fixed</a></li>
+  <li><a href="#changed-7" id="toc-changed-7" class="nav-link" data-scroll-target="#changed-7">Changed</a></li>
+  </ul></li>
+  <li><a href="#section-10" id="toc-section-10" class="nav-link" data-scroll-target="#section-10">3.0.0 (2022-10-20)</a>
+  <ul class="collapse">
+  <li><a href="#added-7" id="toc-added-7" class="nav-link" data-scroll-target="#added-7">Added</a></li>
+  <li><a href="#changed-8" id="toc-changed-8" class="nav-link" data-scroll-target="#changed-8">Changed</a></li>
+  <li><a href="#fixed-8" id="toc-fixed-8" class="nav-link" data-scroll-target="#fixed-8">Fixed</a></li>
+  <li><a href="#removed-3" id="toc-removed-3" class="nav-link" data-scroll-target="#removed-3">Removed</a></li>
+  </ul></li>
+  <li><a href="#rc1-2022-10-18" id="toc-rc1-2022-10-18" class="nav-link" data-scroll-target="#rc1-2022-10-18">3.0.0rc1 (2022-10-18)</a>
+  <ul class="collapse">
+  <li><a href="#added-8" id="toc-added-8" class="nav-link" data-scroll-target="#added-8">Added</a></li>
+  <li><a href="#changed-9" id="toc-changed-9" class="nav-link" data-scroll-target="#changed-9">Changed</a></li>
+  <li><a href="#fixed-9" id="toc-fixed-9" class="nav-link" data-scroll-target="#fixed-9">Fixed</a></li>
+  <li><a href="#removed-4" id="toc-removed-4" class="nav-link" data-scroll-target="#removed-4">Removed</a></li>
+  </ul></li>
+  <li><a href="#b2-2022-08-21" id="toc-b2-2022-08-21" class="nav-link" data-scroll-target="#b2-2022-08-21">3.0.0b2 (2022-08-21)</a>
+  <ul class="collapse">
+  <li><a href="#added-9" id="toc-added-9" class="nav-link" data-scroll-target="#added-9">Added</a></li>
+  <li><a href="#removed-5" id="toc-removed-5" class="nav-link" data-scroll-target="#removed-5">Removed</a></li>
+  <li><a href="#fixed-10" id="toc-fixed-10" class="nav-link" data-scroll-target="#fixed-10">Fixed</a></li>
+  </ul></li>
+  <li><a href="#b1-2022-08-15" id="toc-b1-2022-08-15" class="nav-link" data-scroll-target="#b1-2022-08-15">3.0.0b1 (2022-08-15)</a>
+  <ul class="collapse">
+  <li><a href="#changed-10" id="toc-changed-10" class="nav-link" data-scroll-target="#changed-10">Changed</a></li>
+  <li><a href="#removed-6" id="toc-removed-6" class="nav-link" data-scroll-target="#removed-6">Removed</a></li>
+  </ul></li>
+  <li><a href="#section-11" id="toc-section-11" class="nav-link" data-scroll-target="#section-11">2.1.1 (2022-08-19)</a>
+  <ul class="collapse">
+  <li><a href="#deprecated" id="toc-deprecated" class="nav-link" data-scroll-target="#deprecated">Deprecated</a></li>
+  <li><a href="#changed-11" id="toc-changed-11" class="nav-link" data-scroll-target="#changed-11">Changed</a></li>
+  <li><a href="#fixed-11" id="toc-fixed-11" class="nav-link" data-scroll-target="#fixed-11">Fixed</a></li>
+  </ul></li>
+  <li><a href="#section-12" id="toc-section-12" class="nav-link" data-scroll-target="#section-12">2.1.0 (2022-06-19)</a>
+  <ul class="collapse">
+  <li><a href="#added-10" id="toc-added-10" class="nav-link" data-scroll-target="#added-10">Added</a></li>
+  <li><a href="#changed-12" id="toc-changed-12" class="nav-link" data-scroll-target="#changed-12">Changed</a></li>
+  <li><a href="#fixed-12" id="toc-fixed-12" class="nav-link" data-scroll-target="#fixed-12">Fixed</a></li>
+  <li><a href="#removed-7" id="toc-removed-7" class="nav-link" data-scroll-target="#removed-7">Removed</a></li>
+  <li><a href="#deprecated-1" id="toc-deprecated-1" class="nav-link" data-scroll-target="#deprecated-1">Deprecated</a></li>
+  </ul></li>
+  <li><a href="#section-13" id="toc-section-13" class="nav-link" data-scroll-target="#section-13">2.0.12 (2022-02-12)</a>
+  <ul class="collapse">
+  <li><a href="#fixed-13" id="toc-fixed-13" class="nav-link" data-scroll-target="#fixed-13">Fixed</a></li>
+  </ul></li>
+  <li><a href="#section-14" id="toc-section-14" class="nav-link" data-scroll-target="#section-14">2.0.11 (2022-01-30)</a>
+  <ul class="collapse">
+  <li><a href="#added-11" id="toc-added-11" class="nav-link" data-scroll-target="#added-11">Added</a></li>
+  <li><a href="#changed-13" id="toc-changed-13" class="nav-link" data-scroll-target="#changed-13">Changed</a></li>
+  </ul></li>
+  <li><a href="#section-15" id="toc-section-15" class="nav-link" data-scroll-target="#section-15">2.0.10 (2022-01-04)</a>
+  <ul class="collapse">
+  <li><a href="#fixed-14" id="toc-fixed-14" class="nav-link" data-scroll-target="#fixed-14">Fixed</a></li>
+  <li><a href="#changed-14" id="toc-changed-14" class="nav-link" data-scroll-target="#changed-14">Changed</a></li>
+  </ul></li>
+  <li><a href="#section-16" id="toc-section-16" class="nav-link" data-scroll-target="#section-16">2.0.9 (2021-12-03)</a>
+  <ul class="collapse">
+  <li><a href="#changed-15" id="toc-changed-15" class="nav-link" data-scroll-target="#changed-15">Changed</a></li>
+  <li><a href="#fixed-15" id="toc-fixed-15" class="nav-link" data-scroll-target="#fixed-15">Fixed</a></li>
+  </ul></li>
+  <li><a href="#section-17" id="toc-section-17" class="nav-link" data-scroll-target="#section-17">2.0.8 (2021-11-24)</a>
+  <ul class="collapse">
+  <li><a href="#changed-16" id="toc-changed-16" class="nav-link" data-scroll-target="#changed-16">Changed</a></li>
+  <li><a href="#fixed-16" id="toc-fixed-16" class="nav-link" data-scroll-target="#fixed-16">Fixed</a></li>
+  <li><a href="#added-12" id="toc-added-12" class="nav-link" data-scroll-target="#added-12">Added</a></li>
+  </ul></li>
+  <li><a href="#section-18" id="toc-section-18" class="nav-link" data-scroll-target="#section-18">2.0.7 (2021-10-11)</a>
+  <ul class="collapse">
+  <li><a href="#added-13" id="toc-added-13" class="nav-link" data-scroll-target="#added-13">Added</a></li>
+  <li><a href="#changed-17" id="toc-changed-17" class="nav-link" data-scroll-target="#changed-17">Changed</a></li>
+  <li><a href="#removed-8" id="toc-removed-8" class="nav-link" data-scroll-target="#removed-8">Removed</a></li>
+  <li><a href="#fixed-17" id="toc-fixed-17" class="nav-link" data-scroll-target="#fixed-17">Fixed</a></li>
+  </ul></li>
+  <li><a href="#section-19" id="toc-section-19" class="nav-link" data-scroll-target="#section-19">2.0.6 (2021-09-18)</a>
+  <ul class="collapse">
+  <li><a href="#fixed-18" id="toc-fixed-18" class="nav-link" data-scroll-target="#fixed-18">Fixed</a></li>
+  <li><a href="#changed-18" id="toc-changed-18" class="nav-link" data-scroll-target="#changed-18">Changed</a></li>
+  </ul></li>
+  <li><a href="#section-20" id="toc-section-20" class="nav-link" data-scroll-target="#section-20">2.0.5 (2021-09-14)</a>
+  <ul class="collapse">
+  <li><a href="#changed-19" id="toc-changed-19" class="nav-link" data-scroll-target="#changed-19">Changed</a></li>
+  <li><a href="#removed-9" id="toc-removed-9" class="nav-link" data-scroll-target="#removed-9">Removed</a></li>
+  <li><a href="#fixed-19" id="toc-fixed-19" class="nav-link" data-scroll-target="#fixed-19">Fixed</a></li>
+  </ul></li>
+  <li><a href="#section-21" id="toc-section-21" class="nav-link" data-scroll-target="#section-21">2.0.4 (2021-07-30)</a>
+  <ul class="collapse">
+  <li><a href="#fixed-20" id="toc-fixed-20" class="nav-link" data-scroll-target="#fixed-20">Fixed</a></li>
+  <li><a href="#changed-20" id="toc-changed-20" class="nav-link" data-scroll-target="#changed-20">Changed</a></li>
+  </ul></li>
+  <li><a href="#section-22" id="toc-section-22" class="nav-link" data-scroll-target="#section-22">2.0.3 (2021-07-16)</a>
+  <ul class="collapse">
+  <li><a href="#changed-21" id="toc-changed-21" class="nav-link" data-scroll-target="#changed-21">Changed</a></li>
+  </ul></li>
+  <li><a href="#section-23" id="toc-section-23" class="nav-link" data-scroll-target="#section-23">2.0.2 (2021-07-15)</a>
+  <ul class="collapse">
+  <li><a href="#fixed-21" id="toc-fixed-21" class="nav-link" data-scroll-target="#fixed-21">Fixed</a></li>
+  <li><a href="#changed-22" id="toc-changed-22" class="nav-link" data-scroll-target="#changed-22">Changed</a></li>
+  </ul></li>
+  <li><a href="#section-24" id="toc-section-24" class="nav-link" data-scroll-target="#section-24">2.0.1 (2021-07-13)</a>
+  <ul class="collapse">
+  <li><a href="#fixed-22" id="toc-fixed-22" class="nav-link" data-scroll-target="#fixed-22">Fixed</a></li>
+  <li><a href="#changed-23" id="toc-changed-23" class="nav-link" data-scroll-target="#changed-23">Changed</a></li>
+  <li><a href="#added-14" id="toc-added-14" class="nav-link" data-scroll-target="#added-14">Added</a></li>
+  </ul></li>
+  <li><a href="#section-25" id="toc-section-25" class="nav-link" data-scroll-target="#section-25">2.0.0 (2021-07-02)</a>
+  <ul class="collapse">
+  <li><a href="#changed-24" id="toc-changed-24" class="nav-link" data-scroll-target="#changed-24">Changed</a></li>
+  <li><a href="#removed-10" id="toc-removed-10" class="nav-link" data-scroll-target="#removed-10">Removed</a></li>
+  <li><a href="#deprecated-2" id="toc-deprecated-2" class="nav-link" data-scroll-target="#deprecated-2">Deprecated</a></li>
+  <li><a href="#fixed-23" id="toc-fixed-23" class="nav-link" data-scroll-target="#fixed-23">Fixed</a></li>
+  </ul></li>
+  <li><a href="#section-26" id="toc-section-26" class="nav-link" data-scroll-target="#section-26">1.4.1 (2021-05-28)</a>
+  <ul class="collapse">
+  <li><a href="#fixed-24" id="toc-fixed-24" class="nav-link" data-scroll-target="#fixed-24">Fixed</a></li>
+  </ul></li>
+  <li><a href="#section-27" id="toc-section-27" class="nav-link" data-scroll-target="#section-27">1.4.0 (2021-05-21)</a>
+  <ul class="collapse">
+  <li><a href="#removed-11" id="toc-removed-11" class="nav-link" data-scroll-target="#removed-11">Removed</a></li>
+  <li><a href="#fixed-25" id="toc-fixed-25" class="nav-link" data-scroll-target="#fixed-25">Fixed</a></li>
+  <li><a href="#changed-25" id="toc-changed-25" class="nav-link" data-scroll-target="#changed-25">Changed</a></li>
+  <li><a href="#added-15" id="toc-added-15" class="nav-link" data-scroll-target="#added-15">Added</a></li>
+  </ul></li>
+  <li><a href="#section-28" id="toc-section-28" class="nav-link" data-scroll-target="#section-28">1.3.9 (2021-05-13)</a>
+  <ul class="collapse">
+  <li><a href="#fixed-26" id="toc-fixed-26" class="nav-link" data-scroll-target="#fixed-26">Fixed</a></li>
+  </ul></li>
+  <li><a href="#section-29" id="toc-section-29" class="nav-link" data-scroll-target="#section-29">1.3.8 (2021-05-12)</a>
+  <ul class="collapse">
+  <li><a href="#fixed-27" id="toc-fixed-27" class="nav-link" data-scroll-target="#fixed-27">Fixed</a></li>
+  </ul></li>
+  <li><a href="#section-30" id="toc-section-30" class="nav-link" data-scroll-target="#section-30">1.3.7 (2021-05-12)</a>
+  <ul class="collapse">
+  <li><a href="#fixed-28" id="toc-fixed-28" class="nav-link" data-scroll-target="#fixed-28">Fixed</a></li>
+  </ul></li>
+  <li><a href="#section-31" id="toc-section-31" class="nav-link" data-scroll-target="#section-31">1.3.6 (2021-02-09)</a>
+  <ul class="collapse">
+  <li><a href="#changed-26" id="toc-changed-26" class="nav-link" data-scroll-target="#changed-26">Changed</a></li>
+  </ul></li>
+  <li><a href="#section-32" id="toc-section-32" class="nav-link" data-scroll-target="#section-32">1.3.5 (2021-02-08)</a>
+  <ul class="collapse">
+  <li><a href="#fixed-29" id="toc-fixed-29" class="nav-link" data-scroll-target="#fixed-29">Fixed</a></li>
+  <li><a href="#changed-27" id="toc-changed-27" class="nav-link" data-scroll-target="#changed-27">Changed</a></li>
+  <li><a href="#added-16" id="toc-added-16" class="nav-link" data-scroll-target="#added-16">Added</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="changelog" class="level1">
+<h1>Changelog</h1>
+<p>All notable changes to charset-normalizer will be documented in this file. This project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>. The format is based on <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>.</p>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"><a href="https://github.com/Ousret/charset_normalizer/compare/3.4.2...3.4.3">3.4.3</a> (2025-08-09)</h2>
+<section id="changed" class="level3">
+<h3 class="anchored" data-anchor-id="changed">Changed</h3>
+<ul>
+<li>mypy(c) is no longer a required dependency at build time if <code>CHARSET_NORMALIZER_USE_MYPYC</code> isn’t set to <code>1</code>. (#595) (#583)</li>
+<li>automatically lower confidence on small bytes samples that are not Unicode in <code>detect</code> output legacy function. (#391)</li>
+</ul>
+</section>
+<section id="added" class="level3">
+<h3 class="anchored" data-anchor-id="added">Added</h3>
+<ul>
+<li>Custom build backend to overcome inability to mark mypy as an optional dependency in the build phase.</li>
+<li>Support for Python 3.14</li>
+</ul>
+</section>
+<section id="fixed" class="level3">
+<h3 class="anchored" data-anchor-id="fixed">Fixed</h3>
+<ul>
+<li>sdist archive contained useless directories.</li>
+<li>automatically fallback on valid UTF-16 or UTF-32 even if the md says it’s noisy. (#633)</li>
+</ul>
+</section>
+<section id="misc" class="level3">
+<h3 class="anchored" data-anchor-id="misc">Misc</h3>
+<ul>
+<li>SBOM are automatically published to the relevant GitHub release to comply with regulatory changes. Each published wheel comes with its SBOM. We choose CycloneDX as the format.</li>
+<li>Prebuilt optimized wheel are no longer distributed by default for CPython 3.7 due to a change in cibuildwheel.</li>
+</ul>
+</section>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1"><a href="https://github.com/Ousret/charset_normalizer/compare/3.4.1...3.4.2">3.4.2</a> (2025-05-02)</h2>
+<section id="fixed-1" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-1">Fixed</h3>
+<ul>
+<li>Addressed the DeprecationWarning in our CLI regarding <code>argparse.FileType</code> by backporting the target class into the package. (#591)</li>
+<li>Improved the overall reliability of the detector with CJK Ideographs. (#605) (#587)</li>
+</ul>
+</section>
+<section id="changed-1" class="level3">
+<h3 class="anchored" data-anchor-id="changed-1">Changed</h3>
+<ul>
+<li>Optional mypyc compilation upgraded to version 1.15 for Python &gt;= 3.8</li>
+</ul>
+</section>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2"><a href="https://github.com/Ousret/charset_normalizer/compare/3.4.0...3.4.1">3.4.1</a> (2024-12-24)</h2>
+<section id="changed-2" class="level3">
+<h3 class="anchored" data-anchor-id="changed-2">Changed</h3>
+<ul>
+<li>Project metadata are now stored using <code>pyproject.toml</code> instead of <code>setup.cfg</code> using setuptools as the build backend.</li>
+<li>Enforce annotation delayed loading for a simpler and consistent types in the project.</li>
+<li>Optional mypyc compilation upgraded to version 1.14 for Python &gt;= 3.8</li>
+</ul>
+</section>
+<section id="added-1" class="level3">
+<h3 class="anchored" data-anchor-id="added-1">Added</h3>
+<ul>
+<li>pre-commit configuration.</li>
+<li>noxfile.</li>
+</ul>
+</section>
+<section id="removed" class="level3">
+<h3 class="anchored" data-anchor-id="removed">Removed</h3>
+<ul>
+<li><code>build-requirements.txt</code> as per using <code>pyproject.toml</code> native build configuration.</li>
+<li><code>bin/integration.py</code> and <code>bin/serve.py</code> in favor of downstream integration test (see noxfile).</li>
+<li><code>setup.cfg</code> in favor of <code>pyproject.toml</code> metadata configuration.</li>
+<li>Unused <code>utils.range_scan</code> function.</li>
+</ul>
+</section>
+<section id="fixed-2" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-2">Fixed</h3>
+<ul>
+<li>Converting content to Unicode bytes may insert <code>utf_8</code> instead of preferred <code>utf-8</code>. (#572)</li>
+<li>Deprecation warning “‘count’ is passed as positional argument” when converting to Unicode bytes on Python 3.13+</li>
+</ul>
+</section>
+</section>
+<section id="section-3" class="level2">
+<h2 class="anchored" data-anchor-id="section-3"><a href="https://github.com/Ousret/charset_normalizer/compare/3.3.2...3.4.0">3.4.0</a> (2024-10-08)</h2>
+<section id="added-2" class="level3">
+<h3 class="anchored" data-anchor-id="added-2">Added</h3>
+<ul>
+<li>Argument <code>--no-preemptive</code> in the CLI to prevent the detector to search for hints.</li>
+<li>Support for Python 3.13 (#512)</li>
+</ul>
+</section>
+<section id="fixed-3" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-3">Fixed</h3>
+<ul>
+<li>Relax the TypeError exception thrown when trying to compare a CharsetMatch with anything else than a CharsetMatch.</li>
+<li>Improved the general reliability of the detector based on user feedbacks. (#520) (#509) (#498) (#407) (#537)</li>
+<li>Declared charset in content (preemptive detection) not changed when converting to utf-8 bytes. (#381)</li>
+</ul>
+</section>
+</section>
+<section id="section-4" class="level2">
+<h2 class="anchored" data-anchor-id="section-4"><a href="https://github.com/Ousret/charset_normalizer/compare/3.3.1...3.3.2">3.3.2</a> (2023-10-31)</h2>
+<section id="fixed-4" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-4">Fixed</h3>
+<ul>
+<li>Unintentional memory usage regression when using large payload that match several encoding (#376)</li>
+<li>Regression on some detection case showcased in the documentation (#371)</li>
+</ul>
+</section>
+<section id="added-3" class="level3">
+<h3 class="anchored" data-anchor-id="added-3">Added</h3>
+<ul>
+<li>Noise (md) probe that identify malformed arabic representation due to the presence of letters in isolated form (credit to my wife)</li>
+</ul>
+</section>
+</section>
+<section id="section-5" class="level2">
+<h2 class="anchored" data-anchor-id="section-5"><a href="https://github.com/Ousret/charset_normalizer/compare/3.3.0...3.3.1">3.3.1</a> (2023-10-22)</h2>
+<section id="changed-3" class="level3">
+<h3 class="anchored" data-anchor-id="changed-3">Changed</h3>
+<ul>
+<li>Optional mypyc compilation upgraded to version 1.6.1 for Python &gt;= 3.8</li>
+<li>Improved the general detection reliability based on reports from the community</li>
+</ul>
+</section>
+</section>
+<section id="section-6" class="level2">
+<h2 class="anchored" data-anchor-id="section-6"><a href="https://github.com/Ousret/charset_normalizer/compare/3.2.0...3.3.0">3.3.0</a> (2023-09-30)</h2>
+<section id="added-4" class="level3">
+<h3 class="anchored" data-anchor-id="added-4">Added</h3>
+<ul>
+<li>Allow to execute the CLI (e.g.&nbsp;normalizer) through <code>python -m charset_normalizer.cli</code> or <code>python -m charset_normalizer</code></li>
+<li>Support for 9 forgotten encoding that are supported by Python but unlisted in <code>encoding.aliases</code> as they have no alias (#323)</li>
+</ul>
+</section>
+<section id="removed-1" class="level3">
+<h3 class="anchored" data-anchor-id="removed-1">Removed</h3>
+<ul>
+<li>(internal) Redundant utils.is_ascii function and unused function is_private_use_only</li>
+<li>(internal) charset_normalizer.assets is moved inside charset_normalizer.constant</li>
+</ul>
+</section>
+<section id="changed-4" class="level3">
+<h3 class="anchored" data-anchor-id="changed-4">Changed</h3>
+<ul>
+<li>(internal) Unicode code blocks in constants are updated using the latest v15.0.0 definition to improve detection</li>
+<li>Optional mypyc compilation upgraded to version 1.5.1 for Python &gt;= 3.8</li>
+</ul>
+</section>
+<section id="fixed-5" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-5">Fixed</h3>
+<ul>
+<li>Unable to properly sort CharsetMatch when both chaos/noise and coherence were close due to an unreachable condition in __lt__ (#350)</li>
+</ul>
+</section>
+</section>
+<section id="section-7" class="level2">
+<h2 class="anchored" data-anchor-id="section-7"><a href="https://github.com/Ousret/charset_normalizer/compare/3.1.0...3.2.0">3.2.0</a> (2023-06-07)</h2>
+<section id="changed-5" class="level3">
+<h3 class="anchored" data-anchor-id="changed-5">Changed</h3>
+<ul>
+<li>Typehint for function <code>from_path</code> no longer enforce <code>PathLike</code> as its first argument</li>
+<li>Minor improvement over the global detection reliability</li>
+</ul>
+</section>
+<section id="added-5" class="level3">
+<h3 class="anchored" data-anchor-id="added-5">Added</h3>
+<ul>
+<li>Introduce function <code>is_binary</code> that relies on main capabilities, and optimized to detect binaries</li>
+<li>Propagate <code>enable_fallback</code> argument throughout <code>from_bytes</code>, <code>from_path</code>, and <code>from_fp</code> that allow a deeper control over the detection (default True)</li>
+<li>Explicit support for Python 3.12</li>
+</ul>
+</section>
+<section id="fixed-6" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-6">Fixed</h3>
+<ul>
+<li>Edge case detection failure where a file would contain ‘very-long’ camel cased word (Issue #289)</li>
+</ul>
+</section>
+</section>
+<section id="section-8" class="level2">
+<h2 class="anchored" data-anchor-id="section-8"><a href="https://github.com/Ousret/charset_normalizer/compare/3.0.1...3.1.0">3.1.0</a> (2023-03-06)</h2>
+<section id="added-6" class="level3">
+<h3 class="anchored" data-anchor-id="added-6">Added</h3>
+<ul>
+<li>Argument <code>should_rename_legacy</code> for legacy function <code>detect</code> and disregard any new arguments without errors (PR #262)</li>
+</ul>
+</section>
+<section id="removed-2" class="level3">
+<h3 class="anchored" data-anchor-id="removed-2">Removed</h3>
+<ul>
+<li>Support for Python 3.6 (PR #260)</li>
+</ul>
+</section>
+<section id="changed-6" class="level3">
+<h3 class="anchored" data-anchor-id="changed-6">Changed</h3>
+<ul>
+<li>Optional speedup provided by mypy/c 1.0.1</li>
+</ul>
+</section>
+</section>
+<section id="section-9" class="level2">
+<h2 class="anchored" data-anchor-id="section-9"><a href="https://github.com/Ousret/charset_normalizer/compare/3.0.0...3.0.1">3.0.1</a> (2022-11-18)</h2>
+<section id="fixed-7" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-7">Fixed</h3>
+<ul>
+<li>Multi-bytes cutter/chunk generator did not always cut correctly (PR #233)</li>
+</ul>
+</section>
+<section id="changed-7" class="level3">
+<h3 class="anchored" data-anchor-id="changed-7">Changed</h3>
+<ul>
+<li>Speedup provided by mypy/c 0.990 on Python &gt;= 3.7</li>
+</ul>
+</section>
+</section>
+<section id="section-10" class="level2">
+<h2 class="anchored" data-anchor-id="section-10"><a href="https://github.com/Ousret/charset_normalizer/compare/2.1.1...3.0.0">3.0.0</a> (2022-10-20)</h2>
+<section id="added-7" class="level3">
+<h3 class="anchored" data-anchor-id="added-7">Added</h3>
+<ul>
+<li>Extend the capability of explain=True when cp_isolation contains at most two entries (min one), will log in details of the Mess-detector results</li>
+<li>Support for alternative language frequency set in charset_normalizer.assets.FREQUENCIES</li>
+<li>Add parameter <code>language_threshold</code> in <code>from_bytes</code>, <code>from_path</code> and <code>from_fp</code> to adjust the minimum expected coherence ratio</li>
+<li><code>normalizer --version</code> now specify if current version provide extra speedup (meaning mypyc compilation whl)</li>
+</ul>
+</section>
+<section id="changed-8" class="level3">
+<h3 class="anchored" data-anchor-id="changed-8">Changed</h3>
+<ul>
+<li>Build with static metadata using ‘build’ frontend</li>
+<li>Make the language detection stricter</li>
+<li>Optional: Module <code>md.py</code> can be compiled using Mypyc to provide an extra speedup up to 4x faster than v2.1</li>
+</ul>
+</section>
+<section id="fixed-8" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-8">Fixed</h3>
+<ul>
+<li>CLI with opt –normalize fail when using full path for files</li>
+<li>TooManyAccentuatedPlugin induce false positive on the mess detection when too few alpha character have been fed to it</li>
+<li>Sphinx warnings when generating the documentation</li>
+</ul>
+</section>
+<section id="removed-3" class="level3">
+<h3 class="anchored" data-anchor-id="removed-3">Removed</h3>
+<ul>
+<li>Coherence detector no longer return ‘Simple English’ instead return ‘English’</li>
+<li>Coherence detector no longer return ‘Classical Chinese’ instead return ‘Chinese’</li>
+<li>Breaking: Method <code>first()</code> and <code>best()</code> from CharsetMatch</li>
+<li>UTF-7 will no longer appear as “detected” without a recognized SIG/mark (is unreliable/conflict with ASCII)</li>
+<li>Breaking: Class aliases CharsetDetector, CharsetDoctor, CharsetNormalizerMatch and CharsetNormalizerMatches</li>
+<li>Breaking: Top-level function <code>normalize</code></li>
+<li>Breaking: Properties <code>chaos_secondary_pass</code>, <code>coherence_non_latin</code> and <code>w_counter</code> from CharsetMatch</li>
+<li>Support for the backport <code>unicodedata2</code></li>
+</ul>
+</section>
+</section>
+<section id="rc1-2022-10-18" class="level2">
+<h2 class="anchored" data-anchor-id="rc1-2022-10-18"><a href="https://github.com/Ousret/charset_normalizer/compare/3.0.0b2...3.0.0rc1">3.0.0rc1</a> (2022-10-18)</h2>
+<section id="added-8" class="level3">
+<h3 class="anchored" data-anchor-id="added-8">Added</h3>
+<ul>
+<li>Extend the capability of explain=True when cp_isolation contains at most two entries (min one), will log in details of the Mess-detector results</li>
+<li>Support for alternative language frequency set in charset_normalizer.assets.FREQUENCIES</li>
+<li>Add parameter <code>language_threshold</code> in <code>from_bytes</code>, <code>from_path</code> and <code>from_fp</code> to adjust the minimum expected coherence ratio</li>
+</ul>
+</section>
+<section id="changed-9" class="level3">
+<h3 class="anchored" data-anchor-id="changed-9">Changed</h3>
+<ul>
+<li>Build with static metadata using ‘build’ frontend</li>
+<li>Make the language detection stricter</li>
+</ul>
+</section>
+<section id="fixed-9" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-9">Fixed</h3>
+<ul>
+<li>CLI with opt –normalize fail when using full path for files</li>
+<li>TooManyAccentuatedPlugin induce false positive on the mess detection when too few alpha character have been fed to it</li>
+</ul>
+</section>
+<section id="removed-4" class="level3">
+<h3 class="anchored" data-anchor-id="removed-4">Removed</h3>
+<ul>
+<li>Coherence detector no longer return ‘Simple English’ instead return ‘English’</li>
+<li>Coherence detector no longer return ‘Classical Chinese’ instead return ‘Chinese’</li>
+</ul>
+</section>
+</section>
+<section id="b2-2022-08-21" class="level2">
+<h2 class="anchored" data-anchor-id="b2-2022-08-21"><a href="https://github.com/Ousret/charset_normalizer/compare/3.0.0b1...3.0.0b2">3.0.0b2</a> (2022-08-21)</h2>
+<section id="added-9" class="level3">
+<h3 class="anchored" data-anchor-id="added-9">Added</h3>
+<ul>
+<li><code>normalizer --version</code> now specify if current version provide extra speedup (meaning mypyc compilation whl)</li>
+</ul>
+</section>
+<section id="removed-5" class="level3">
+<h3 class="anchored" data-anchor-id="removed-5">Removed</h3>
+<ul>
+<li>Breaking: Method <code>first()</code> and <code>best()</code> from CharsetMatch</li>
+<li>UTF-7 will no longer appear as “detected” without a recognized SIG/mark (is unreliable/conflict with ASCII)</li>
+</ul>
+</section>
+<section id="fixed-10" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-10">Fixed</h3>
+<ul>
+<li>Sphinx warnings when generating the documentation</li>
+</ul>
+</section>
+</section>
+<section id="b1-2022-08-15" class="level2">
+<h2 class="anchored" data-anchor-id="b1-2022-08-15"><a href="https://github.com/Ousret/charset_normalizer/compare/2.1.0...3.0.0b1">3.0.0b1</a> (2022-08-15)</h2>
+<section id="changed-10" class="level3">
+<h3 class="anchored" data-anchor-id="changed-10">Changed</h3>
+<ul>
+<li>Optional: Module <code>md.py</code> can be compiled using Mypyc to provide an extra speedup up to 4x faster than v2.1</li>
+</ul>
+</section>
+<section id="removed-6" class="level3">
+<h3 class="anchored" data-anchor-id="removed-6">Removed</h3>
+<ul>
+<li>Breaking: Class aliases CharsetDetector, CharsetDoctor, CharsetNormalizerMatch and CharsetNormalizerMatches</li>
+<li>Breaking: Top-level function <code>normalize</code></li>
+<li>Breaking: Properties <code>chaos_secondary_pass</code>, <code>coherence_non_latin</code> and <code>w_counter</code> from CharsetMatch</li>
+<li>Support for the backport <code>unicodedata2</code></li>
+</ul>
+</section>
+</section>
+<section id="section-11" class="level2">
+<h2 class="anchored" data-anchor-id="section-11"><a href="https://github.com/Ousret/charset_normalizer/compare/2.1.0...2.1.1">2.1.1</a> (2022-08-19)</h2>
+<section id="deprecated" class="level3">
+<h3 class="anchored" data-anchor-id="deprecated">Deprecated</h3>
+<ul>
+<li>Function <code>normalize</code> scheduled for removal in 3.0</li>
+</ul>
+</section>
+<section id="changed-11" class="level3">
+<h3 class="anchored" data-anchor-id="changed-11">Changed</h3>
+<ul>
+<li>Removed useless call to decode in fn is_unprintable (#206)</li>
+</ul>
+</section>
+<section id="fixed-11" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-11">Fixed</h3>
+<ul>
+<li>Third-party library (i18n xgettext) crashing not recognizing utf_8 (PEP 263) with underscore from <a href="https://github.com/aleksandernovikov"><span class="citation" data-cites="aleksandernovikov">@aleksandernovikov</span></a> (#204)</li>
+</ul>
+</section>
+</section>
+<section id="section-12" class="level2">
+<h2 class="anchored" data-anchor-id="section-12"><a href="https://github.com/Ousret/charset_normalizer/compare/2.0.12...2.1.0">2.1.0</a> (2022-06-19)</h2>
+<section id="added-10" class="level3">
+<h3 class="anchored" data-anchor-id="added-10">Added</h3>
+<ul>
+<li>Output the Unicode table version when running the CLI with <code>--version</code> (PR #194)</li>
+</ul>
+</section>
+<section id="changed-12" class="level3">
+<h3 class="anchored" data-anchor-id="changed-12">Changed</h3>
+<ul>
+<li>Re-use decoded buffer for single byte character sets from <a href="https://github.com/nijel"><span class="citation" data-cites="nijel">@nijel</span></a> (PR #175)</li>
+<li>Fixing some performance bottlenecks from <a href="https://github.com/deedy5"><span class="citation" data-cites="deedy5">@deedy5</span></a> (PR #183)</li>
+</ul>
+</section>
+<section id="fixed-12" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-12">Fixed</h3>
+<ul>
+<li>Workaround potential bug in cpython with Zero Width No-Break Space located in Arabic Presentation Forms-B, Unicode 1.1 not acknowledged as space (PR #175)</li>
+<li>CLI default threshold aligned with the API threshold from <a href="https://github.com/oleksandr-kuzmenko"><span class="citation" data-cites="oleksandr-kuzmenko">@oleksandr-kuzmenko</span></a> (PR #181)</li>
+</ul>
+</section>
+<section id="removed-7" class="level3">
+<h3 class="anchored" data-anchor-id="removed-7">Removed</h3>
+<ul>
+<li>Support for Python 3.5 (PR #192)</li>
+</ul>
+</section>
+<section id="deprecated-1" class="level3">
+<h3 class="anchored" data-anchor-id="deprecated-1">Deprecated</h3>
+<ul>
+<li>Use of backport unicodedata from <code>unicodedata2</code> as Python is quickly catching up, scheduled for removal in 3.0 (PR #194)</li>
+</ul>
+</section>
+</section>
+<section id="section-13" class="level2">
+<h2 class="anchored" data-anchor-id="section-13"><a href="https://github.com/Ousret/charset_normalizer/compare/2.0.11...2.0.12">2.0.12</a> (2022-02-12)</h2>
+<section id="fixed-13" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-13">Fixed</h3>
+<ul>
+<li>ASCII miss-detection on rare cases (PR #170)</li>
+</ul>
+</section>
+</section>
+<section id="section-14" class="level2">
+<h2 class="anchored" data-anchor-id="section-14"><a href="https://github.com/Ousret/charset_normalizer/compare/2.0.10...2.0.11">2.0.11</a> (2022-01-30)</h2>
+<section id="added-11" class="level3">
+<h3 class="anchored" data-anchor-id="added-11">Added</h3>
+<ul>
+<li>Explicit support for Python 3.11 (PR #164)</li>
+</ul>
+</section>
+<section id="changed-13" class="level3">
+<h3 class="anchored" data-anchor-id="changed-13">Changed</h3>
+<ul>
+<li>The logging behavior have been completely reviewed, now using only TRACE and DEBUG levels (PR #163 #165)</li>
+</ul>
+</section>
+</section>
+<section id="section-15" class="level2">
+<h2 class="anchored" data-anchor-id="section-15"><a href="https://github.com/Ousret/charset_normalizer/compare/2.0.9...2.0.10">2.0.10</a> (2022-01-04)</h2>
+<section id="fixed-14" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-14">Fixed</h3>
+<ul>
+<li>Fallback match entries might lead to UnicodeDecodeError for large bytes sequence (PR #154)</li>
+</ul>
+</section>
+<section id="changed-14" class="level3">
+<h3 class="anchored" data-anchor-id="changed-14">Changed</h3>
+<ul>
+<li>Skipping the language-detection (CD) on ASCII (PR #155)</li>
+</ul>
+</section>
+</section>
+<section id="section-16" class="level2">
+<h2 class="anchored" data-anchor-id="section-16"><a href="https://github.com/Ousret/charset_normalizer/compare/2.0.8...2.0.9">2.0.9</a> (2021-12-03)</h2>
+<section id="changed-15" class="level3">
+<h3 class="anchored" data-anchor-id="changed-15">Changed</h3>
+<ul>
+<li>Moderating the logging impact (since 2.0.8) for specific environments (PR #147)</li>
+</ul>
+</section>
+<section id="fixed-15" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-15">Fixed</h3>
+<ul>
+<li>Wrong logging level applied when setting kwarg <code>explain</code> to True (PR #146)</li>
+</ul>
+</section>
+</section>
+<section id="section-17" class="level2">
+<h2 class="anchored" data-anchor-id="section-17"><a href="https://github.com/Ousret/charset_normalizer/compare/2.0.7...2.0.8">2.0.8</a> (2021-11-24)</h2>
+<section id="changed-16" class="level3">
+<h3 class="anchored" data-anchor-id="changed-16">Changed</h3>
+<ul>
+<li>Improvement over Vietnamese detection (PR #126)</li>
+<li>MD improvement on trailing data and long foreign (non-pure latin) data (PR #124)</li>
+<li>Efficiency improvements in cd/alphabet_languages from <a href="https://github.com/adbar"><span class="citation" data-cites="adbar">@adbar</span></a> (PR #122)</li>
+<li>call sum() without an intermediary list following PEP 289 recommendations from <a href="https://github.com/adbar"><span class="citation" data-cites="adbar">@adbar</span></a> (PR #129)</li>
+<li>Code style as refactored by Sourcery-AI (PR #131)</li>
+<li>Minor adjustment on the MD around european words (PR #133)</li>
+<li>Remove and replace SRTs from assets / tests (PR #139)</li>
+<li>Initialize the library logger with a <code>NullHandler</code> by default from <a href="https://github.com/nmaynes"><span class="citation" data-cites="nmaynes">@nmaynes</span></a> (PR #135)</li>
+<li>Setting kwarg <code>explain</code> to True will add provisionally (bounded to function lifespan) a specific stream handler (PR #135)</li>
+</ul>
+</section>
+<section id="fixed-16" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-16">Fixed</h3>
+<ul>
+<li>Fix large (misleading) sequence giving UnicodeDecodeError (PR #137)</li>
+<li>Avoid using too insignificant chunk (PR #137)</li>
+</ul>
+</section>
+<section id="added-12" class="level3">
+<h3 class="anchored" data-anchor-id="added-12">Added</h3>
+<ul>
+<li>Add and expose function <code>set_logging_handler</code> to configure a specific StreamHandler from <a href="https://github.com/nmaynes"><span class="citation" data-cites="nmaynes">@nmaynes</span></a> (PR #135)</li>
+<li>Add <code>CHANGELOG.md</code> entries, format is based on <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a> (PR #141)</li>
+</ul>
+</section>
+</section>
+<section id="section-18" class="level2">
+<h2 class="anchored" data-anchor-id="section-18"><a href="https://github.com/Ousret/charset_normalizer/compare/2.0.6...2.0.7">2.0.7</a> (2021-10-11)</h2>
+<section id="added-13" class="level3">
+<h3 class="anchored" data-anchor-id="added-13">Added</h3>
+<ul>
+<li>Add support for Kazakh (Cyrillic) language detection (PR #109)</li>
+</ul>
+</section>
+<section id="changed-17" class="level3">
+<h3 class="anchored" data-anchor-id="changed-17">Changed</h3>
+<ul>
+<li>Further, improve inferring the language from a given single-byte code page (PR #112)</li>
+<li>Vainly trying to leverage PEP263 when PEP3120 is not supported (PR #116)</li>
+<li>Refactoring for potential performance improvements in loops from <a href="https://github.com/adbar"><span class="citation" data-cites="adbar">@adbar</span></a> (PR #113)</li>
+<li>Various detection improvement (MD+CD) (PR #117)</li>
+</ul>
+</section>
+<section id="removed-8" class="level3">
+<h3 class="anchored" data-anchor-id="removed-8">Removed</h3>
+<ul>
+<li>Remove redundant logging entry about detected language(s) (PR #115)</li>
+</ul>
+</section>
+<section id="fixed-17" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-17">Fixed</h3>
+<ul>
+<li>Fix a minor inconsistency between Python 3.5 and other versions regarding language detection (PR #117 #102)</li>
+</ul>
+</section>
+</section>
+<section id="section-19" class="level2">
+<h2 class="anchored" data-anchor-id="section-19"><a href="https://github.com/Ousret/charset_normalizer/compare/2.0.5...2.0.6">2.0.6</a> (2021-09-18)</h2>
+<section id="fixed-18" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-18">Fixed</h3>
+<ul>
+<li>Unforeseen regression with the loss of the backward-compatibility with some older minor of Python 3.5.x (PR #100)</li>
+<li>Fix CLI crash when using –minimal output in certain cases (PR #103)</li>
+</ul>
+</section>
+<section id="changed-18" class="level3">
+<h3 class="anchored" data-anchor-id="changed-18">Changed</h3>
+<ul>
+<li>Minor improvement to the detection efficiency (less than 1%) (PR #106 #101)</li>
+</ul>
+</section>
+</section>
+<section id="section-20" class="level2">
+<h2 class="anchored" data-anchor-id="section-20"><a href="https://github.com/Ousret/charset_normalizer/compare/2.0.4...2.0.5">2.0.5</a> (2021-09-14)</h2>
+<section id="changed-19" class="level3">
+<h3 class="anchored" data-anchor-id="changed-19">Changed</h3>
+<ul>
+<li>The project now comply with: flake8, mypy, isort and black to ensure a better overall quality (PR #81)</li>
+<li>The BC-support with v1.x was improved, the old staticmethods are restored (PR #82)</li>
+<li>The Unicode detection is slightly improved (PR #93)</li>
+<li>Add syntax sugar __bool__ for results CharsetMatches list-container (PR #91)</li>
+</ul>
+</section>
+<section id="removed-9" class="level3">
+<h3 class="anchored" data-anchor-id="removed-9">Removed</h3>
+<ul>
+<li>The project no longer raise warning on tiny content given for detection, will be simply logged as warning instead (PR #92)</li>
+</ul>
+</section>
+<section id="fixed-19" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-19">Fixed</h3>
+<ul>
+<li>In some rare case, the chunks extractor could cut in the middle of a multi-byte character and could mislead the mess detection (PR #95)</li>
+<li>Some rare ‘space’ characters could trip up the UnprintablePlugin/Mess detection (PR #96)</li>
+<li>The MANIFEST.in was not exhaustive (PR #78)</li>
+</ul>
+</section>
+</section>
+<section id="section-21" class="level2">
+<h2 class="anchored" data-anchor-id="section-21"><a href="https://github.com/Ousret/charset_normalizer/compare/2.0.3...2.0.4">2.0.4</a> (2021-07-30)</h2>
+<section id="fixed-20" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-20">Fixed</h3>
+<ul>
+<li>The CLI no longer raise an unexpected exception when no encoding has been found (PR #70)</li>
+<li>Fix accessing the ‘alphabets’ property when the payload contains surrogate characters (PR #68)</li>
+<li>The logger could mislead (explain=True) on detected languages and the impact of one MBCS match (PR #72)</li>
+<li>Submatch factoring could be wrong in rare edge cases (PR #72)</li>
+<li>Multiple files given to the CLI were ignored when publishing results to STDOUT. (After the first path) (PR #72)</li>
+<li>Fix line endings from CRLF to LF for certain project files (PR #67)</li>
+</ul>
+</section>
+<section id="changed-20" class="level3">
+<h3 class="anchored" data-anchor-id="changed-20">Changed</h3>
+<ul>
+<li>Adjust the MD to lower the sensitivity, thus improving the global detection reliability (PR #69 #76)</li>
+<li>Allow fallback on specified encoding if any (PR #71)</li>
+</ul>
+</section>
+</section>
+<section id="section-22" class="level2">
+<h2 class="anchored" data-anchor-id="section-22"><a href="https://github.com/Ousret/charset_normalizer/compare/2.0.2...2.0.3">2.0.3</a> (2021-07-16)</h2>
+<section id="changed-21" class="level3">
+<h3 class="anchored" data-anchor-id="changed-21">Changed</h3>
+<ul>
+<li>Part of the detection mechanism has been improved to be less sensitive, resulting in more accurate detection results. Especially ASCII. (PR #63)</li>
+<li>According to the community wishes, the detection will fall back on ASCII or UTF-8 in a last-resort case. (PR #64)</li>
+</ul>
+</section>
+</section>
+<section id="section-23" class="level2">
+<h2 class="anchored" data-anchor-id="section-23"><a href="https://github.com/Ousret/charset_normalizer/compare/2.0.1...2.0.2">2.0.2</a> (2021-07-15)</h2>
+<section id="fixed-21" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-21">Fixed</h3>
+<ul>
+<li>Empty/Too small JSON payload miss-detection fixed. Report from <a href="https://github.com/tseaver"><span class="citation" data-cites="tseaver">@tseaver</span></a> (PR #59)</li>
+</ul>
+</section>
+<section id="changed-22" class="level3">
+<h3 class="anchored" data-anchor-id="changed-22">Changed</h3>
+<ul>
+<li>Don’t inject unicodedata2 into sys.modules from <a href="https://github.com/akx"><span class="citation" data-cites="akx">@akx</span></a> (PR #57)</li>
+</ul>
+</section>
+</section>
+<section id="section-24" class="level2">
+<h2 class="anchored" data-anchor-id="section-24"><a href="https://github.com/Ousret/charset_normalizer/compare/2.0.0...2.0.1">2.0.1</a> (2021-07-13)</h2>
+<section id="fixed-22" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-22">Fixed</h3>
+<ul>
+<li>Make it work where there isn’t a filesystem available, dropping assets frequencies.json. Report from <a href="https://github.com/sethmlarson"><span class="citation" data-cites="sethmlarson">@sethmlarson</span></a>. (PR #55)</li>
+<li>Using explain=False permanently disable the verbose output in the current runtime (PR #47)</li>
+<li>One log entry (language target preemptive) was not show in logs when using explain=True (PR #47)</li>
+<li>Fix undesired exception (ValueError) on getitem of instance CharsetMatches (PR #52)</li>
+</ul>
+</section>
+<section id="changed-23" class="level3">
+<h3 class="anchored" data-anchor-id="changed-23">Changed</h3>
+<ul>
+<li>Public function normalize default args values were not aligned with from_bytes (PR #53)</li>
+</ul>
+</section>
+<section id="added-14" class="level3">
+<h3 class="anchored" data-anchor-id="added-14">Added</h3>
+<ul>
+<li>You may now use charset aliases in cp_isolation and cp_exclusion arguments (PR #47)</li>
+</ul>
+</section>
+</section>
+<section id="section-25" class="level2">
+<h2 class="anchored" data-anchor-id="section-25"><a href="https://github.com/Ousret/charset_normalizer/compare/1.4.1...2.0.0">2.0.0</a> (2021-07-02)</h2>
+<section id="changed-24" class="level3">
+<h3 class="anchored" data-anchor-id="changed-24">Changed</h3>
+<ul>
+<li>4x to 5 times faster than the previous 1.4.0 release. At least 2x faster than Chardet.</li>
+<li>Accent has been made on UTF-8 detection, should perform rather instantaneous.</li>
+<li>The backward compatibility with Chardet has been greatly improved. The legacy detect function returns an identical charset name whenever possible.</li>
+<li>The detection mechanism has been slightly improved, now Turkish content is detected correctly (most of the time)</li>
+<li>The program has been rewritten to ease the readability and maintainability. (+Using static typing)+</li>
+<li>utf_7 detection has been reinstated.</li>
+</ul>
+</section>
+<section id="removed-10" class="level3">
+<h3 class="anchored" data-anchor-id="removed-10">Removed</h3>
+<ul>
+<li>This package no longer require anything when used with Python 3.5 (Dropped cached_property)</li>
+<li>Removed support for these languages: Catalan, Esperanto, Kazakh, Baque, Volapük, Azeri, Galician, Nynorsk, Macedonian, and Serbocroatian.</li>
+<li>The exception hook on UnicodeDecodeError has been removed.</li>
+</ul>
+</section>
+<section id="deprecated-2" class="level3">
+<h3 class="anchored" data-anchor-id="deprecated-2">Deprecated</h3>
+<ul>
+<li>Methods coherence_non_latin, w_counter, chaos_secondary_pass of the class CharsetMatch are now deprecated and scheduled for removal in v3.0</li>
+</ul>
+</section>
+<section id="fixed-23" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-23">Fixed</h3>
+<ul>
+<li>The CLI output used the relative path of the file(s). Should be absolute.</li>
+</ul>
+</section>
+</section>
+<section id="section-26" class="level2">
+<h2 class="anchored" data-anchor-id="section-26"><a href="https://github.com/Ousret/charset_normalizer/compare/1.4.0...1.4.1">1.4.1</a> (2021-05-28)</h2>
+<section id="fixed-24" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-24">Fixed</h3>
+<ul>
+<li>Logger configuration/usage no longer conflict with others (PR #44)</li>
+</ul>
+</section>
+</section>
+<section id="section-27" class="level2">
+<h2 class="anchored" data-anchor-id="section-27"><a href="https://github.com/Ousret/charset_normalizer/compare/1.3.9...1.4.0">1.4.0</a> (2021-05-21)</h2>
+<section id="removed-11" class="level3">
+<h3 class="anchored" data-anchor-id="removed-11">Removed</h3>
+<ul>
+<li>Using standard logging instead of using the package loguru.</li>
+<li>Dropping nose test framework in favor of the maintained pytest.</li>
+<li>Choose to not use dragonmapper package to help with gibberish Chinese/CJK text.</li>
+<li>Require cached_property only for Python 3.5 due to constraint. Dropping for every other interpreter version.</li>
+<li>Stop support for UTF-7 that does not contain a SIG.</li>
+<li>Dropping PrettyTable, replaced with pure JSON output in CLI.</li>
+</ul>
+</section>
+<section id="fixed-25" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-25">Fixed</h3>
+<ul>
+<li>BOM marker in a CharsetNormalizerMatch instance could be False in rare cases even if obviously present. Due to the sub-match factoring process.</li>
+<li>Not searching properly for the BOM when trying utf32/16 parent codec.</li>
+</ul>
+</section>
+<section id="changed-25" class="level3">
+<h3 class="anchored" data-anchor-id="changed-25">Changed</h3>
+<ul>
+<li>Improving the package final size by compressing frequencies.json.</li>
+<li>Huge improvement over the larges payload.</li>
+</ul>
+</section>
+<section id="added-15" class="level3">
+<h3 class="anchored" data-anchor-id="added-15">Added</h3>
+<ul>
+<li>CLI now produces JSON consumable output.</li>
+<li>Return ASCII if given sequences fit. Given reasonable confidence.</li>
+</ul>
+</section>
+</section>
+<section id="section-28" class="level2">
+<h2 class="anchored" data-anchor-id="section-28"><a href="https://github.com/Ousret/charset_normalizer/compare/1.3.8...1.3.9">1.3.9</a> (2021-05-13)</h2>
+<section id="fixed-26" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-26">Fixed</h3>
+<ul>
+<li>In some very rare cases, you may end up getting encode/decode errors due to a bad bytes payload (PR #40)</li>
+</ul>
+</section>
+</section>
+<section id="section-29" class="level2">
+<h2 class="anchored" data-anchor-id="section-29"><a href="https://github.com/Ousret/charset_normalizer/compare/1.3.7...1.3.8">1.3.8</a> (2021-05-12)</h2>
+<section id="fixed-27" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-27">Fixed</h3>
+<ul>
+<li>Empty given payload for detection may cause an exception if trying to access the <code>alphabets</code> property. (PR #39)</li>
+</ul>
+</section>
+</section>
+<section id="section-30" class="level2">
+<h2 class="anchored" data-anchor-id="section-30"><a href="https://github.com/Ousret/charset_normalizer/compare/1.3.6...1.3.7">1.3.7</a> (2021-05-12)</h2>
+<section id="fixed-28" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-28">Fixed</h3>
+<ul>
+<li>The legacy detect function should return UTF-8-SIG if sig is present in the payload. (PR #38)</li>
+</ul>
+</section>
+</section>
+<section id="section-31" class="level2">
+<h2 class="anchored" data-anchor-id="section-31"><a href="https://github.com/Ousret/charset_normalizer/compare/1.3.5...1.3.6">1.3.6</a> (2021-02-09)</h2>
+<section id="changed-26" class="level3">
+<h3 class="anchored" data-anchor-id="changed-26">Changed</h3>
+<ul>
+<li>Amend the previous release to allow prettytable 2.0 (PR #35)</li>
+</ul>
+</section>
+</section>
+<section id="section-32" class="level2">
+<h2 class="anchored" data-anchor-id="section-32"><a href="https://github.com/Ousret/charset_normalizer/compare/1.3.4...1.3.5">1.3.5</a> (2021-02-08)</h2>
+<section id="fixed-29" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-29">Fixed</h3>
+<ul>
+<li>Fix error while using the package with a python pre-release interpreter (PR #33)</li>
+</ul>
+</section>
+<section id="changed-27" class="level3">
+<h3 class="anchored" data-anchor-id="changed-27">Changed</h3>
+<ul>
+<li>Dependencies refactoring, constraints revised.</li>
+</ul>
+</section>
+<section id="added-16" class="level3">
+<h3 class="anchored" data-anchor-id="added-16">Added</h3>
+<ul>
+<li>Add python 3.9 and 3.10 to the supported interpreters</li>
+</ul>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

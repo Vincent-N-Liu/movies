@@ -1,0 +1,2365 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>history – githubtest</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../../../">
+<script src="../../../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../../../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../../../../../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../../../../index.html">
+    <span class="navbar-title">githubtest</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#release-history" id="toc-release-history" class="nav-link active" data-scroll-target="#release-history">Release History</a>
+  <ul class="collapse">
+  <li><a href="#dev" id="toc-dev" class="nav-link" data-scroll-target="#dev">dev</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">2.32.3 (2024-05-29)</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2.32.2 (2024-05-21)</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">2.32.1 (2024-05-20)</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">2.32.0 (2024-05-20)</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">2.31.0 (2023-05-22)</a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">2.30.0 (2023-05-03)</a></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6">2.29.0 (2023-04-26)</a></li>
+  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7">2.28.2 (2023-01-12)</a></li>
+  <li><a href="#section-8" id="toc-section-8" class="nav-link" data-scroll-target="#section-8">2.28.1 (2022-06-29)</a></li>
+  <li><a href="#section-9" id="toc-section-9" class="nav-link" data-scroll-target="#section-9">2.28.0 (2022-06-09)</a></li>
+  <li><a href="#section-10" id="toc-section-10" class="nav-link" data-scroll-target="#section-10">2.27.1 (2022-01-05)</a></li>
+  <li><a href="#section-11" id="toc-section-11" class="nav-link" data-scroll-target="#section-11">2.27.0 (2022-01-03)</a></li>
+  <li><a href="#section-12" id="toc-section-12" class="nav-link" data-scroll-target="#section-12">2.26.0 (2021-07-13)</a></li>
+  <li><a href="#section-13" id="toc-section-13" class="nav-link" data-scroll-target="#section-13">2.25.1 (2020-12-16)</a></li>
+  <li><a href="#section-14" id="toc-section-14" class="nav-link" data-scroll-target="#section-14">2.25.0 (2020-11-11)</a></li>
+  <li><a href="#section-15" id="toc-section-15" class="nav-link" data-scroll-target="#section-15">2.24.0 (2020-06-17)</a></li>
+  <li><a href="#section-16" id="toc-section-16" class="nav-link" data-scroll-target="#section-16">2.23.0 (2020-02-19)</a></li>
+  <li><a href="#section-17" id="toc-section-17" class="nav-link" data-scroll-target="#section-17">2.22.0 (2019-05-15)</a></li>
+  <li><a href="#section-18" id="toc-section-18" class="nav-link" data-scroll-target="#section-18">2.21.0 (2018-12-10)</a></li>
+  <li><a href="#section-19" id="toc-section-19" class="nav-link" data-scroll-target="#section-19">2.20.1 (2018-11-08)</a></li>
+  <li><a href="#section-20" id="toc-section-20" class="nav-link" data-scroll-target="#section-20">2.20.0 (2018-10-18)</a></li>
+  <li><a href="#section-21" id="toc-section-21" class="nav-link" data-scroll-target="#section-21">2.19.1 (2018-06-14)</a></li>
+  <li><a href="#section-22" id="toc-section-22" class="nav-link" data-scroll-target="#section-22">2.19.0 (2018-06-12)</a></li>
+  <li><a href="#section-23" id="toc-section-23" class="nav-link" data-scroll-target="#section-23">2.18.4 (2017-08-15)</a></li>
+  <li><a href="#section-24" id="toc-section-24" class="nav-link" data-scroll-target="#section-24">2.18.3 (2017-08-02)</a></li>
+  <li><a href="#section-25" id="toc-section-25" class="nav-link" data-scroll-target="#section-25">2.18.2 (2017-07-25)</a></li>
+  <li><a href="#section-26" id="toc-section-26" class="nav-link" data-scroll-target="#section-26">2.18.1 (2017-06-14)</a></li>
+  <li><a href="#section-27" id="toc-section-27" class="nav-link" data-scroll-target="#section-27">2.18.0 (2017-06-14)</a></li>
+  <li><a href="#section-28" id="toc-section-28" class="nav-link" data-scroll-target="#section-28">2.17.3 (2017-05-29)</a></li>
+  <li><a href="#section-29" id="toc-section-29" class="nav-link" data-scroll-target="#section-29">2.17.2 (2017-05-29)</a></li>
+  <li><a href="#section-30" id="toc-section-30" class="nav-link" data-scroll-target="#section-30">2.17.1 (2017-05-29)</a></li>
+  <li><a href="#section-31" id="toc-section-31" class="nav-link" data-scroll-target="#section-31">2.17.0 (2017-05-29)</a></li>
+  <li><a href="#section-32" id="toc-section-32" class="nav-link" data-scroll-target="#section-32">2.16.5 (2017-05-28)</a></li>
+  <li><a href="#section-33" id="toc-section-33" class="nav-link" data-scroll-target="#section-33">2.16.4 (2017-05-27)</a></li>
+  <li><a href="#section-34" id="toc-section-34" class="nav-link" data-scroll-target="#section-34">2.16.3 (2017-05-27)</a></li>
+  <li><a href="#section-35" id="toc-section-35" class="nav-link" data-scroll-target="#section-35">2.16.2 (2017-05-27)</a></li>
+  <li><a href="#section-36" id="toc-section-36" class="nav-link" data-scroll-target="#section-36">2.16.1 (2017-05-27)</a></li>
+  <li><a href="#section-37" id="toc-section-37" class="nav-link" data-scroll-target="#section-37">2.16.0 (2017-05-26)</a></li>
+  <li><a href="#section-38" id="toc-section-38" class="nav-link" data-scroll-target="#section-38">2.15.1 (2017-05-26)</a></li>
+  <li><a href="#section-39" id="toc-section-39" class="nav-link" data-scroll-target="#section-39">2.15.0 (2017-05-26)</a></li>
+  <li><a href="#section-40" id="toc-section-40" class="nav-link" data-scroll-target="#section-40">2.14.2 (2017-05-10)</a></li>
+  <li><a href="#section-41" id="toc-section-41" class="nav-link" data-scroll-target="#section-41">2.14.1 (2017-05-09)</a></li>
+  <li><a href="#section-42" id="toc-section-42" class="nav-link" data-scroll-target="#section-42">2.14.0 (2017-05-09)</a></li>
+  <li><a href="#section-43" id="toc-section-43" class="nav-link" data-scroll-target="#section-43">2.13.0 (2017-01-24)</a></li>
+  <li><a href="#section-44" id="toc-section-44" class="nav-link" data-scroll-target="#section-44">2.12.5 (2017-01-18)</a></li>
+  <li><a href="#section-45" id="toc-section-45" class="nav-link" data-scroll-target="#section-45">2.12.4 (2016-12-14)</a></li>
+  <li><a href="#section-46" id="toc-section-46" class="nav-link" data-scroll-target="#section-46">2.12.3 (2016-12-01)</a></li>
+  <li><a href="#section-47" id="toc-section-47" class="nav-link" data-scroll-target="#section-47">2.12.2 (2016-11-30)</a></li>
+  <li><a href="#section-48" id="toc-section-48" class="nav-link" data-scroll-target="#section-48">2.12.1 (2016-11-16)</a></li>
+  <li><a href="#section-49" id="toc-section-49" class="nav-link" data-scroll-target="#section-49">2.12.0 (2016-11-15)</a></li>
+  <li><a href="#section-50" id="toc-section-50" class="nav-link" data-scroll-target="#section-50">2.11.1 (2016-08-17)</a></li>
+  <li><a href="#section-51" id="toc-section-51" class="nav-link" data-scroll-target="#section-51">2.11.0 (2016-08-08)</a></li>
+  <li><a href="#section-52" id="toc-section-52" class="nav-link" data-scroll-target="#section-52">2.10.0 (2016-04-29)</a></li>
+  <li><a href="#section-53" id="toc-section-53" class="nav-link" data-scroll-target="#section-53">2.9.2 (2016-04-29)</a></li>
+  <li><a href="#section-54" id="toc-section-54" class="nav-link" data-scroll-target="#section-54">2.9.1 (2015-12-21)</a></li>
+  <li><a href="#section-55" id="toc-section-55" class="nav-link" data-scroll-target="#section-55">2.9.0 (2015-12-15)</a></li>
+  <li><a href="#section-56" id="toc-section-56" class="nav-link" data-scroll-target="#section-56">2.8.1 (2015-10-13)</a></li>
+  <li><a href="#section-57" id="toc-section-57" class="nav-link" data-scroll-target="#section-57">2.8.0 (2015-10-05)</a></li>
+  <li><a href="#section-58" id="toc-section-58" class="nav-link" data-scroll-target="#section-58">2.7.0 (2015-05-03)</a></li>
+  <li><a href="#section-59" id="toc-section-59" class="nav-link" data-scroll-target="#section-59">2.6.2 (2015-04-23)</a></li>
+  <li><a href="#section-60" id="toc-section-60" class="nav-link" data-scroll-target="#section-60">2.6.1 (2015-04-22)</a></li>
+  <li><a href="#section-61" id="toc-section-61" class="nav-link" data-scroll-target="#section-61">2.6.0 (2015-03-14)</a></li>
+  <li><a href="#section-62" id="toc-section-62" class="nav-link" data-scroll-target="#section-62">2.5.3 (2015-02-24)</a></li>
+  <li><a href="#section-63" id="toc-section-63" class="nav-link" data-scroll-target="#section-63">2.5.2 (2015-02-23)</a></li>
+  <li><a href="#section-64" id="toc-section-64" class="nav-link" data-scroll-target="#section-64">2.5.1 (2014-12-23)</a></li>
+  <li><a href="#section-65" id="toc-section-65" class="nav-link" data-scroll-target="#section-65">2.5.0 (2014-12-01)</a></li>
+  <li><a href="#section-66" id="toc-section-66" class="nav-link" data-scroll-target="#section-66">2.4.3 (2014-10-06)</a></li>
+  <li><a href="#section-67" id="toc-section-67" class="nav-link" data-scroll-target="#section-67">2.4.2 (2014-10-05)</a></li>
+  <li><a href="#section-68" id="toc-section-68" class="nav-link" data-scroll-target="#section-68">2.4.1 (2014-09-09)</a></li>
+  <li><a href="#section-69" id="toc-section-69" class="nav-link" data-scroll-target="#section-69">2.4.0 (2014-08-29)</a></li>
+  <li><a href="#section-70" id="toc-section-70" class="nav-link" data-scroll-target="#section-70">2.3.0 (2014-05-16)</a></li>
+  <li><a href="#section-71" id="toc-section-71" class="nav-link" data-scroll-target="#section-71">2.2.1 (2014-01-23)</a></li>
+  <li><a href="#section-72" id="toc-section-72" class="nav-link" data-scroll-target="#section-72">2.2.0 (2014-01-09)</a></li>
+  <li><a href="#section-73" id="toc-section-73" class="nav-link" data-scroll-target="#section-73">2.1.0 (2013-12-05)</a></li>
+  <li><a href="#section-74" id="toc-section-74" class="nav-link" data-scroll-target="#section-74">2.0.1 (2013-10-24)</a></li>
+  <li><a href="#section-75" id="toc-section-75" class="nav-link" data-scroll-target="#section-75">2.0.0 (2013-09-24)</a></li>
+  <li><a href="#section-76" id="toc-section-76" class="nav-link" data-scroll-target="#section-76">1.2.3 (2013-05-25)</a></li>
+  <li><a href="#section-77" id="toc-section-77" class="nav-link" data-scroll-target="#section-77">1.2.2 (2013-05-23)</a></li>
+  <li><a href="#section-78" id="toc-section-78" class="nav-link" data-scroll-target="#section-78">1.2.1 (2013-05-20)</a></li>
+  <li><a href="#section-79" id="toc-section-79" class="nav-link" data-scroll-target="#section-79">1.2.0 (2013-03-31)</a></li>
+  <li><a href="#section-80" id="toc-section-80" class="nav-link" data-scroll-target="#section-80">1.1.0 (2013-01-10)</a></li>
+  <li><a href="#section-81" id="toc-section-81" class="nav-link" data-scroll-target="#section-81">1.0.3 (2012-12-18)</a></li>
+  <li><a href="#section-82" id="toc-section-82" class="nav-link" data-scroll-target="#section-82">1.0.2 (2012-12-17)</a></li>
+  <li><a href="#section-83" id="toc-section-83" class="nav-link" data-scroll-target="#section-83">1.0.1 (2012-12-17)</a></li>
+  <li><a href="#section-84" id="toc-section-84" class="nav-link" data-scroll-target="#section-84">1.0.0 (2012-12-17)</a></li>
+  <li><a href="#section-85" id="toc-section-85" class="nav-link" data-scroll-target="#section-85">0.14.2 (2012-10-27)</a></li>
+  <li><a href="#section-86" id="toc-section-86" class="nav-link" data-scroll-target="#section-86">0.14.1 (2012-10-01)</a></li>
+  <li><a href="#section-87" id="toc-section-87" class="nav-link" data-scroll-target="#section-87">0.14.0 (2012-09-02)</a></li>
+  <li><a href="#section-88" id="toc-section-88" class="nav-link" data-scroll-target="#section-88">0.13.9 (2012-08-25)</a></li>
+  <li><a href="#section-89" id="toc-section-89" class="nav-link" data-scroll-target="#section-89">0.13.8 (2012-08-21)</a></li>
+  <li><a href="#section-90" id="toc-section-90" class="nav-link" data-scroll-target="#section-90">0.13.7 (2012-08-19)</a></li>
+  <li><a href="#section-91" id="toc-section-91" class="nav-link" data-scroll-target="#section-91">0.13.6 (2012-08-06)</a></li>
+  <li><a href="#section-92" id="toc-section-92" class="nav-link" data-scroll-target="#section-92">0.13.5 (2012-07-27)</a></li>
+  <li><a href="#section-93" id="toc-section-93" class="nav-link" data-scroll-target="#section-93">0.13.4 (2012-07-27)</a></li>
+  <li><a href="#section-94" id="toc-section-94" class="nav-link" data-scroll-target="#section-94">0.13.3 (2012-07-12)</a></li>
+  <li><a href="#section-95" id="toc-section-95" class="nav-link" data-scroll-target="#section-95">0.13.2 (2012-06-28)</a></li>
+  <li><a href="#section-96" id="toc-section-96" class="nav-link" data-scroll-target="#section-96">0.13.1 (2012-06-07)</a></li>
+  <li><a href="#section-97" id="toc-section-97" class="nav-link" data-scroll-target="#section-97">0.13.0 (2012-05-29)</a></li>
+  <li><a href="#section-98" id="toc-section-98" class="nav-link" data-scroll-target="#section-98">0.12.1 (2012-05-08)</a></li>
+  <li><a href="#section-99" id="toc-section-99" class="nav-link" data-scroll-target="#section-99">0.12.0 (2012-05-02)</a></li>
+  <li><a href="#section-100" id="toc-section-100" class="nav-link" data-scroll-target="#section-100">0.11.2 (2012-04-22)</a></li>
+  <li><a href="#section-101" id="toc-section-101" class="nav-link" data-scroll-target="#section-101">0.11.1 (2012-03-30)</a></li>
+  <li><a href="#section-102" id="toc-section-102" class="nav-link" data-scroll-target="#section-102">0.11.0 (2012-03-14)</a></li>
+  <li><a href="#section-103" id="toc-section-103" class="nav-link" data-scroll-target="#section-103">0.10.8 (2012-03-09)</a></li>
+  <li><a href="#section-104" id="toc-section-104" class="nav-link" data-scroll-target="#section-104">0.10.7 (2012-03-07)</a></li>
+  <li><a href="#section-105" id="toc-section-105" class="nav-link" data-scroll-target="#section-105">0.10.6 (2012-02-25)</a></li>
+  <li><a href="#section-106" id="toc-section-106" class="nav-link" data-scroll-target="#section-106">0.10.5 (2012-02-25)</a></li>
+  <li><a href="#section-107" id="toc-section-107" class="nav-link" data-scroll-target="#section-107">0.10.4 (2012-02-20)</a></li>
+  <li><a href="#section-108" id="toc-section-108" class="nav-link" data-scroll-target="#section-108">0.10.3 (2012-02-20)</a></li>
+  <li><a href="#section-109" id="toc-section-109" class="nav-link" data-scroll-target="#section-109">0.10.2 (2012-01-15)</a></li>
+  <li><a href="#section-110" id="toc-section-110" class="nav-link" data-scroll-target="#section-110">0.10.1 (2012-01-23)</a></li>
+  <li><a href="#section-111" id="toc-section-111" class="nav-link" data-scroll-target="#section-111">0.10.0 (2012-01-21)</a></li>
+  <li><a href="#section-112" id="toc-section-112" class="nav-link" data-scroll-target="#section-112">0.9.3 (2012-01-18)</a></li>
+  <li><a href="#section-113" id="toc-section-113" class="nav-link" data-scroll-target="#section-113">0.9.2 (2012-01-18)</a></li>
+  <li><a href="#section-114" id="toc-section-114" class="nav-link" data-scroll-target="#section-114">0.9.1 (2012-01-06)</a></li>
+  <li><a href="#section-115" id="toc-section-115" class="nav-link" data-scroll-target="#section-115">0.9.0 (2011-12-28)</a></li>
+  <li><a href="#section-116" id="toc-section-116" class="nav-link" data-scroll-target="#section-116">0.8.9 (2011-12-28)</a></li>
+  <li><a href="#section-117" id="toc-section-117" class="nav-link" data-scroll-target="#section-117">0.8.8 (2011-12-28)</a></li>
+  <li><a href="#section-118" id="toc-section-118" class="nav-link" data-scroll-target="#section-118">0.8.7 (2011-12-24)</a></li>
+  <li><a href="#section-119" id="toc-section-119" class="nav-link" data-scroll-target="#section-119">0.8.6 (2011-12-18)</a></li>
+  <li><a href="#section-120" id="toc-section-120" class="nav-link" data-scroll-target="#section-120">0.8.5 (2011-12-14)</a></li>
+  <li><a href="#section-121" id="toc-section-121" class="nav-link" data-scroll-target="#section-121">0.8.4 (2011-12-11)</a></li>
+  <li><a href="#section-122" id="toc-section-122" class="nav-link" data-scroll-target="#section-122">0.8.3 (2011-11-27)</a></li>
+  <li><a href="#section-123" id="toc-section-123" class="nav-link" data-scroll-target="#section-123">0.8.2 (2011-11-19)</a></li>
+  <li><a href="#section-124" id="toc-section-124" class="nav-link" data-scroll-target="#section-124">0.8.1 (2011-11-15)</a></li>
+  <li><a href="#section-125" id="toc-section-125" class="nav-link" data-scroll-target="#section-125">0.8.0 (2011-11-13)</a></li>
+  <li><a href="#section-126" id="toc-section-126" class="nav-link" data-scroll-target="#section-126">0.7.6 (2011-11-07)</a></li>
+  <li><a href="#section-127" id="toc-section-127" class="nav-link" data-scroll-target="#section-127">0.7.5 (2011-11-04)</a></li>
+  <li><a href="#section-128" id="toc-section-128" class="nav-link" data-scroll-target="#section-128">0.7.4 (2011-10-26)</a></li>
+  <li><a href="#section-129" id="toc-section-129" class="nav-link" data-scroll-target="#section-129">0.7.3 (2011-10-23)</a></li>
+  <li><a href="#section-130" id="toc-section-130" class="nav-link" data-scroll-target="#section-130">0.7.2 (2011-10-23)</a></li>
+  <li><a href="#section-131" id="toc-section-131" class="nav-link" data-scroll-target="#section-131">0.7.1 (2011-10-23)</a></li>
+  <li><a href="#section-132" id="toc-section-132" class="nav-link" data-scroll-target="#section-132">0.7.0 (2011-10-22)</a></li>
+  <li><a href="#section-133" id="toc-section-133" class="nav-link" data-scroll-target="#section-133">0.6.6 (2011-10-19)</a></li>
+  <li><a href="#section-134" id="toc-section-134" class="nav-link" data-scroll-target="#section-134">0.6.5 (2011-10-18)</a></li>
+  <li><a href="#section-135" id="toc-section-135" class="nav-link" data-scroll-target="#section-135">0.6.4 (2011-10-13)</a></li>
+  <li><a href="#section-136" id="toc-section-136" class="nav-link" data-scroll-target="#section-136">0.6.3 (2011-10-13)</a></li>
+  <li><a href="#section-137" id="toc-section-137" class="nav-link" data-scroll-target="#section-137">0.6.2 (2011-10-09)</a></li>
+  <li><a href="#section-138" id="toc-section-138" class="nav-link" data-scroll-target="#section-138">0.6.1 (2011-08-20)</a></li>
+  <li><a href="#section-139" id="toc-section-139" class="nav-link" data-scroll-target="#section-139">0.6.0 (2011-08-17)</a></li>
+  <li><a href="#section-140" id="toc-section-140" class="nav-link" data-scroll-target="#section-140">0.5.1 (2011-07-23)</a></li>
+  <li><a href="#section-141" id="toc-section-141" class="nav-link" data-scroll-target="#section-141">0.5.0 (2011-06-21)</a></li>
+  <li><a href="#section-142" id="toc-section-142" class="nav-link" data-scroll-target="#section-142">0.4.1 (2011-05-22)</a></li>
+  <li><a href="#section-143" id="toc-section-143" class="nav-link" data-scroll-target="#section-143">0.4.0 (2011-05-15)</a></li>
+  <li><a href="#section-144" id="toc-section-144" class="nav-link" data-scroll-target="#section-144">0.3.4 (2011-05-14)</a></li>
+  <li><a href="#section-145" id="toc-section-145" class="nav-link" data-scroll-target="#section-145">0.3.3 (2011-05-12)</a></li>
+  <li><a href="#section-146" id="toc-section-146" class="nav-link" data-scroll-target="#section-146">0.3.2 (2011-04-15)</a></li>
+  <li><a href="#section-147" id="toc-section-147" class="nav-link" data-scroll-target="#section-147">0.3.1 (2011-04-01)</a></li>
+  <li><a href="#section-148" id="toc-section-148" class="nav-link" data-scroll-target="#section-148">0.3.0 (2011-02-25)</a></li>
+  <li><a href="#section-149" id="toc-section-149" class="nav-link" data-scroll-target="#section-149">0.2.4 (2011-02-19)</a></li>
+  <li><a href="#section-150" id="toc-section-150" class="nav-link" data-scroll-target="#section-150">0.2.3 (2011-02-15)</a></li>
+  <li><a href="#section-151" id="toc-section-151" class="nav-link" data-scroll-target="#section-151">0.2.2 (2011-02-14)</a></li>
+  <li><a href="#section-152" id="toc-section-152" class="nav-link" data-scroll-target="#section-152">0.2.1 (2011-02-14)</a></li>
+  <li><a href="#section-153" id="toc-section-153" class="nav-link" data-scroll-target="#section-153">0.2.0 (2011-02-14)</a></li>
+  <li><a href="#section-154" id="toc-section-154" class="nav-link" data-scroll-target="#section-154">0.0.1 (2011-02-13)</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="release-history" class="level1">
+<h1>Release History</h1>
+<section id="dev" class="level2">
+<h2 class="anchored" data-anchor-id="dev">dev</h2>
+<ul>
+<li>[Short description of non-trivial change.]</li>
+</ul>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section">2.32.3 (2024-05-29)</h2>
+<p><strong>Bugfixes</strong> - Fixed bug breaking the ability to specify custom SSLContexts in sub-classes of HTTPAdapter. (#6716) - Fixed issue where Requests started failing to run on Python versions compiled without the <code>ssl</code> module. (#6724)</p>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1">2.32.2 (2024-05-21)</h2>
+<p><strong>Deprecations</strong> - To provide a more stable migration for custom HTTPAdapters impacted by the CVE changes in 2.32.0, we’ve renamed <code>_get_connection</code> to a new public API, <code>get_connection_with_tls_context</code>. Existing custom HTTPAdapters will need to migrate their code to use this new API. <code>get_connection</code> is considered deprecated in all versions of Requests&gt;=2.32.0.</p>
+<p>A minimal (2-line) example has been provided in the linked PR to ease migration, but we strongly urge users to evaluate if their custom adapter is subject to the same issue described in CVE-2024-35195. (#6710)</p>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2">2.32.1 (2024-05-20)</h2>
+<p><strong>Bugfixes</strong> - Add missing test certs to the sdist distributed on PyPI.</p>
+</section>
+<section id="section-3" class="level2">
+<h2 class="anchored" data-anchor-id="section-3">2.32.0 (2024-05-20)</h2>
+<p><strong>Security</strong> - Fixed an issue where setting <code>verify=False</code> on the first request from a Session will cause subsequent requests to the <em>same origin</em> to also ignore cert verification, regardless of the value of <code>verify</code>. (https://github.com/psf/requests/security/advisories/GHSA-9wx4-h78v-vm56)</p>
+<p><strong>Improvements</strong> - <code>verify=True</code> now reuses a global SSLContext which should improve request time variance between first and subsequent requests. It should also minimize certificate load time on Windows systems when using a Python version built with OpenSSL 3.x. (#6667) - Requests now supports optional use of character detection (<code>chardet</code> or <code>charset_normalizer</code>) when repackaged or vendored. This enables <code>pip</code> and other projects to minimize their vendoring surface area. The <code>Response.text()</code> and <code>apparent_encoding</code> APIs will default to <code>utf-8</code> if neither library is present. (#6702)</p>
+<p><strong>Bugfixes</strong> - Fixed bug in length detection where emoji length was incorrectly calculated in the request content-length. (#6589) - Fixed deserialization bug in JSONDecodeError. (#6629) - Fixed bug where an extra leading <code>/</code> (path separator) could lead urllib3 to unnecessarily reparse the request URI. (#6644)</p>
+<p><strong>Deprecations</strong></p>
+<ul>
+<li>Requests has officially added support for CPython 3.12 (#6503)</li>
+<li>Requests has officially added support for PyPy 3.9 and 3.10 (#6641)</li>
+<li>Requests has officially dropped support for CPython 3.7 (#6642)</li>
+<li>Requests has officially dropped support for PyPy 3.7 and 3.8 (#6641)</li>
+</ul>
+<p><strong>Documentation</strong> - Various typo fixes and doc improvements.</p>
+<p><strong>Packaging</strong> - Requests has started adopting some modern packaging practices. The source files for the projects (formerly <code>requests</code>) is now located in <code>src/requests</code> in the Requests sdist. (#6506) - Starting in Requests 2.33.0, Requests will migrate to a PEP 517 build system using <code>hatchling</code>. This should not impact the average user, but extremely old versions of packaging utilities may have issues with the new packaging format.</p>
+</section>
+<section id="section-4" class="level2">
+<h2 class="anchored" data-anchor-id="section-4">2.31.0 (2023-05-22)</h2>
+<p><strong>Security</strong> - Versions of Requests between v2.3.0 and v2.30.0 are vulnerable to potential forwarding of <code>Proxy-Authorization</code> headers to destination servers when following HTTPS redirects.</p>
+<p>When proxies are defined with user info (<code>https://user:pass@proxy:8080</code>), Requests will construct a <code>Proxy-Authorization</code> header that is attached to the request to authenticate with the proxy.</p>
+<p>In cases where Requests receives a redirect response, it previously reattached the <code>Proxy-Authorization</code> header incorrectly, resulting in the value being sent through the tunneled connection to the destination server. Users who rely on defining their proxy credentials in the URL are <em>strongly</em> encouraged to upgrade to Requests 2.31.0+ to prevent unintentional leakage and rotate their proxy credentials once the change has been fully deployed.</p>
+<p>Users who do not use a proxy or do not supply their proxy credentials through the user information portion of their proxy URL are not subject to this vulnerability.</p>
+<p>Full details can be read in our <a href="https://github.com/psf/requests/security/advisories/GHSA-j8r2-6x86-q33q">Github Security Advisory</a> and <a href="https://nvd.nist.gov/vuln/detail/CVE-2023-32681">CVE-2023-32681</a>.</p>
+</section>
+<section id="section-5" class="level2">
+<h2 class="anchored" data-anchor-id="section-5">2.30.0 (2023-05-03)</h2>
+<p><strong>Dependencies</strong> - ⚠️ Added support for urllib3 2.0. ⚠️</p>
+<p>This may contain minor breaking changes so we advise careful testing and reviewing https://urllib3.readthedocs.io/en/latest/v2-migration-guide.html prior to upgrading.</p>
+<p>Users who wish to stay on urllib3 1.x can pin to <code>urllib3&lt;2</code>.</p>
+</section>
+<section id="section-6" class="level2">
+<h2 class="anchored" data-anchor-id="section-6">2.29.0 (2023-04-26)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Requests now defers chunked requests to the urllib3 implementation to improve standardization. (#6226)</li>
+<li>Requests relaxes header component requirements to support bytes/str subclasses. (#6356)</li>
+</ul>
+</section>
+<section id="section-7" class="level2">
+<h2 class="anchored" data-anchor-id="section-7">2.28.2 (2023-01-12)</h2>
+<p><strong>Dependencies</strong></p>
+<ul>
+<li>Requests now supports charset_normalizer 3.x. (#6261)</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Updated MissingSchema exception to suggest https scheme rather than http. (#6188)</li>
+</ul>
+</section>
+<section id="section-8" class="level2">
+<h2 class="anchored" data-anchor-id="section-8">2.28.1 (2022-06-29)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Speed optimization in <code>iter_content</code> with transition to <code>yield from</code>. (#6170)</li>
+</ul>
+<p><strong>Dependencies</strong></p>
+<ul>
+<li>Added support for chardet 5.0.0 (#6179)</li>
+<li>Added support for charset-normalizer 2.1.0 (#6169)</li>
+</ul>
+</section>
+<section id="section-9" class="level2">
+<h2 class="anchored" data-anchor-id="section-9">2.28.0 (2022-06-09)</h2>
+<p><strong>Deprecations</strong></p>
+<ul>
+<li>⚠️ Requests has officially dropped support for Python 2.7. ⚠️ (#6091)</li>
+<li>Requests has officially dropped support for Python 3.6 (including pypy3.6). (#6091)</li>
+</ul>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Wrap JSON parsing issues in Request’s JSONDecodeError for payloads without an encoding to make <code>json()</code> API consistent. (#6097)</li>
+<li>Parse header components consistently, raising an InvalidHeader error in all invalid cases. (#6154)</li>
+<li>Added provisional 3.11 support with current beta build. (#6155)</li>
+<li>Requests got a makeover and we decided to paint it black. (#6095)</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Fixed bug where setting <code>CURL_CA_BUNDLE</code> to an empty string would disable cert verification. All Requests 2.x versions before 2.28.0 are affected. (#6074)</li>
+<li>Fixed urllib3 exception leak, wrapping <code>urllib3.exceptions.SSLError</code> with <code>requests.exceptions.SSLError</code> for <code>content</code> and <code>iter_content</code>. (#6057)</li>
+<li>Fixed issue where invalid Windows registry entries caused proxy resolution to raise an exception rather than ignoring the entry. (#6149)</li>
+<li>Fixed issue where entire payload could be included in the error message for JSONDecodeError. (#6036)</li>
+</ul>
+</section>
+<section id="section-10" class="level2">
+<h2 class="anchored" data-anchor-id="section-10">2.27.1 (2022-01-05)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Fixed parsing issue that resulted in the <code>auth</code> component being dropped from proxy URLs. (#6028)</li>
+</ul>
+</section>
+<section id="section-11" class="level2">
+<h2 class="anchored" data-anchor-id="section-11">2.27.0 (2022-01-03)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li><p>Officially added support for Python 3.10. (#5928)</p></li>
+<li><p>Added a <code>requests.exceptions.JSONDecodeError</code> to unify JSON exceptions between Python 2 and 3. This gets raised in the <code>response.json()</code> method, and is backwards compatible as it inherits from previously thrown exceptions. Can be caught from <code>requests.exceptions.RequestException</code> as well. (#5856)</p></li>
+<li><p>Improved error text for misnamed <code>InvalidSchema</code> and <code>MissingSchema</code> exceptions. This is a temporary fix until exceptions can be renamed (Schema-&gt;Scheme). (#6017)</p></li>
+<li><p>Improved proxy parsing for proxy URLs missing a scheme. This will address recent changes to <code>urlparse</code> in Python 3.9+. (#5917)</p></li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li><p>Fixed defect in <code>extract_zipped_paths</code> which could result in an infinite loop for some paths. (#5851)</p></li>
+<li><p>Fixed handling for <code>AttributeError</code> when calculating length of files obtained by <code>Tarfile.extractfile()</code>. (#5239)</p></li>
+<li><p>Fixed urllib3 exception leak, wrapping <code>urllib3.exceptions.InvalidHeader</code> with <code>requests.exceptions.InvalidHeader</code>. (#5914)</p></li>
+<li><p>Fixed bug where two Host headers were sent for chunked requests. (#5391)</p></li>
+<li><p>Fixed regression in Requests 2.26.0 where <code>Proxy-Authorization</code> was incorrectly stripped from all requests sent with <code>Session.send</code>. (#5924)</p></li>
+<li><p>Fixed performance regression in 2.26.0 for hosts with a large number of proxies available in the environment. (#5924)</p></li>
+<li><p>Fixed idna exception leak, wrapping <code>UnicodeError</code> with <code>requests.exceptions.InvalidURL</code> for URLs with a leading dot (.) in the domain. (#5414)</p></li>
+</ul>
+<p><strong>Deprecations</strong></p>
+<ul>
+<li>Requests support for Python 2.7 and 3.6 will be ending in 2022. While we don’t have exact dates, Requests 2.27.x is likely to be the last release series providing support.</li>
+</ul>
+</section>
+<section id="section-12" class="level2">
+<h2 class="anchored" data-anchor-id="section-12">2.26.0 (2021-07-13)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li><p>Requests now supports Brotli compression, if either the <code>brotli</code> or <code>brotlicffi</code> package is installed. (#5783)</p></li>
+<li><p><code>Session.send</code> now correctly resolves proxy configurations from both the Session and Request. Behavior now matches <code>Session.request</code>. (#5681)</p></li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Fixed a race condition in zip extraction when using Requests in parallel from zip archive. (#5707)</li>
+</ul>
+<p><strong>Dependencies</strong></p>
+<ul>
+<li><p>Instead of <code>chardet</code>, use the MIT-licensed <code>charset_normalizer</code> for Python3 to remove license ambiguity for projects bundling requests. If <code>chardet</code> is already installed on your machine it will be used instead of <code>charset_normalizer</code> to keep backwards compatibility. (#5797)</p>
+<p>You can also install <code>chardet</code> while installing requests by specifying <code>[use_chardet_on_py3]</code> extra as follows:</p>
+<pre class="shell"><code>pip install "requests[use_chardet_on_py3]"</code></pre>
+<p>Python2 still depends upon the <code>chardet</code> module.</p></li>
+<li><p>Requests now supports <code>idna</code> 3.x on Python 3. <code>idna</code> 2.x will continue to be used on Python 2 installations. (#5711)</p></li>
+</ul>
+<p><strong>Deprecations</strong></p>
+<ul>
+<li><p>The <code>requests[security]</code> extra has been converted to a no-op install. PyOpenSSL is no longer the recommended secure option for Requests. (#5867)</p></li>
+<li><p>Requests has officially dropped support for Python 3.5. (#5867)</p></li>
+</ul>
+</section>
+<section id="section-13" class="level2">
+<h2 class="anchored" data-anchor-id="section-13">2.25.1 (2020-12-16)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Requests now treats <code>application/json</code> as <code>utf8</code> by default. Resolving inconsistencies between <code>r.text</code> and <code>r.json</code> output. (#5673)</li>
+</ul>
+<p><strong>Dependencies</strong></p>
+<ul>
+<li>Requests now supports chardet v4.x.</li>
+</ul>
+</section>
+<section id="section-14" class="level2">
+<h2 class="anchored" data-anchor-id="section-14">2.25.0 (2020-11-11)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Added support for NETRC environment variable. (#5643)</li>
+</ul>
+<p><strong>Dependencies</strong></p>
+<ul>
+<li>Requests now supports urllib3 v1.26.</li>
+</ul>
+<p><strong>Deprecations</strong></p>
+<ul>
+<li>Requests v2.25.x will be the last release series with support for Python 3.5.</li>
+<li>The <code>requests[security]</code> extra is officially deprecated and will be removed in Requests v2.26.0.</li>
+</ul>
+</section>
+<section id="section-15" class="level2">
+<h2 class="anchored" data-anchor-id="section-15">2.24.0 (2020-06-17)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li><p>pyOpenSSL TLS implementation is now only used if Python either doesn’t have an <code>ssl</code> module or doesn’t support SNI. Previously pyOpenSSL was unconditionally used if available. This applies even if pyOpenSSL is installed via the <code>requests[security]</code> extra (#5443)</p></li>
+<li><p>Redirect resolution should now only occur when <code>allow_redirects</code> is True. (#5492)</p></li>
+<li><p>No longer perform unnecessary Content-Length calculation for requests that won’t use it. (#5496)</p></li>
+</ul>
+</section>
+<section id="section-16" class="level2">
+<h2 class="anchored" data-anchor-id="section-16">2.23.0 (2020-02-19)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Remove defunct reference to <code>prefetch</code> in Session <code>__attrs__</code> (#5110)</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Requests no longer outputs password in basic auth usage warning. (#5099)</li>
+</ul>
+<p><strong>Dependencies</strong></p>
+<ul>
+<li>Pinning for <code>chardet</code> and <code>idna</code> now uses major version instead of minor. This hopefully reduces the need for releases every time a dependency is updated.</li>
+</ul>
+</section>
+<section id="section-17" class="level2">
+<h2 class="anchored" data-anchor-id="section-17">2.22.0 (2019-05-15)</h2>
+<p><strong>Dependencies</strong></p>
+<ul>
+<li>Requests now supports urllib3 v1.25.2. (note: 1.25.0 and 1.25.1 are incompatible)</li>
+</ul>
+<p><strong>Deprecations</strong></p>
+<ul>
+<li>Requests has officially stopped support for Python 3.4.</li>
+</ul>
+</section>
+<section id="section-18" class="level2">
+<h2 class="anchored" data-anchor-id="section-18">2.21.0 (2018-12-10)</h2>
+<p><strong>Dependencies</strong></p>
+<ul>
+<li>Requests now supports idna v2.8.</li>
+</ul>
+</section>
+<section id="section-19" class="level2">
+<h2 class="anchored" data-anchor-id="section-19">2.20.1 (2018-11-08)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Fixed bug with unintended Authorization header stripping for redirects using default ports (http/80, https/443).</li>
+</ul>
+</section>
+<section id="section-20" class="level2">
+<h2 class="anchored" data-anchor-id="section-20">2.20.0 (2018-10-18)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Content-Type header parsing is now case-insensitive (e.g. charset=utf8 v Charset=utf8).</li>
+<li>Fixed exception leak where certain redirect urls would raise uncaught urllib3 exceptions.</li>
+<li>Requests removes Authorization header from requests redirected from https to http on the same hostname. (CVE-2018-18074)</li>
+<li><code>should_bypass_proxies</code> now handles URIs without hostnames (e.g. files).</li>
+</ul>
+<p><strong>Dependencies</strong></p>
+<ul>
+<li>Requests now supports urllib3 v1.24.</li>
+</ul>
+<p><strong>Deprecations</strong></p>
+<ul>
+<li>Requests has officially stopped support for Python 2.6.</li>
+</ul>
+</section>
+<section id="section-21" class="level2">
+<h2 class="anchored" data-anchor-id="section-21">2.19.1 (2018-06-14)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Fixed issue where status_codes.py’s <code>init</code> function failed trying to append to a <code>__doc__</code> value of <code>None</code>.</li>
+</ul>
+</section>
+<section id="section-22" class="level2">
+<h2 class="anchored" data-anchor-id="section-22">2.19.0 (2018-06-12)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Warn user about possible slowdown when using cryptography version &lt; 1.3.4</li>
+<li>Check for invalid host in proxy URL, before forwarding request to adapter.</li>
+<li>Fragments are now properly maintained across redirects. (RFC7231 7.1.2)</li>
+<li>Removed use of cgi module to expedite library load time.</li>
+<li>Added support for SHA-256 and SHA-512 digest auth algorithms.</li>
+<li>Minor performance improvement to <code>Request.content</code>.</li>
+<li>Migrate to using collections.abc for 3.7 compatibility.</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Parsing empty <code>Link</code> headers with <code>parse_header_links()</code> no longer return one bogus entry.</li>
+<li>Fixed issue where loading the default certificate bundle from a zip archive would raise an <code>IOError</code>.</li>
+<li>Fixed issue with unexpected <code>ImportError</code> on windows system which do not support <code>winreg</code> module.</li>
+<li>DNS resolution in proxy bypass no longer includes the username and password in the request. This also fixes the issue of DNS queries failing on macOS.</li>
+<li>Properly normalize adapter prefixes for url comparison.</li>
+<li>Passing <code>None</code> as a file pointer to the <code>files</code> param no longer raises an exception.</li>
+<li>Calling <code>copy</code> on a <code>RequestsCookieJar</code> will now preserve the cookie policy correctly.</li>
+</ul>
+<p><strong>Dependencies</strong></p>
+<ul>
+<li>We now support idna v2.7.</li>
+<li>We now support urllib3 v1.23.</li>
+</ul>
+</section>
+<section id="section-23" class="level2">
+<h2 class="anchored" data-anchor-id="section-23">2.18.4 (2017-08-15)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Error messages for invalid headers now include the header name for easier debugging</li>
+</ul>
+<p><strong>Dependencies</strong></p>
+<ul>
+<li>We now support idna v2.6.</li>
+</ul>
+</section>
+<section id="section-24" class="level2">
+<h2 class="anchored" data-anchor-id="section-24">2.18.3 (2017-08-02)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Running <code>$ python -m requests.help</code> now includes the installed version of idna.</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Fixed issue where Requests would raise <code>ConnectionError</code> instead of <code>SSLError</code> when encountering SSL problems when using urllib3 v1.22.</li>
+</ul>
+</section>
+<section id="section-25" class="level2">
+<h2 class="anchored" data-anchor-id="section-25">2.18.2 (2017-07-25)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li><code>requests.help</code> no longer fails on Python 2.6 due to the absence of <code>ssl.OPENSSL_VERSION_NUMBER</code>.</li>
+</ul>
+<p><strong>Dependencies</strong></p>
+<ul>
+<li>We now support urllib3 v1.22.</li>
+</ul>
+</section>
+<section id="section-26" class="level2">
+<h2 class="anchored" data-anchor-id="section-26">2.18.1 (2017-06-14)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Fix an error in the packaging whereby the <code>*.whl</code> contained incorrect data that regressed the fix in v2.17.3.</li>
+</ul>
+</section>
+<section id="section-27" class="level2">
+<h2 class="anchored" data-anchor-id="section-27">2.18.0 (2017-06-14)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li><code>Response</code> is now a context manager, so can be used directly in a <code>with</code> statement without first having to be wrapped by <code>contextlib.closing()</code>.</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Resolve installation failure if multiprocessing is not available</li>
+<li>Resolve tests crash if multiprocessing is not able to determine the number of CPU cores</li>
+<li>Resolve error swallowing in utils set_environ generator</li>
+</ul>
+</section>
+<section id="section-28" class="level2">
+<h2 class="anchored" data-anchor-id="section-28">2.17.3 (2017-05-29)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Improved <code>packages</code> namespace identity support, for monkeypatching libraries.</li>
+</ul>
+</section>
+<section id="section-29" class="level2">
+<h2 class="anchored" data-anchor-id="section-29">2.17.2 (2017-05-29)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Improved <code>packages</code> namespace identity support, for monkeypatching libraries.</li>
+</ul>
+</section>
+<section id="section-30" class="level2">
+<h2 class="anchored" data-anchor-id="section-30">2.17.1 (2017-05-29)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Improved <code>packages</code> namespace identity support, for monkeypatching libraries.</li>
+</ul>
+</section>
+<section id="section-31" class="level2">
+<h2 class="anchored" data-anchor-id="section-31">2.17.0 (2017-05-29)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Removal of the 301 redirect cache. This improves thread-safety.</li>
+</ul>
+</section>
+<section id="section-32" class="level2">
+<h2 class="anchored" data-anchor-id="section-32">2.16.5 (2017-05-28)</h2>
+<ul>
+<li>Improvements to <code>$ python -m requests.help</code>.</li>
+</ul>
+</section>
+<section id="section-33" class="level2">
+<h2 class="anchored" data-anchor-id="section-33">2.16.4 (2017-05-27)</h2>
+<ul>
+<li>Introduction of the <code>$ python -m requests.help</code> command, for debugging with maintainers!</li>
+</ul>
+</section>
+<section id="section-34" class="level2">
+<h2 class="anchored" data-anchor-id="section-34">2.16.3 (2017-05-27)</h2>
+<ul>
+<li>Further restored the <code>requests.packages</code> namespace for compatibility reasons.</li>
+</ul>
+</section>
+<section id="section-35" class="level2">
+<h2 class="anchored" data-anchor-id="section-35">2.16.2 (2017-05-27)</h2>
+<ul>
+<li>Further restored the <code>requests.packages</code> namespace for compatibility reasons.</li>
+</ul>
+<p>No code modification (noted below) should be necessary any longer.</p>
+</section>
+<section id="section-36" class="level2">
+<h2 class="anchored" data-anchor-id="section-36">2.16.1 (2017-05-27)</h2>
+<ul>
+<li>Restored the <code>requests.packages</code> namespace for compatibility reasons.</li>
+<li>Bugfix for <code>urllib3</code> version parsing.</li>
+</ul>
+<p><strong>Note</strong>: code that was written to import against the <code>requests.packages</code> namespace previously will have to import code that rests at this module-level now.</p>
+<p>For example:</p>
+<pre><code>from requests.packages.urllib3.poolmanager import PoolManager</code></pre>
+<p>Will need to be re-written to be:</p>
+<pre><code>from requests.packages import urllib3
+urllib3.poolmanager.PoolManager</code></pre>
+<p>Or, even better:</p>
+<pre><code>from urllib3.poolmanager import PoolManager</code></pre>
+</section>
+<section id="section-37" class="level2">
+<h2 class="anchored" data-anchor-id="section-37">2.16.0 (2017-05-26)</h2>
+<ul>
+<li>Unvendor ALL the things!</li>
+</ul>
+</section>
+<section id="section-38" class="level2">
+<h2 class="anchored" data-anchor-id="section-38">2.15.1 (2017-05-26)</h2>
+<ul>
+<li>Everyone makes mistakes.</li>
+</ul>
+</section>
+<section id="section-39" class="level2">
+<h2 class="anchored" data-anchor-id="section-39">2.15.0 (2017-05-26)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Introduction of the <code>Response.next</code> property, for getting the next <code>PreparedResponse</code> from a redirect chain (when <code>allow_redirects=False</code>).</li>
+<li>Internal refactoring of <code>__version__</code> module.</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Restored once-optional parameter for <code>requests.utils.get_environ_proxies()</code>.</li>
+</ul>
+</section>
+<section id="section-40" class="level2">
+<h2 class="anchored" data-anchor-id="section-40">2.14.2 (2017-05-10)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Changed a less-than to an equal-to and an or in the dependency markers to widen compatibility with older setuptools releases.</li>
+</ul>
+</section>
+<section id="section-41" class="level2">
+<h2 class="anchored" data-anchor-id="section-41">2.14.1 (2017-05-09)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Changed the dependency markers to widen compatibility with older pip releases.</li>
+</ul>
+</section>
+<section id="section-42" class="level2">
+<h2 class="anchored" data-anchor-id="section-42">2.14.0 (2017-05-09)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>It is now possible to pass <code>no_proxy</code> as a key to the <code>proxies</code> dictionary to provide handling similar to the <code>NO_PROXY</code> environment variable.</li>
+<li>When users provide invalid paths to certificate bundle files or directories Requests now raises <code>IOError</code>, rather than failing at the time of the HTTPS request with a fairly inscrutable certificate validation error.</li>
+<li>The behavior of <code>SessionRedirectMixin</code> was slightly altered. <code>resolve_redirects</code> will now detect a redirect by calling <code>get_redirect_target(response)</code> instead of directly querying <code>Response.is_redirect</code> and <code>Response.headers['location']</code>. Advanced users will be able to process malformed redirects more easily.</li>
+<li>Changed the internal calculation of elapsed request time to have higher resolution on Windows.</li>
+<li>Added <code>win_inet_pton</code> as conditional dependency for the <code>[socks]</code> extra on Windows with Python 2.7.</li>
+<li>Changed the proxy bypass implementation on Windows: the proxy bypass check doesn’t use forward and reverse DNS requests anymore</li>
+<li>URLs with schemes that begin with <code>http</code> but are not <code>http</code> or <code>https</code> no longer have their host parts forced to lowercase.</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Much improved handling of non-ASCII <code>Location</code> header values in redirects. Fewer <code>UnicodeDecodeErrors</code> are encountered on Python 2, and Python 3 now correctly understands that Latin-1 is unlikely to be the correct encoding.</li>
+<li>If an attempt to <code>seek</code> file to find out its length fails, we now appropriately handle that by aborting our content-length calculations.</li>
+<li>Restricted <code>HTTPDigestAuth</code> to only respond to auth challenges made on 4XX responses, rather than to all auth challenges.</li>
+<li>Fixed some code that was firing <code>DeprecationWarning</code> on Python 3.6.</li>
+<li>The dismayed person emoticon (<code>/o\\</code>) no longer has a big head. I’m sure this is what you were all worrying about most.</li>
+</ul>
+<p><strong>Miscellaneous</strong></p>
+<ul>
+<li>Updated bundled urllib3 to v1.21.1.</li>
+<li>Updated bundled chardet to v3.0.2.</li>
+<li>Updated bundled idna to v2.5.</li>
+<li>Updated bundled certifi to 2017.4.17.</li>
+</ul>
+</section>
+<section id="section-43" class="level2">
+<h2 class="anchored" data-anchor-id="section-43">2.13.0 (2017-01-24)</h2>
+<p><strong>Features</strong></p>
+<ul>
+<li>Only load the <code>idna</code> library when we’ve determined we need it. This will save some memory for users.</li>
+</ul>
+<p><strong>Miscellaneous</strong></p>
+<ul>
+<li>Updated bundled urllib3 to 1.20.</li>
+<li>Updated bundled idna to 2.2.</li>
+</ul>
+</section>
+<section id="section-44" class="level2">
+<h2 class="anchored" data-anchor-id="section-44">2.12.5 (2017-01-18)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Fixed an issue with JSON encoding detection, specifically detecting big-endian UTF-32 with BOM.</li>
+</ul>
+</section>
+<section id="section-45" class="level2">
+<h2 class="anchored" data-anchor-id="section-45">2.12.4 (2016-12-14)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Fixed regression from 2.12.2 where non-string types were rejected in the basic auth parameters. While support for this behaviour has been re-added, the behaviour is deprecated and will be removed in the future.</li>
+</ul>
+</section>
+<section id="section-46" class="level2">
+<h2 class="anchored" data-anchor-id="section-46">2.12.3 (2016-12-01)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Fixed regression from v2.12.1 for URLs with schemes that begin with “http”. These URLs have historically been processed as though they were HTTP-schemed URLs, and so have had parameters added. This was removed in v2.12.2 in an overzealous attempt to resolve problems with IDNA-encoding those URLs. This change was reverted: the other fixes for IDNA-encoding have been judged to be sufficient to return to the behaviour Requests had before v2.12.0.</li>
+</ul>
+</section>
+<section id="section-47" class="level2">
+<h2 class="anchored" data-anchor-id="section-47">2.12.2 (2016-11-30)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Fixed several issues with IDNA-encoding URLs that are technically invalid but which are widely accepted. Requests will now attempt to IDNA-encode a URL if it can but, if it fails, and the host contains only ASCII characters, it will be passed through optimistically. This will allow users to opt-in to using IDNA2003 themselves if they want to, and will also allow technically invalid but still common hostnames.</li>
+<li>Fixed an issue where URLs with leading whitespace would raise <code>InvalidSchema</code> errors.</li>
+<li>Fixed an issue where some URLs without the HTTP or HTTPS schemes would still have HTTP URL preparation applied to them.</li>
+<li>Fixed an issue where Unicode strings could not be used in basic auth.</li>
+<li>Fixed an issue encountered by some Requests plugins where constructing a Response object would cause <code>Response.content</code> to raise an <code>AttributeError</code>.</li>
+</ul>
+</section>
+<section id="section-48" class="level2">
+<h2 class="anchored" data-anchor-id="section-48">2.12.1 (2016-11-16)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Updated setuptools ‘security’ extra for the new PyOpenSSL backend in urllib3.</li>
+</ul>
+<p><strong>Miscellaneous</strong></p>
+<ul>
+<li>Updated bundled urllib3 to 1.19.1.</li>
+</ul>
+</section>
+<section id="section-49" class="level2">
+<h2 class="anchored" data-anchor-id="section-49">2.12.0 (2016-11-15)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Updated support for internationalized domain names from IDNA2003 to IDNA2008. This updated support is required for several forms of IDNs and is mandatory for .de domains.</li>
+<li>Much improved heuristics for guessing content lengths: Requests will no longer read an entire <code>StringIO</code> into memory.</li>
+<li>Much improved logic for recalculating <code>Content-Length</code> headers for <code>PreparedRequest</code> objects.</li>
+<li>Improved tolerance for file-like objects that have no <code>tell</code> method but do have a <code>seek</code> method.</li>
+<li>Anything that is a subclass of <code>Mapping</code> is now treated like a dictionary by the <code>data=</code> keyword argument.</li>
+<li>Requests now tolerates empty passwords in proxy credentials, rather than stripping the credentials.</li>
+<li>If a request is made with a file-like object as the body and that request is redirected with a 307 or 308 status code, Requests will now attempt to rewind the body object so it can be replayed.</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>When calling <code>response.close</code>, the call to <code>close</code> will be propagated through to non-urllib3 backends.</li>
+<li>Fixed issue where the <code>ALL_PROXY</code> environment variable would be preferred over scheme-specific variables like <code>HTTP_PROXY</code>.</li>
+<li>Fixed issue where non-UTF8 reason phrases got severely mangled by falling back to decoding using ISO 8859-1 instead.</li>
+<li>Fixed a bug where Requests would not correctly correlate cookies set when using custom Host headers if those Host headers did not use the native string type for the platform.</li>
+</ul>
+<p><strong>Miscellaneous</strong></p>
+<ul>
+<li>Updated bundled urllib3 to 1.19.</li>
+<li>Updated bundled certifi certs to 2016.09.26.</li>
+</ul>
+</section>
+<section id="section-50" class="level2">
+<h2 class="anchored" data-anchor-id="section-50">2.11.1 (2016-08-17)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Fixed a bug when using <code>iter_content</code> with <code>decode_unicode=True</code> for streamed bodies would raise <code>AttributeError</code>. This bug was introduced in 2.11.</li>
+<li>Strip Content-Type and Transfer-Encoding headers from the header block when following a redirect that transforms the verb from POST/PUT to GET.</li>
+</ul>
+</section>
+<section id="section-51" class="level2">
+<h2 class="anchored" data-anchor-id="section-51">2.11.0 (2016-08-08)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Added support for the <code>ALL_PROXY</code> environment variable.</li>
+<li>Reject header values that contain leading whitespace or newline characters to reduce risk of header smuggling.</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Fixed occasional <code>TypeError</code> when attempting to decode a JSON response that occurred in an error case. Now correctly returns a <code>ValueError</code>.</li>
+<li>Requests would incorrectly ignore a non-CIDR IP address in the <code>NO_PROXY</code> environment variables: Requests now treats it as a specific IP.</li>
+<li>Fixed a bug when sending JSON data that could cause us to encounter obscure OpenSSL errors in certain network conditions (yes, really).</li>
+<li>Added type checks to ensure that <code>iter_content</code> only accepts integers and <code>None</code> for chunk sizes.</li>
+<li>Fixed issue where responses whose body had not been fully consumed would have the underlying connection closed but not returned to the connection pool, which could cause Requests to hang in situations where the <code>HTTPAdapter</code> had been configured to use a blocking connection pool.</li>
+</ul>
+<p><strong>Miscellaneous</strong></p>
+<ul>
+<li>Updated bundled urllib3 to 1.16.</li>
+<li>Some previous releases accidentally accepted non-strings as acceptable header values. This release does not.</li>
+</ul>
+</section>
+<section id="section-52" class="level2">
+<h2 class="anchored" data-anchor-id="section-52">2.10.0 (2016-04-29)</h2>
+<p><strong>New Features</strong></p>
+<ul>
+<li>SOCKS Proxy Support! (requires PySocks; <code>$ pip install requests[socks]</code>)</li>
+</ul>
+<p><strong>Miscellaneous</strong></p>
+<ul>
+<li>Updated bundled urllib3 to 1.15.1.</li>
+</ul>
+</section>
+<section id="section-53" class="level2">
+<h2 class="anchored" data-anchor-id="section-53">2.9.2 (2016-04-29)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Change built-in CaseInsensitiveDict (used for headers) to use OrderedDict as its underlying datastore.</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Don’t use redirect_cache if allow_redirects=False</li>
+<li>When passed objects that throw exceptions from <code>tell()</code>, send them via chunked transfer encoding instead of failing.</li>
+<li>Raise a ProxyError for proxy related connection issues.</li>
+</ul>
+</section>
+<section id="section-54" class="level2">
+<h2 class="anchored" data-anchor-id="section-54">2.9.1 (2015-12-21)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Resolve regression introduced in 2.9.0 that made it impossible to send binary strings as bodies in Python 3.</li>
+<li>Fixed errors when calculating cookie expiration dates in certain locales.</li>
+</ul>
+<p><strong>Miscellaneous</strong></p>
+<ul>
+<li>Updated bundled urllib3 to 1.13.1.</li>
+</ul>
+</section>
+<section id="section-55" class="level2">
+<h2 class="anchored" data-anchor-id="section-55">2.9.0 (2015-12-15)</h2>
+<p><strong>Minor Improvements</strong> (Backwards compatible)</p>
+<ul>
+<li>The <code>verify</code> keyword argument now supports being passed a path to a directory of CA certificates, not just a single-file bundle.</li>
+<li>Warnings are now emitted when sending files opened in text mode.</li>
+<li>Added the 511 Network Authentication Required status code to the status code registry.</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>For file-like objects that are not sought to the very beginning, we now send the content length for the number of bytes we will actually read, rather than the total size of the file, allowing partial file uploads.</li>
+<li>When uploading file-like objects, if they are empty or have no obvious content length we set <code>Transfer-Encoding: chunked</code> rather than <code>Content-Length: 0</code>.</li>
+<li>We correctly receive the response in buffered mode when uploading chunked bodies.</li>
+<li>We now handle being passed a query string as a bytestring on Python 3, by decoding it as UTF-8.</li>
+<li>Sessions are now closed in all cases (exceptional and not) when using the functional API rather than leaking and waiting for the garbage collector to clean them up.</li>
+<li>Correctly handle digest auth headers with a malformed <code>qop</code> directive that contains no token, by treating it the same as if no <code>qop</code> directive was provided at all.</li>
+<li>Minor performance improvements when removing specific cookies by name.</li>
+</ul>
+<p><strong>Miscellaneous</strong></p>
+<ul>
+<li>Updated urllib3 to 1.13.</li>
+</ul>
+</section>
+<section id="section-56" class="level2">
+<h2 class="anchored" data-anchor-id="section-56">2.8.1 (2015-10-13)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Update certificate bundle to match <code>certifi</code> 2015.9.6.2’s weak certificate bundle.</li>
+<li>Fix a bug in 2.8.0 where requests would raise <code>ConnectTimeout</code> instead of <code>ConnectionError</code></li>
+<li>When using the PreparedRequest flow, requests will now correctly respect the <code>json</code> parameter. Broken in 2.8.0.</li>
+<li>When using the PreparedRequest flow, requests will now correctly handle a Unicode-string method name on Python 2. Broken in 2.8.0.</li>
+</ul>
+</section>
+<section id="section-57" class="level2">
+<h2 class="anchored" data-anchor-id="section-57">2.8.0 (2015-10-05)</h2>
+<p><strong>Minor Improvements</strong> (Backwards Compatible)</p>
+<ul>
+<li>Requests now supports per-host proxies. This allows the <code>proxies</code> dictionary to have entries of the form <code>{'&lt;scheme&gt;://&lt;hostname&gt;': '&lt;proxy&gt;'}</code>. Host-specific proxies will be used in preference to the previously-supported scheme-specific ones, but the previous syntax will continue to work.</li>
+<li><code>Response.raise_for_status</code> now prints the URL that failed as part of the exception message.</li>
+<li><code>requests.utils.get_netrc_auth</code> now takes an <code>raise_errors</code> kwarg, defaulting to <code>False</code>. When <code>True</code>, errors parsing <code>.netrc</code> files cause exceptions to be thrown.</li>
+<li>Change to bundled projects import logic to make it easier to unbundle requests downstream.</li>
+<li>Changed the default User-Agent string to avoid leaking data on Linux: now contains only the requests version.</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>The <code>json</code> parameter to <code>post()</code> and friends will now only be used if neither <code>data</code> nor <code>files</code> are present, consistent with the documentation.</li>
+<li>We now ignore empty fields in the <code>NO_PROXY</code> environment variable.</li>
+<li>Fixed problem where <code>httplib.BadStatusLine</code> would get raised if combining <code>stream=True</code> with <code>contextlib.closing</code>.</li>
+<li>Prevented bugs where we would attempt to return the same connection back to the connection pool twice when sending a Chunked body.</li>
+<li>Miscellaneous minor internal changes.</li>
+<li>Digest Auth support is now thread safe.</li>
+</ul>
+<p><strong>Updates</strong></p>
+<ul>
+<li>Updated urllib3 to 1.12.</li>
+</ul>
+</section>
+<section id="section-58" class="level2">
+<h2 class="anchored" data-anchor-id="section-58">2.7.0 (2015-05-03)</h2>
+<p>This is the first release that follows our new release process. For more, see <a href="https://requests.readthedocs.io/en/latest/community/release-process/">our documentation</a>.</p>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Updated urllib3 to 1.10.4, resolving several bugs involving chunked transfer encoding and response framing.</li>
+</ul>
+</section>
+<section id="section-59" class="level2">
+<h2 class="anchored" data-anchor-id="section-59">2.6.2 (2015-04-23)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Fix regression where compressed data that was sent as chunked data was not properly decompressed. (#2561)</li>
+</ul>
+</section>
+<section id="section-60" class="level2">
+<h2 class="anchored" data-anchor-id="section-60">2.6.1 (2015-04-22)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Remove VendorAlias import machinery introduced in v2.5.2.</li>
+<li>Simplify the PreparedRequest.prepare API: We no longer require the user to pass an empty list to the hooks keyword argument. (c.f. #2552)</li>
+<li>Resolve redirects now receives and forwards all of the original arguments to the adapter. (#2503)</li>
+<li>Handle UnicodeDecodeErrors when trying to deal with a unicode URL that cannot be encoded in ASCII. (#2540)</li>
+<li>Populate the parsed path of the URI field when performing Digest Authentication. (#2426)</li>
+<li>Copy a PreparedRequest’s CookieJar more reliably when it is not an instance of RequestsCookieJar. (#2527)</li>
+</ul>
+</section>
+<section id="section-61" class="level2">
+<h2 class="anchored" data-anchor-id="section-61">2.6.0 (2015-03-14)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>CVE-2015-2296: Fix handling of cookies on redirect. Previously a cookie without a host value set would use the hostname for the redirected URL exposing requests users to session fixation attacks and potentially cookie stealing. This was disclosed privately by Matthew Daley of <a href="https://bugfuzz.com">BugFuzz</a>. This affects all versions of requests from v2.1.0 to v2.5.3 (inclusive on both ends).</li>
+<li>Fix error when requests is an <code>install_requires</code> dependency and <code>python setup.py test</code> is run. (#2462)</li>
+<li>Fix error when urllib3 is unbundled and requests continues to use the vendored import location.</li>
+<li>Include fixes to <code>urllib3</code>’s header handling.</li>
+<li>Requests’ handling of unvendored dependencies is now more restrictive.</li>
+</ul>
+<p><strong>Features and Improvements</strong></p>
+<ul>
+<li>Support bytearrays when passed as parameters in the <code>files</code> argument. (#2468)</li>
+<li>Avoid data duplication when creating a request with <code>str</code>, <code>bytes</code>, or <code>bytearray</code> input to the <code>files</code> argument.</li>
+</ul>
+</section>
+<section id="section-62" class="level2">
+<h2 class="anchored" data-anchor-id="section-62">2.5.3 (2015-02-24)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Revert changes to our vendored certificate bundle. For more context see (#2455, #2456, and <a href="https://bugs.python.org/issue23476" class="uri">https://bugs.python.org/issue23476</a>)</li>
+</ul>
+</section>
+<section id="section-63" class="level2">
+<h2 class="anchored" data-anchor-id="section-63">2.5.2 (2015-02-23)</h2>
+<p><strong>Features and Improvements</strong></p>
+<ul>
+<li>Add sha256 fingerprint support. (<a href="https://github.com/shazow/urllib3/pull/540">shazow/urllib3#540</a>)</li>
+<li>Improve the performance of headers. (<a href="https://github.com/shazow/urllib3/pull/544">shazow/urllib3#544</a>)</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Copy pip’s import machinery. When downstream redistributors remove requests.packages.urllib3 the import machinery will continue to let those same symbols work. Example usage in requests’ documentation and 3rd-party libraries relying on the vendored copies of urllib3 will work without having to fallback to the system urllib3.</li>
+<li>Attempt to quote parts of the URL on redirect if unquoting and then quoting fails. (#2356)</li>
+<li>Fix filename type check for multipart form-data uploads. (#2411)</li>
+<li>Properly handle the case where a server issuing digest authentication challenges provides both auth and auth-int qop-values. (#2408)</li>
+<li>Fix a socket leak. (<a href="https://github.com/shazow/urllib3/pull/549">shazow/urllib3#549</a>)</li>
+<li>Fix multiple <code>Set-Cookie</code> headers properly. (<a href="https://github.com/shazow/urllib3/pull/534">shazow/urllib3#534</a>)</li>
+<li>Disable the built-in hostname verification. (<a href="https://github.com/shazow/urllib3/pull/526">shazow/urllib3#526</a>)</li>
+<li>Fix the behaviour of decoding an exhausted stream. (<a href="https://github.com/shazow/urllib3/pull/535">shazow/urllib3#535</a>)</li>
+</ul>
+<p><strong>Security</strong></p>
+<ul>
+<li>Pulled in an updated <code>cacert.pem</code>.</li>
+<li>Drop RC4 from the default cipher list. (<a href="https://github.com/shazow/urllib3/pull/551">shazow/urllib3#551</a>)</li>
+</ul>
+</section>
+<section id="section-64" class="level2">
+<h2 class="anchored" data-anchor-id="section-64">2.5.1 (2014-12-23)</h2>
+<p><strong>Behavioural Changes</strong></p>
+<ul>
+<li>Only catch HTTPErrors in raise_for_status (#2382)</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Handle LocationParseError from urllib3 (#2344)</li>
+<li>Handle file-like object filenames that are not strings (#2379)</li>
+<li>Unbreak HTTPDigestAuth handler. Allow new nonces to be negotiated (#2389)</li>
+</ul>
+</section>
+<section id="section-65" class="level2">
+<h2 class="anchored" data-anchor-id="section-65">2.5.0 (2014-12-01)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Allow usage of urllib3’s Retry object with HTTPAdapters (#2216)</li>
+<li>The <code>iter_lines</code> method on a response now accepts a delimiter with which to split the content (#2295)</li>
+</ul>
+<p><strong>Behavioural Changes</strong></p>
+<ul>
+<li>Add deprecation warnings to functions in requests.utils that will be removed in 3.0 (#2309)</li>
+<li>Sessions used by the functional API are always closed (#2326)</li>
+<li>Restrict requests to HTTP/1.1 and HTTP/1.0 (stop accepting HTTP/0.9) (#2323)</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Only parse the URL once (#2353)</li>
+<li>Allow Content-Length header to always be overridden (#2332)</li>
+<li>Properly handle files in HTTPDigestAuth (#2333)</li>
+<li>Cap redirect_cache size to prevent memory abuse (#2299)</li>
+<li>Fix HTTPDigestAuth handling of redirects after authenticating successfully (#2253)</li>
+<li>Fix crash with custom method parameter to Session.request (#2317)</li>
+<li>Fix how Link headers are parsed using the regular expression library (#2271)</li>
+</ul>
+<p><strong>Documentation</strong></p>
+<ul>
+<li>Add more references for interlinking (#2348)</li>
+<li>Update CSS for theme (#2290)</li>
+<li>Update width of buttons and sidebar (#2289)</li>
+<li>Replace references of Gittip with Gratipay (#2282)</li>
+<li>Add link to changelog in sidebar (#2273)</li>
+</ul>
+</section>
+<section id="section-66" class="level2">
+<h2 class="anchored" data-anchor-id="section-66">2.4.3 (2014-10-06)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Unicode URL improvements for Python 2.</li>
+<li>Re-order JSON param for backwards compat.</li>
+<li>Automatically defrag authentication schemes from host/pass URIs. (<a href="https://github.com/psf/requests/issues/2249">#2249</a>)</li>
+</ul>
+</section>
+<section id="section-67" class="level2">
+<h2 class="anchored" data-anchor-id="section-67">2.4.2 (2014-10-05)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>FINALLY! Add json parameter for uploads! (<a href="https://github.com/psf/requests/pull/2258">#2258</a>)</li>
+<li>Support for bytestring URLs on Python 3.x (<a href="https://github.com/psf/requests/pull/2238">#2238</a>)</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Avoid getting stuck in a loop (<a href="https://github.com/psf/requests/pull/2244">#2244</a>)</li>
+<li>Multiple calls to iter* fail with unhelpful error. (<a href="https://github.com/psf/requests/issues/2240">#2240</a>, <a href="https://github.com/psf/requests/issues/2241">#2241</a>)</li>
+</ul>
+<p><strong>Documentation</strong></p>
+<ul>
+<li>Correct redirection introduction (<a href="https://github.com/psf/requests/pull/2245/">#2245</a>)</li>
+<li>Added example of how to send multiple files in one request. (<a href="https://github.com/psf/requests/pull/2227/">#2227</a>)</li>
+<li>Clarify how to pass a custom set of CAs (<a href="https://github.com/psf/requests/pull/2248/">#2248</a>)</li>
+</ul>
+</section>
+<section id="section-68" class="level2">
+<h2 class="anchored" data-anchor-id="section-68">2.4.1 (2014-09-09)</h2>
+<ul>
+<li>Now has a “security” package extras set, <code>$ pip install requests[security]</code></li>
+<li>Requests will now use Certifi if it is available.</li>
+<li>Capture and re-raise urllib3 ProtocolError</li>
+<li>Bugfix for responses that attempt to redirect to themselves forever (wtf?).</li>
+</ul>
+</section>
+<section id="section-69" class="level2">
+<h2 class="anchored" data-anchor-id="section-69">2.4.0 (2014-08-29)</h2>
+<p><strong>Behavioral Changes</strong></p>
+<ul>
+<li><code>Connection: keep-alive</code> header is now sent automatically.</li>
+</ul>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Support for connect timeouts! Timeout now accepts a tuple (connect, read) which is used to set individual connect and read timeouts.</li>
+<li>Allow copying of PreparedRequests without headers/cookies.</li>
+<li>Updated bundled urllib3 version.</li>
+<li>Refactored settings loading from environment – new Session.merge_environment_settings.</li>
+<li>Handle socket errors in iter_content.</li>
+</ul>
+</section>
+<section id="section-70" class="level2">
+<h2 class="anchored" data-anchor-id="section-70">2.3.0 (2014-05-16)</h2>
+<p><strong>API Changes</strong></p>
+<ul>
+<li>New <code>Response</code> property <code>is_redirect</code>, which is true when the library could have processed this response as a redirection (whether or not it actually did).</li>
+<li>The <code>timeout</code> parameter now affects requests with both <code>stream=True</code> and <code>stream=False</code> equally.</li>
+<li>The change in v2.0.0 to mandate explicit proxy schemes has been reverted. Proxy schemes now default to <code>http://</code>.</li>
+<li>The <code>CaseInsensitiveDict</code> used for HTTP headers now behaves like a normal dictionary when references as string or viewed in the interpreter.</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>No longer expose Authorization or Proxy-Authorization headers on redirect. Fix CVE-2014-1829 and CVE-2014-1830 respectively.</li>
+<li>Authorization is re-evaluated each redirect.</li>
+<li>On redirect, pass url as native strings.</li>
+<li>Fall-back to autodetected encoding for JSON when Unicode detection fails.</li>
+<li>Headers set to <code>None</code> on the <code>Session</code> are now correctly not sent.</li>
+<li>Correctly honor <code>decode_unicode</code> even if it wasn’t used earlier in the same response.</li>
+<li>Stop advertising <code>compress</code> as a supported Content-Encoding.</li>
+<li>The <code>Response.history</code> parameter is now always a list.</li>
+<li>Many, many <code>urllib3</code> bugfixes.</li>
+</ul>
+</section>
+<section id="section-71" class="level2">
+<h2 class="anchored" data-anchor-id="section-71">2.2.1 (2014-01-23)</h2>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Fixes incorrect parsing of proxy credentials that contain a literal or encoded ‘#’ character.</li>
+<li>Assorted urllib3 fixes.</li>
+</ul>
+</section>
+<section id="section-72" class="level2">
+<h2 class="anchored" data-anchor-id="section-72">2.2.0 (2014-01-09)</h2>
+<p><strong>API Changes</strong></p>
+<ul>
+<li>New exception: <code>ContentDecodingError</code>. Raised instead of <code>urllib3</code> <code>DecodeError</code> exceptions.</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li>Avoid many many exceptions from the buggy implementation of <code>proxy_bypass</code> on OS X in Python 2.6.</li>
+<li>Avoid crashing when attempting to get authentication credentials from ~/.netrc when running as a user without a home directory.</li>
+<li>Use the correct pool size for pools of connections to proxies.</li>
+<li>Fix iteration of <code>CookieJar</code> objects.</li>
+<li>Ensure that cookies are persisted over redirect.</li>
+<li>Switch back to using chardet, since it has merged with charade.</li>
+</ul>
+</section>
+<section id="section-73" class="level2">
+<h2 class="anchored" data-anchor-id="section-73">2.1.0 (2013-12-05)</h2>
+<ul>
+<li>Updated CA Bundle, of course.</li>
+<li>Cookies set on individual Requests through a <code>Session</code> (e.g.&nbsp;via <code>Session.get()</code>) are no longer persisted to the <code>Session</code>.</li>
+<li>Clean up connections when we hit problems during chunked upload, rather than leaking them.</li>
+<li>Return connections to the pool when a chunked upload is successful, rather than leaking it.</li>
+<li>Match the HTTPbis recommendation for HTTP 301 redirects.</li>
+<li>Prevent hanging when using streaming uploads and Digest Auth when a 401 is received.</li>
+<li>Values of headers set by Requests are now always the native string type.</li>
+<li>Fix previously broken SNI support.</li>
+<li>Fix accessing HTTP proxies using proxy authentication.</li>
+<li>Unencode HTTP Basic usernames and passwords extracted from URLs.</li>
+<li>Support for IP address ranges for no_proxy environment variable</li>
+<li>Parse headers correctly when users override the default <code>Host:</code> header.</li>
+<li>Avoid munging the URL in case of case-sensitive servers.</li>
+<li>Looser URL handling for non-HTTP/HTTPS urls.</li>
+<li>Accept unicode methods in Python 2.6 and 2.7.</li>
+<li>More resilient cookie handling.</li>
+<li>Make <code>Response</code> objects pickleable.</li>
+<li>Actually added MD5-sess to Digest Auth instead of pretending to like last time.</li>
+<li>Updated internal urllib3.</li>
+<li>Fixed <span class="citation" data-cites="Lukasa">@Lukasa</span>’s lack of taste.</li>
+</ul>
+</section>
+<section id="section-74" class="level2">
+<h2 class="anchored" data-anchor-id="section-74">2.0.1 (2013-10-24)</h2>
+<ul>
+<li>Updated included CA Bundle with new mistrusts and automated process for the future</li>
+<li>Added MD5-sess to Digest Auth</li>
+<li>Accept per-file headers in multipart file POST messages.</li>
+<li>Fixed: Don’t send the full URL on CONNECT messages.</li>
+<li>Fixed: Correctly lowercase a redirect scheme.</li>
+<li>Fixed: Cookies not persisted when set via functional API.</li>
+<li>Fixed: Translate urllib3 ProxyError into a requests ProxyError derived from ConnectionError.</li>
+<li>Updated internal urllib3 and chardet.</li>
+</ul>
+</section>
+<section id="section-75" class="level2">
+<h2 class="anchored" data-anchor-id="section-75">2.0.0 (2013-09-24)</h2>
+<p><strong>API Changes:</strong></p>
+<ul>
+<li>Keys in the Headers dictionary are now native strings on all Python versions, i.e.&nbsp;bytestrings on Python 2, unicode on Python 3.</li>
+<li>Proxy URLs now <em>must</em> have an explicit scheme. A <code>MissingSchema</code> exception will be raised if they don’t.</li>
+<li>Timeouts now apply to read time if <code>Stream=False</code>.</li>
+<li><code>RequestException</code> is now a subclass of <code>IOError</code>, not <code>RuntimeError</code>.</li>
+<li>Added new method to <code>PreparedRequest</code> objects: <code>PreparedRequest.copy()</code>.</li>
+<li>Added new method to <code>Session</code> objects: <code>Session.update_request()</code>. This method updates a <code>Request</code> object with the data (e.g.&nbsp;cookies) stored on the <code>Session</code>.</li>
+<li>Added new method to <code>Session</code> objects: <code>Session.prepare_request()</code>. This method updates and prepares a <code>Request</code> object, and returns the corresponding <code>PreparedRequest</code> object.</li>
+<li>Added new method to <code>HTTPAdapter</code> objects: <code>HTTPAdapter.proxy_headers()</code>. This should not be called directly, but improves the subclass interface.</li>
+<li><code>httplib.IncompleteRead</code> exceptions caused by incorrect chunked encoding will now raise a Requests <code>ChunkedEncodingError</code> instead.</li>
+<li>Invalid percent-escape sequences now cause a Requests <code>InvalidURL</code> exception to be raised.</li>
+<li>HTTP 208 no longer uses reason phrase <code>"im_used"</code>. Correctly uses <code>"already_reported"</code>.</li>
+<li>HTTP 226 reason added (<code>"im_used"</code>).</li>
+</ul>
+<p><strong>Bugfixes:</strong></p>
+<ul>
+<li>Vastly improved proxy support, including the CONNECT verb. Special thanks to the many contributors who worked towards this improvement.</li>
+<li>Cookies are now properly managed when 401 authentication responses are received.</li>
+<li>Chunked encoding fixes.</li>
+<li>Support for mixed case schemes.</li>
+<li>Better handling of streaming downloads.</li>
+<li>Retrieve environment proxies from more locations.</li>
+<li>Minor cookies fixes.</li>
+<li>Improved redirect behaviour.</li>
+<li>Improved streaming behaviour, particularly for compressed data.</li>
+<li>Miscellaneous small Python 3 text encoding bugs.</li>
+<li><code>.netrc</code> no longer overrides explicit auth.</li>
+<li>Cookies set by hooks are now correctly persisted on Sessions.</li>
+<li>Fix problem with cookies that specify port numbers in their host field.</li>
+<li><code>BytesIO</code> can be used to perform streaming uploads.</li>
+<li>More generous parsing of the <code>no_proxy</code> environment variable.</li>
+<li>Non-string objects can be passed in data values alongside files.</li>
+</ul>
+</section>
+<section id="section-76" class="level2">
+<h2 class="anchored" data-anchor-id="section-76">1.2.3 (2013-05-25)</h2>
+<ul>
+<li>Simple packaging fix</li>
+</ul>
+</section>
+<section id="section-77" class="level2">
+<h2 class="anchored" data-anchor-id="section-77">1.2.2 (2013-05-23)</h2>
+<ul>
+<li>Simple packaging fix</li>
+</ul>
+</section>
+<section id="section-78" class="level2">
+<h2 class="anchored" data-anchor-id="section-78">1.2.1 (2013-05-20)</h2>
+<ul>
+<li>301 and 302 redirects now change the verb to GET for all verbs, not just POST, improving browser compatibility.</li>
+<li>Python 3.3.2 compatibility</li>
+<li>Always percent-encode location headers</li>
+<li>Fix connection adapter matching to be most-specific first</li>
+<li>new argument to the default connection adapter for passing a block argument</li>
+<li>prevent a KeyError when there’s no link headers</li>
+</ul>
+</section>
+<section id="section-79" class="level2">
+<h2 class="anchored" data-anchor-id="section-79">1.2.0 (2013-03-31)</h2>
+<ul>
+<li>Fixed cookies on sessions and on requests</li>
+<li>Significantly change how hooks are dispatched - hooks now receive all the arguments specified by the user when making a request so hooks can make a secondary request with the same parameters. This is especially necessary for authentication handler authors</li>
+<li>certifi support was removed</li>
+<li>Fixed bug where using OAuth 1 with body <code>signature_type</code> sent no data</li>
+<li>Major proxy work thanks to <span class="citation" data-cites="Lukasa">@Lukasa</span> including parsing of proxy authentication from the proxy url</li>
+<li>Fix DigestAuth handling too many 401s</li>
+<li>Update vendored urllib3 to include SSL bug fixes</li>
+<li>Allow keyword arguments to be passed to <code>json.loads()</code> via the <code>Response.json()</code> method</li>
+<li>Don’t send <code>Content-Length</code> header by default on <code>GET</code> or <code>HEAD</code> requests</li>
+<li>Add <code>elapsed</code> attribute to <code>Response</code> objects to time how long a request took.</li>
+<li>Fix <code>RequestsCookieJar</code></li>
+<li>Sessions and Adapters are now picklable, i.e., can be used with the multiprocessing library</li>
+<li>Update charade to version 1.0.3</li>
+</ul>
+<p>The change in how hooks are dispatched will likely cause a great deal of issues.</p>
+</section>
+<section id="section-80" class="level2">
+<h2 class="anchored" data-anchor-id="section-80">1.1.0 (2013-01-10)</h2>
+<ul>
+<li>CHUNKED REQUESTS</li>
+<li>Support for iterable response bodies</li>
+<li>Assume servers persist redirect params</li>
+<li>Allow explicit content types to be specified for file data</li>
+<li>Make merge_kwargs case-insensitive when looking up keys</li>
+</ul>
+</section>
+<section id="section-81" class="level2">
+<h2 class="anchored" data-anchor-id="section-81">1.0.3 (2012-12-18)</h2>
+<ul>
+<li>Fix file upload encoding bug</li>
+<li>Fix cookie behavior</li>
+</ul>
+</section>
+<section id="section-82" class="level2">
+<h2 class="anchored" data-anchor-id="section-82">1.0.2 (2012-12-17)</h2>
+<ul>
+<li>Proxy fix for HTTPAdapter.</li>
+</ul>
+</section>
+<section id="section-83" class="level2">
+<h2 class="anchored" data-anchor-id="section-83">1.0.1 (2012-12-17)</h2>
+<ul>
+<li>Cert verification exception bug.</li>
+<li>Proxy fix for HTTPAdapter.</li>
+</ul>
+</section>
+<section id="section-84" class="level2">
+<h2 class="anchored" data-anchor-id="section-84">1.0.0 (2012-12-17)</h2>
+<ul>
+<li>Massive Refactor and Simplification</li>
+<li>Switch to Apache 2.0 license</li>
+<li>Swappable Connection Adapters</li>
+<li>Mountable Connection Adapters</li>
+<li>Mutable ProcessedRequest chain</li>
+<li>/s/prefetch/stream</li>
+<li>Removal of all configuration</li>
+<li>Standard library logging</li>
+<li>Make Response.json() callable, not property.</li>
+<li>Usage of new charade project, which provides python 2 and 3 simultaneous chardet.</li>
+<li>Removal of all hooks except ‘response’</li>
+<li>Removal of all authentication helpers (OAuth, Kerberos)</li>
+</ul>
+<p>This is not a backwards compatible change.</p>
+</section>
+<section id="section-85" class="level2">
+<h2 class="anchored" data-anchor-id="section-85">0.14.2 (2012-10-27)</h2>
+<ul>
+<li>Improved mime-compatible JSON handling</li>
+<li>Proxy fixes</li>
+<li>Path hack fixes</li>
+<li>Case-Insensitive Content-Encoding headers</li>
+<li>Support for CJK parameters in form posts</li>
+</ul>
+</section>
+<section id="section-86" class="level2">
+<h2 class="anchored" data-anchor-id="section-86">0.14.1 (2012-10-01)</h2>
+<ul>
+<li>Python 3.3 Compatibility</li>
+<li>Simply default accept-encoding</li>
+<li>Bugfixes</li>
+</ul>
+</section>
+<section id="section-87" class="level2">
+<h2 class="anchored" data-anchor-id="section-87">0.14.0 (2012-09-02)</h2>
+<ul>
+<li>No more iter_content errors if already downloaded.</li>
+</ul>
+</section>
+<section id="section-88" class="level2">
+<h2 class="anchored" data-anchor-id="section-88">0.13.9 (2012-08-25)</h2>
+<ul>
+<li>Fix for OAuth + POSTs</li>
+<li>Remove exception eating from dispatch_hook</li>
+<li>General bugfixes</li>
+</ul>
+</section>
+<section id="section-89" class="level2">
+<h2 class="anchored" data-anchor-id="section-89">0.13.8 (2012-08-21)</h2>
+<ul>
+<li>Incredible Link header support :)</li>
+</ul>
+</section>
+<section id="section-90" class="level2">
+<h2 class="anchored" data-anchor-id="section-90">0.13.7 (2012-08-19)</h2>
+<ul>
+<li>Support for (key, value) lists everywhere.</li>
+<li>Digest Authentication improvements.</li>
+<li>Ensure proxy exclusions work properly.</li>
+<li>Clearer UnicodeError exceptions.</li>
+<li>Automatic casting of URLs to strings (fURL and such)</li>
+<li>Bugfixes.</li>
+</ul>
+</section>
+<section id="section-91" class="level2">
+<h2 class="anchored" data-anchor-id="section-91">0.13.6 (2012-08-06)</h2>
+<ul>
+<li>Long awaited fix for hanging connections!</li>
+</ul>
+</section>
+<section id="section-92" class="level2">
+<h2 class="anchored" data-anchor-id="section-92">0.13.5 (2012-07-27)</h2>
+<ul>
+<li>Packaging fix</li>
+</ul>
+</section>
+<section id="section-93" class="level2">
+<h2 class="anchored" data-anchor-id="section-93">0.13.4 (2012-07-27)</h2>
+<ul>
+<li>GSSAPI/Kerberos authentication!</li>
+<li>App Engine 2.7 Fixes!</li>
+<li>Fix leaking connections (from urllib3 update)</li>
+<li>OAuthlib path hack fix</li>
+<li>OAuthlib URL parameters fix.</li>
+</ul>
+</section>
+<section id="section-94" class="level2">
+<h2 class="anchored" data-anchor-id="section-94">0.13.3 (2012-07-12)</h2>
+<ul>
+<li>Use simplejson if available.</li>
+<li>Do not hide SSLErrors behind Timeouts.</li>
+<li>Fixed param handling with urls containing fragments.</li>
+<li>Significantly improved information in User Agent.</li>
+<li>client certificates are ignored when verify=False</li>
+</ul>
+</section>
+<section id="section-95" class="level2">
+<h2 class="anchored" data-anchor-id="section-95">0.13.2 (2012-06-28)</h2>
+<ul>
+<li>Zero dependencies (once again)!</li>
+<li>New: Response.reason</li>
+<li>Sign querystring parameters in OAuth 1.0</li>
+<li>Client certificates no longer ignored when verify=False</li>
+<li>Add openSUSE certificate support</li>
+</ul>
+</section>
+<section id="section-96" class="level2">
+<h2 class="anchored" data-anchor-id="section-96">0.13.1 (2012-06-07)</h2>
+<ul>
+<li>Allow passing a file or file-like object as data.</li>
+<li>Allow hooks to return responses that indicate errors.</li>
+<li>Fix Response.text and Response.json for body-less responses.</li>
+</ul>
+</section>
+<section id="section-97" class="level2">
+<h2 class="anchored" data-anchor-id="section-97">0.13.0 (2012-05-29)</h2>
+<ul>
+<li>Removal of Requests.async in favor of <a href="https://github.com/kennethreitz/grequests">grequests</a></li>
+<li>Allow disabling of cookie persistence.</li>
+<li>New implementation of safe_mode</li>
+<li>cookies.get now supports default argument</li>
+<li>Session cookies not saved when Session.request is called with return_response=False</li>
+<li>Env: no_proxy support.</li>
+<li>RequestsCookieJar improvements.</li>
+<li>Various bug fixes.</li>
+</ul>
+</section>
+<section id="section-98" class="level2">
+<h2 class="anchored" data-anchor-id="section-98">0.12.1 (2012-05-08)</h2>
+<ul>
+<li>New <code>Response.json</code> property.</li>
+<li>Ability to add string file uploads.</li>
+<li>Fix out-of-range issue with iter_lines.</li>
+<li>Fix iter_content default size.</li>
+<li>Fix POST redirects containing files.</li>
+</ul>
+</section>
+<section id="section-99" class="level2">
+<h2 class="anchored" data-anchor-id="section-99">0.12.0 (2012-05-02)</h2>
+<ul>
+<li>EXPERIMENTAL OAUTH SUPPORT!</li>
+<li>Proper CookieJar-backed cookies interface with awesome dict-like interface.</li>
+<li>Speed fix for non-iterated content chunks.</li>
+<li>Move <code>pre_request</code> to a more usable place.</li>
+<li>New <code>pre_send</code> hook.</li>
+<li>Lazily encode data, params, files.</li>
+<li>Load system Certificate Bundle if <code>certify</code> isn’t available.</li>
+<li>Cleanups, fixes.</li>
+</ul>
+</section>
+<section id="section-100" class="level2">
+<h2 class="anchored" data-anchor-id="section-100">0.11.2 (2012-04-22)</h2>
+<ul>
+<li>Attempt to use the OS’s certificate bundle if <code>certifi</code> isn’t available.</li>
+<li>Infinite digest auth redirect fix.</li>
+<li>Multi-part file upload improvements.</li>
+<li>Fix decoding of invalid %encodings in URLs.</li>
+<li>If there is no content in a response don’t throw an error the second time that content is attempted to be read.</li>
+<li>Upload data on redirects.</li>
+</ul>
+</section>
+<section id="section-101" class="level2">
+<h2 class="anchored" data-anchor-id="section-101">0.11.1 (2012-03-30)</h2>
+<ul>
+<li>POST redirects now break RFC to do what browsers do: Follow up with a GET.</li>
+<li>New <code>strict_mode</code> configuration to disable new redirect behavior.</li>
+</ul>
+</section>
+<section id="section-102" class="level2">
+<h2 class="anchored" data-anchor-id="section-102">0.11.0 (2012-03-14)</h2>
+<ul>
+<li>Private SSL Certificate support</li>
+<li>Remove select.poll from Gevent monkeypatching</li>
+<li>Remove redundant generator for chunked transfer encoding</li>
+<li>Fix: Response.ok raises Timeout Exception in safe_mode</li>
+</ul>
+</section>
+<section id="section-103" class="level2">
+<h2 class="anchored" data-anchor-id="section-103">0.10.8 (2012-03-09)</h2>
+<ul>
+<li>Generate chunked ValueError fix</li>
+<li>Proxy configuration by environment variables</li>
+<li>Simplification of iter_lines.</li>
+<li>New trust_env configuration for disabling system/environment hints.</li>
+<li>Suppress cookie errors.</li>
+</ul>
+</section>
+<section id="section-104" class="level2">
+<h2 class="anchored" data-anchor-id="section-104">0.10.7 (2012-03-07)</h2>
+<ul>
+<li>encode_uri = False</li>
+</ul>
+</section>
+<section id="section-105" class="level2">
+<h2 class="anchored" data-anchor-id="section-105">0.10.6 (2012-02-25)</h2>
+<ul>
+<li>Allow ‘=’ in cookies.</li>
+</ul>
+</section>
+<section id="section-106" class="level2">
+<h2 class="anchored" data-anchor-id="section-106">0.10.5 (2012-02-25)</h2>
+<ul>
+<li>Response body with 0 content-length fix.</li>
+<li>New async.imap.</li>
+<li>Don’t fail on netrc.</li>
+</ul>
+</section>
+<section id="section-107" class="level2">
+<h2 class="anchored" data-anchor-id="section-107">0.10.4 (2012-02-20)</h2>
+<ul>
+<li>Honor netrc.</li>
+</ul>
+</section>
+<section id="section-108" class="level2">
+<h2 class="anchored" data-anchor-id="section-108">0.10.3 (2012-02-20)</h2>
+<ul>
+<li>HEAD requests don’t follow redirects anymore.</li>
+<li>raise_for_status() doesn’t raise for 3xx anymore.</li>
+<li>Make Session objects picklable.</li>
+<li>ValueError for invalid schema URLs.</li>
+</ul>
+</section>
+<section id="section-109" class="level2">
+<h2 class="anchored" data-anchor-id="section-109">0.10.2 (2012-01-15)</h2>
+<ul>
+<li>Vastly improved URL quoting.</li>
+<li>Additional allowed cookie key values.</li>
+<li>Attempted fix for “Too many open files” Error</li>
+<li>Replace unicode errors on first pass, no need for second pass.</li>
+<li>Append ‘/’ to bare-domain urls before query insertion.</li>
+<li>Exceptions now inherit from RuntimeError.</li>
+<li>Binary uploads + auth fix.</li>
+<li>Bugfixes.</li>
+</ul>
+</section>
+<section id="section-110" class="level2">
+<h2 class="anchored" data-anchor-id="section-110">0.10.1 (2012-01-23)</h2>
+<ul>
+<li>PYTHON 3 SUPPORT!</li>
+<li>Dropped 2.5 Support. (<em>Backwards Incompatible</em>)</li>
+</ul>
+</section>
+<section id="section-111" class="level2">
+<h2 class="anchored" data-anchor-id="section-111">0.10.0 (2012-01-21)</h2>
+<ul>
+<li><code>Response.content</code> is now bytes-only. (<em>Backwards Incompatible</em>)</li>
+<li>New <code>Response.text</code> is unicode-only.</li>
+<li>If no <code>Response.encoding</code> is specified and <code>chardet</code> is available, <code>Response.text</code> will guess an encoding.</li>
+<li>Default to ISO-8859-1 (Western) encoding for “text” subtypes.</li>
+<li>Removal of decode_unicode. (<em>Backwards Incompatible</em>)</li>
+<li>New multiple-hooks system.</li>
+<li>New <code>Response.register_hook</code> for registering hooks within the pipeline.</li>
+<li><code>Response.url</code> is now Unicode.</li>
+</ul>
+</section>
+<section id="section-112" class="level2">
+<h2 class="anchored" data-anchor-id="section-112">0.9.3 (2012-01-18)</h2>
+<ul>
+<li>SSL verify=False bugfix (apparent on windows machines).</li>
+</ul>
+</section>
+<section id="section-113" class="level2">
+<h2 class="anchored" data-anchor-id="section-113">0.9.2 (2012-01-18)</h2>
+<ul>
+<li>Asynchronous async.send method.</li>
+<li>Support for proper chunk streams with boundaries.</li>
+<li>session argument for Session classes.</li>
+<li>Print entire hook tracebacks, not just exception instance.</li>
+<li>Fix response.iter_lines from pending next line.</li>
+<li>Fix but in HTTP-digest auth w/ URI having query strings.</li>
+<li>Fix in Event Hooks section.</li>
+<li>Urllib3 update.</li>
+</ul>
+</section>
+<section id="section-114" class="level2">
+<h2 class="anchored" data-anchor-id="section-114">0.9.1 (2012-01-06)</h2>
+<ul>
+<li>danger_mode for automatic Response.raise_for_status()</li>
+<li>Response.iter_lines refactor</li>
+</ul>
+</section>
+<section id="section-115" class="level2">
+<h2 class="anchored" data-anchor-id="section-115">0.9.0 (2011-12-28)</h2>
+<ul>
+<li>verify ssl is default.</li>
+</ul>
+</section>
+<section id="section-116" class="level2">
+<h2 class="anchored" data-anchor-id="section-116">0.8.9 (2011-12-28)</h2>
+<ul>
+<li>Packaging fix.</li>
+</ul>
+</section>
+<section id="section-117" class="level2">
+<h2 class="anchored" data-anchor-id="section-117">0.8.8 (2011-12-28)</h2>
+<ul>
+<li>SSL CERT VERIFICATION!</li>
+<li>Release of Cerifi: Mozilla’s cert list.</li>
+<li>New ‘verify’ argument for SSL requests.</li>
+<li>Urllib3 update.</li>
+</ul>
+</section>
+<section id="section-118" class="level2">
+<h2 class="anchored" data-anchor-id="section-118">0.8.7 (2011-12-24)</h2>
+<ul>
+<li>iter_lines last-line truncation fix</li>
+<li>Force safe_mode for async requests</li>
+<li>Handle safe_mode exceptions more consistently</li>
+<li>Fix iteration on null responses in safe_mode</li>
+</ul>
+</section>
+<section id="section-119" class="level2">
+<h2 class="anchored" data-anchor-id="section-119">0.8.6 (2011-12-18)</h2>
+<ul>
+<li>Socket timeout fixes.</li>
+<li>Proxy Authorization support.</li>
+</ul>
+</section>
+<section id="section-120" class="level2">
+<h2 class="anchored" data-anchor-id="section-120">0.8.5 (2011-12-14)</h2>
+<ul>
+<li>Response.iter_lines!</li>
+</ul>
+</section>
+<section id="section-121" class="level2">
+<h2 class="anchored" data-anchor-id="section-121">0.8.4 (2011-12-11)</h2>
+<ul>
+<li>Prefetch bugfix.</li>
+<li>Added license to installed version.</li>
+</ul>
+</section>
+<section id="section-122" class="level2">
+<h2 class="anchored" data-anchor-id="section-122">0.8.3 (2011-11-27)</h2>
+<ul>
+<li>Converted auth system to use simpler callable objects.</li>
+<li>New session parameter to API methods.</li>
+<li>Display full URL while logging.</li>
+</ul>
+</section>
+<section id="section-123" class="level2">
+<h2 class="anchored" data-anchor-id="section-123">0.8.2 (2011-11-19)</h2>
+<ul>
+<li>New Unicode decoding system, based on over-ridable Response.encoding.</li>
+<li>Proper URL slash-quote handling.</li>
+<li>Cookies with <code>[</code>, <code>]</code>, and <code>_</code> allowed.</li>
+</ul>
+</section>
+<section id="section-124" class="level2">
+<h2 class="anchored" data-anchor-id="section-124">0.8.1 (2011-11-15)</h2>
+<ul>
+<li>URL Request path fix</li>
+<li>Proxy fix.</li>
+<li>Timeouts fix.</li>
+</ul>
+</section>
+<section id="section-125" class="level2">
+<h2 class="anchored" data-anchor-id="section-125">0.8.0 (2011-11-13)</h2>
+<ul>
+<li>Keep-alive support!</li>
+<li>Complete removal of Urllib2</li>
+<li>Complete removal of Poster</li>
+<li>Complete removal of CookieJars</li>
+<li>New ConnectionError raising</li>
+<li>Safe_mode for error catching</li>
+<li>prefetch parameter for request methods</li>
+<li>OPTION method</li>
+<li>Async pool size throttling</li>
+<li>File uploads send real names</li>
+<li>Vendored in urllib3</li>
+</ul>
+</section>
+<section id="section-126" class="level2">
+<h2 class="anchored" data-anchor-id="section-126">0.7.6 (2011-11-07)</h2>
+<ul>
+<li>Digest authentication bugfix (attach query data to path)</li>
+</ul>
+</section>
+<section id="section-127" class="level2">
+<h2 class="anchored" data-anchor-id="section-127">0.7.5 (2011-11-04)</h2>
+<ul>
+<li>Response.content = None if there was an invalid response.</li>
+<li>Redirection auth handling.</li>
+</ul>
+</section>
+<section id="section-128" class="level2">
+<h2 class="anchored" data-anchor-id="section-128">0.7.4 (2011-10-26)</h2>
+<ul>
+<li>Session Hooks fix.</li>
+</ul>
+</section>
+<section id="section-129" class="level2">
+<h2 class="anchored" data-anchor-id="section-129">0.7.3 (2011-10-23)</h2>
+<ul>
+<li>Digest Auth fix.</li>
+</ul>
+</section>
+<section id="section-130" class="level2">
+<h2 class="anchored" data-anchor-id="section-130">0.7.2 (2011-10-23)</h2>
+<ul>
+<li>PATCH Fix.</li>
+</ul>
+</section>
+<section id="section-131" class="level2">
+<h2 class="anchored" data-anchor-id="section-131">0.7.1 (2011-10-23)</h2>
+<ul>
+<li>Move away from urllib2 authentication handling.</li>
+<li>Fully Remove AuthManager, AuthObject, &amp;c.</li>
+<li>New tuple-based auth system with handler callbacks.</li>
+</ul>
+</section>
+<section id="section-132" class="level2">
+<h2 class="anchored" data-anchor-id="section-132">0.7.0 (2011-10-22)</h2>
+<ul>
+<li>Sessions are now the primary interface.</li>
+<li>Deprecated InvalidMethodException.</li>
+<li>PATCH fix.</li>
+<li>New config system (no more global settings).</li>
+</ul>
+</section>
+<section id="section-133" class="level2">
+<h2 class="anchored" data-anchor-id="section-133">0.6.6 (2011-10-19)</h2>
+<ul>
+<li>Session parameter bugfix (params merging).</li>
+</ul>
+</section>
+<section id="section-134" class="level2">
+<h2 class="anchored" data-anchor-id="section-134">0.6.5 (2011-10-18)</h2>
+<ul>
+<li>Offline (fast) test suite.</li>
+<li>Session dictionary argument merging.</li>
+</ul>
+</section>
+<section id="section-135" class="level2">
+<h2 class="anchored" data-anchor-id="section-135">0.6.4 (2011-10-13)</h2>
+<ul>
+<li>Automatic decoding of unicode, based on HTTP Headers.</li>
+<li>New <code>decode_unicode</code> setting.</li>
+<li>Removal of <code>r.read/close</code> methods.</li>
+<li>New <code>r.faw</code> interface for advanced response usage.*</li>
+<li>Automatic expansion of parameterized headers.</li>
+</ul>
+</section>
+<section id="section-136" class="level2">
+<h2 class="anchored" data-anchor-id="section-136">0.6.3 (2011-10-13)</h2>
+<ul>
+<li>Beautiful <code>requests.async</code> module, for making async requests w/ gevent.</li>
+</ul>
+</section>
+<section id="section-137" class="level2">
+<h2 class="anchored" data-anchor-id="section-137">0.6.2 (2011-10-09)</h2>
+<ul>
+<li>GET/HEAD obeys allow_redirects=False.</li>
+</ul>
+</section>
+<section id="section-138" class="level2">
+<h2 class="anchored" data-anchor-id="section-138">0.6.1 (2011-08-20)</h2>
+<ul>
+<li>Enhanced status codes experience <code>\o/</code></li>
+<li>Set a maximum number of redirects (<code>settings.max_redirects</code>)</li>
+<li>Full Unicode URL support</li>
+<li>Support for protocol-less redirects.</li>
+<li>Allow for arbitrary request types.</li>
+<li>Bugfixes</li>
+</ul>
+</section>
+<section id="section-139" class="level2">
+<h2 class="anchored" data-anchor-id="section-139">0.6.0 (2011-08-17)</h2>
+<ul>
+<li>New callback hook system</li>
+<li>New persistent sessions object and context manager</li>
+<li>Transparent Dict-cookie handling</li>
+<li>Status code reference object</li>
+<li>Removed Response.cached</li>
+<li>Added Response.request</li>
+<li>All args are kwargs</li>
+<li>Relative redirect support</li>
+<li>HTTPError handling improvements</li>
+<li>Improved https testing</li>
+<li>Bugfixes</li>
+</ul>
+</section>
+<section id="section-140" class="level2">
+<h2 class="anchored" data-anchor-id="section-140">0.5.1 (2011-07-23)</h2>
+<ul>
+<li>International Domain Name Support!</li>
+<li>Access headers without fetching entire body (<code>read()</code>)</li>
+<li>Use lists as dicts for parameters</li>
+<li>Add Forced Basic Authentication</li>
+<li>Forced Basic is default authentication type</li>
+<li><code>python-requests.org</code> default User-Agent header</li>
+<li>CaseInsensitiveDict lower-case caching</li>
+<li>Response.history bugfix</li>
+</ul>
+</section>
+<section id="section-141" class="level2">
+<h2 class="anchored" data-anchor-id="section-141">0.5.0 (2011-06-21)</h2>
+<ul>
+<li>PATCH Support</li>
+<li>Support for Proxies</li>
+<li>HTTPBin Test Suite</li>
+<li>Redirect Fixes</li>
+<li>settings.verbose stream writing</li>
+<li>Querystrings for all methods</li>
+<li>URLErrors (Connection Refused, Timeout, Invalid URLs) are treated as explicitly raised <code>r.requests.get('hwe://blah'); r.raise_for_status()</code></li>
+</ul>
+</section>
+<section id="section-142" class="level2">
+<h2 class="anchored" data-anchor-id="section-142">0.4.1 (2011-05-22)</h2>
+<ul>
+<li>Improved Redirection Handling</li>
+<li>New ‘allow_redirects’ param for following non-GET/HEAD Redirects</li>
+<li>Settings module refactoring</li>
+</ul>
+</section>
+<section id="section-143" class="level2">
+<h2 class="anchored" data-anchor-id="section-143">0.4.0 (2011-05-15)</h2>
+<ul>
+<li>Response.history: list of redirected responses</li>
+<li>Case-Insensitive Header Dictionaries!</li>
+<li>Unicode URLs</li>
+</ul>
+</section>
+<section id="section-144" class="level2">
+<h2 class="anchored" data-anchor-id="section-144">0.3.4 (2011-05-14)</h2>
+<ul>
+<li>Urllib2 HTTPAuthentication Recursion fix (Basic/Digest)</li>
+<li>Internal Refactor</li>
+<li>Bytes data upload Bugfix</li>
+</ul>
+</section>
+<section id="section-145" class="level2">
+<h2 class="anchored" data-anchor-id="section-145">0.3.3 (2011-05-12)</h2>
+<ul>
+<li>Request timeouts</li>
+<li>Unicode url-encoded data</li>
+<li>Settings context manager and module</li>
+</ul>
+</section>
+<section id="section-146" class="level2">
+<h2 class="anchored" data-anchor-id="section-146">0.3.2 (2011-04-15)</h2>
+<ul>
+<li>Automatic Decompression of GZip Encoded Content</li>
+<li>AutoAuth Support for Tupled HTTP Auth</li>
+</ul>
+</section>
+<section id="section-147" class="level2">
+<h2 class="anchored" data-anchor-id="section-147">0.3.1 (2011-04-01)</h2>
+<ul>
+<li>Cookie Changes</li>
+<li>Response.read()</li>
+<li>Poster fix</li>
+</ul>
+</section>
+<section id="section-148" class="level2">
+<h2 class="anchored" data-anchor-id="section-148">0.3.0 (2011-02-25)</h2>
+<ul>
+<li>Automatic Authentication API Change</li>
+<li>Smarter Query URL Parameterization</li>
+<li>Allow file uploads and POST data together</li>
+<li><dl>
+<dt>New Authentication Manager System</dt>
+<dd>
+<ul>
+<li>Simpler Basic HTTP System</li>
+<li>Supports all built-in urllib2 Auths</li>
+<li>Allows for custom Auth Handlers</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</section>
+<section id="section-149" class="level2">
+<h2 class="anchored" data-anchor-id="section-149">0.2.4 (2011-02-19)</h2>
+<ul>
+<li>Python 2.5 Support</li>
+<li>PyPy-c v1.4 Support</li>
+<li>Auto-Authentication tests</li>
+<li>Improved Request object constructor</li>
+</ul>
+</section>
+<section id="section-150" class="level2">
+<h2 class="anchored" data-anchor-id="section-150">0.2.3 (2011-02-15)</h2>
+<ul>
+<li><dl>
+<dt>New HTTPHandling Methods</dt>
+<dd>
+<ul>
+<li>Response.__nonzero__ (false if bad HTTP Status)</li>
+<li>Response.ok (True if expected HTTP Status)</li>
+<li>Response.error (Logged HTTPError if bad HTTP Status)</li>
+<li>Response.raise_for_status() (Raises stored HTTPError)</li>
+</ul>
+</dd>
+</dl></li>
+</ul>
+</section>
+<section id="section-151" class="level2">
+<h2 class="anchored" data-anchor-id="section-151">0.2.2 (2011-02-14)</h2>
+<ul>
+<li>Still handles request in the event of an HTTPError. (Issue #2)</li>
+<li>Eventlet and Gevent Monkeypatch support.</li>
+<li>Cookie Support (Issue #1)</li>
+</ul>
+</section>
+<section id="section-152" class="level2">
+<h2 class="anchored" data-anchor-id="section-152">0.2.1 (2011-02-14)</h2>
+<ul>
+<li>Added file attribute to POST and PUT requests for multipart-encode file uploads.</li>
+<li>Added Request.url attribute for context and redirects</li>
+</ul>
+</section>
+<section id="section-153" class="level2">
+<h2 class="anchored" data-anchor-id="section-153">0.2.0 (2011-02-14)</h2>
+<ul>
+<li>Birth!</li>
+</ul>
+</section>
+<section id="section-154" class="level2">
+<h2 class="anchored" data-anchor-id="section-154">0.0.1 (2011-02-13)</h2>
+<ul>
+<li>Frustration</li>
+<li>Conception</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

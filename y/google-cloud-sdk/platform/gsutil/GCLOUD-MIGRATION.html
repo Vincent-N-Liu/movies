@@ -1,0 +1,2542 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>gcloud-migration – githubtest</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../../../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title">githubtest</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#gsutil-to-gcloud-storage-command-and-flag-mapping" id="toc-gsutil-to-gcloud-storage-command-and-flag-mapping" class="nav-link active" data-scroll-target="#gsutil-to-gcloud-storage-command-and-flag-mapping">Gsutil to Gcloud Storage Command and Flag Mapping</a>
+  <ul class="collapse">
+  <li><a href="#command-and-flag-mappings" id="toc-command-and-flag-mappings" class="nav-link" data-scroll-target="#command-and-flag-mappings">Command and Flag Mappings</a>
+  <ul class="collapse">
+  <li><a href="#ls-list-buckets-and-objects" id="toc-ls-list-buckets-and-objects" class="nav-link" data-scroll-target="#ls-list-buckets-and-objects">ls: List buckets and objects</a></li>
+  <li><a href="#cat-concatenate-object-content" id="toc-cat-concatenate-object-content" class="nav-link" data-scroll-target="#cat-concatenate-object-content">cat: Concatenate object content</a></li>
+  <li><a href="#du-display-object-size-usage" id="toc-du-display-object-size-usage" class="nav-link" data-scroll-target="#du-display-object-size-usage">du: Display object size usage</a></li>
+  <li><a href="#acl-get-set-or-change-acls" id="toc-acl-get-set-or-change-acls" class="nav-link" data-scroll-target="#acl-get-set-or-change-acls">acl: Get, set, or change ACLs</a></li>
+  <li><a href="#defacl-get-set-or-change-default-object-acls" id="toc-defacl-get-set-or-change-default-object-acls" class="nav-link" data-scroll-target="#defacl-get-set-or-change-default-object-acls">defacl: Get, set, or change default object ACLs</a></li>
+  <li><a href="#autoclass-configure-autoclass-feature" id="toc-autoclass-configure-autoclass-feature" class="nav-link" data-scroll-target="#autoclass-configure-autoclass-feature">autoclass: Configure Autoclass feature</a></li>
+  <li><a href="#defstorageclass-get-or-set-the-default-storage-class" id="toc-defstorageclass-get-or-set-the-default-storage-class" class="nav-link" data-scroll-target="#defstorageclass-get-or-set-the-default-storage-class">defstorageclass: Get or set the default storage class</a></li>
+  <li><a href="#compose-concatenate-objects" id="toc-compose-concatenate-objects" class="nav-link" data-scroll-target="#compose-concatenate-objects">compose: Concatenate objects</a></li>
+  <li><a href="#cors-get-or-set-a-buckets-cors-configuration" id="toc-cors-get-or-set-a-buckets-cors-configuration" class="nav-link" data-scroll-target="#cors-get-or-set-a-buckets-cors-configuration">cors: Get or set a bucket’s CORS configuration</a></li>
+  <li><a href="#hash-calculate-file-hashes" id="toc-hash-calculate-file-hashes" class="nav-link" data-scroll-target="#hash-calculate-file-hashes">hash: Calculate file hashes</a></li>
+  <li><a href="#hmac-crud-operations-on-service-account-hmac-keys" id="toc-hmac-crud-operations-on-service-account-hmac-keys" class="nav-link" data-scroll-target="#hmac-crud-operations-on-service-account-hmac-keys">hmac: CRUD operations on service account HMAC keys</a></li>
+  <li><a href="#iam-get-set-or-change-bucketobject-iam-permissions" id="toc-iam-get-set-or-change-bucketobject-iam-permissions" class="nav-link" data-scroll-target="#iam-get-set-or-change-bucketobject-iam-permissions">iam: Get, set, or change bucket/object IAM permissions</a></li>
+  <li><a href="#kms-configure-cloud-kms-encryption" id="toc-kms-configure-cloud-kms-encryption" class="nav-link" data-scroll-target="#kms-configure-cloud-kms-encryption">kms: Configure Cloud KMS encryption</a></li>
+  <li><a href="#label-get-set-or-change-bucket-labels" id="toc-label-get-set-or-change-bucket-labels" class="nav-link" data-scroll-target="#label-get-set-or-change-bucket-labels">label: Get, set, or change bucket labels</a></li>
+  <li><a href="#lifecycle-get-or-set-bucket-lifecycle-configuration" id="toc-lifecycle-get-or-set-bucket-lifecycle-configuration" class="nav-link" data-scroll-target="#lifecycle-get-or-set-bucket-lifecycle-configuration">lifecycle: Get or set bucket lifecycle configuration</a></li>
+  <li><a href="#logging-get-or-set-bucket-logging-configuration" id="toc-logging-get-or-set-bucket-logging-configuration" class="nav-link" data-scroll-target="#logging-get-or-set-bucket-logging-configuration">logging: Get or set bucket logging configuration</a></li>
+  <li><a href="#mb-make-buckets" id="toc-mb-make-buckets" class="nav-link" data-scroll-target="#mb-make-buckets">mb: Make buckets</a></li>
+  <li><a href="#cp-copy-files-and-objects" id="toc-cp-copy-files-and-objects" class="nav-link" data-scroll-target="#cp-copy-files-and-objects">cp: Copy files and objects</a></li>
+  <li><a href="#mv-move-or-rename-objects" id="toc-mv-move-or-rename-objects" class="nav-link" data-scroll-target="#mv-move-or-rename-objects">mv: Move or rename objects</a></li>
+  <li><a href="#notification-configure-object-change-notifications" id="toc-notification-configure-object-change-notifications" class="nav-link" data-scroll-target="#notification-configure-object-change-notifications">notification: Configure object change notifications</a></li>
+  <li><a href="#pap-get-or-set-public-access-prevention" id="toc-pap-get-or-set-public-access-prevention" class="nav-link" data-scroll-target="#pap-get-or-set-public-access-prevention">pap: Get or set Public Access Prevention</a></li>
+  <li><a href="#rb-remove-buckets" id="toc-rb-remove-buckets" class="nav-link" data-scroll-target="#rb-remove-buckets">rb: Remove buckets</a></li>
+  <li><a href="#requesterpays-configure-requester-pays" id="toc-requesterpays-configure-requester-pays" class="nav-link" data-scroll-target="#requesterpays-configure-requester-pays">requesterpays: Configure requester pays</a></li>
+  <li><a href="#retention-manage-retention-policies-and-holds" id="toc-retention-manage-retention-policies-and-holds" class="nav-link" data-scroll-target="#retention-manage-retention-policies-and-holds">retention: Manage retention policies and holds</a></li>
+  <li><a href="#rewrite-rewrite-objects-in-place" id="toc-rewrite-rewrite-objects-in-place" class="nav-link" data-scroll-target="#rewrite-rewrite-objects-in-place">rewrite: Rewrite objects in place</a></li>
+  <li><a href="#rm-remove-objects" id="toc-rm-remove-objects" class="nav-link" data-scroll-target="#rm-remove-objects">rm: Remove objects</a></li>
+  <li><a href="#rpo-get-or-set-a-buckets-replication-setting" id="toc-rpo-get-or-set-a-buckets-replication-setting" class="nav-link" data-scroll-target="#rpo-get-or-set-a-buckets-replication-setting">rpo: Get or set a bucket’s replication setting</a></li>
+  <li><a href="#rsync-synchronize-content" id="toc-rsync-synchronize-content" class="nav-link" data-scroll-target="#rsync-synchronize-content">rsync: Synchronize content</a></li>
+  <li><a href="#setmeta-set-metadata-on-objects" id="toc-setmeta-set-metadata-on-objects" class="nav-link" data-scroll-target="#setmeta-set-metadata-on-objects">setmeta: Set metadata on objects</a></li>
+  <li><a href="#signurl-create-a-signed-url" id="toc-signurl-create-a-signed-url" class="nav-link" data-scroll-target="#signurl-create-a-signed-url">signurl: Create a signed URL</a></li>
+  <li><a href="#stat-display-object-status" id="toc-stat-display-object-status" class="nav-link" data-scroll-target="#stat-display-object-status">stat: Display object status</a></li>
+  <li><a href="#ubla-configure-uniform-bucket-level-access" id="toc-ubla-configure-uniform-bucket-level-access" class="nav-link" data-scroll-target="#ubla-configure-uniform-bucket-level-access">ubla: Configure Uniform bucket-level access</a></li>
+  <li><a href="#versioning-enable-or-suspend-versioning" id="toc-versioning-enable-or-suspend-versioning" class="nav-link" data-scroll-target="#versioning-enable-or-suspend-versioning">versioning: Enable or suspend versioning</a></li>
+  <li><a href="#web-set-a-website-configuration-for-a-bucket" id="toc-web-set-a-website-configuration-for-a-bucket" class="nav-link" data-scroll-target="#web-set-a-website-configuration-for-a-bucket">web: Set a website configuration for a bucket</a></li>
+  <li><a href="#other-commands" id="toc-other-commands" class="nav-link" data-scroll-target="#other-commands">Other Commands</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="gsutil-to-gcloud-storage-command-and-flag-mapping" class="level1">
+<h1>Gsutil to Gcloud Storage Command and Flag Mapping</h1>
+<p>This document provides a detailed mapping of <code>gsutil</code> commands and flags to their <code>gcloud storage</code> equivalents, including caveats and key differences. This guide is intended to supplement the main <a href="https://cloud.google.com/storage/docs/gsutil-transition-to-gcloud">Transitioning from gsutil to gcloud storage</a> document.<br>
+You can also reference to the complete <code>gcloud storage</code> documents <a href="https://cloud.google.com/sdk/gcloud/reference/storage">here</a>.</p>
+<section id="command-and-flag-mappings" class="level2">
+<h2 class="anchored" data-anchor-id="command-and-flag-mappings">Command and Flag Mappings</h2>
+<section id="ls-list-buckets-and-objects" class="level3">
+<h3 class="anchored" data-anchor-id="ls-list-buckets-and-objects">ls: List buckets and objects</h3>
+<p>The <code>gsutil ls</code> command lists buckets, objects, and prefixes. The equivalent command is <code>gcloud storage ls</code>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-l</td>
+<td>-l, –long</td>
+<td>Long listing format.</td>
+</tr>
+<tr class="even">
+<td>-L</td>
+<td>-L, –full</td>
+<td>Full listing format.</td>
+</tr>
+<tr class="odd">
+<td>-a</td>
+<td>-a, –all-versions</td>
+<td>Includes non-current object versions.</td>
+</tr>
+<tr class="even">
+<td>-b</td>
+<td>-b, –buckets</td>
+<td>Lists only buckets.</td>
+</tr>
+<tr class="odd">
+<td>-r, -R</td>
+<td>-r, –recursive</td>
+<td>Recursive listing.</td>
+</tr>
+<tr class="even">
+<td>-e</td>
+<td>-e, –etag</td>
+<td>Includes ETag in long listing (-l) output</td>
+</tr>
+<tr class="odd">
+<td>-h</td>
+<td>–readable-sizes</td>
+<td>Displays object sizes in human-readable format. Renamed from -h to avoid conflict with global –help.</td>
+</tr>
+<tr class="even">
+<td>-d</td>
+<td>Not supported</td>
+<td>Option to list only directories has no direct translation and does not work as documented in gsutil.</td>
+</tr>
+</tbody>
+</table>
+<section id="caveats-and-key-differences" class="level4">
+<h4 class="anchored" data-anchor-id="caveats-and-key-differences">Caveats and Key Differences</h4>
+<ul>
+<li><strong>Bucket Listing with Wildcards</strong>: When using a wildcard for buckets, <code>gcloud storage ls</code> groups results by bucket name; <code>gsutil</code> provides a flat list of objects.</li>
+<li><strong>-L (Full Listing) Output</strong>: <code>gcloud storage</code> uses title case for keys and omits fields with “None” values. <code>gsutil</code> simply capitalizes the first word (depending on the term).</li>
+<li><strong>Order of objects</strong>: The order of objects returned may differ between tools.</li>
+<li><strong>Time Format</strong>: <code>gcloud storage</code> always converts timestamps to UTC. <code>gsutil</code> may not be strict about the timezone.</li>
+<li><strong>Error Messages</strong>: <code>gcloud storage</code> displays error messages at the end of the output.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="cat-concatenate-object-content" class="level3">
+<h3 class="anchored" data-anchor-id="cat-concatenate-object-content">cat: Concatenate object content</h3>
+<p>Outputs the contents of objects to stdout. Equivalent to <code>gcloud storage cat</code>.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-h</td>
+<td>-d, –display-url</td>
+<td>Prints a short header for each object.</td>
+</tr>
+<tr class="even">
+<td>-r</td>
+<td>–range</td>
+<td>Specifies a byte range to retrieve.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="du-display-object-size-usage" class="level3">
+<h3 class="anchored" data-anchor-id="du-display-object-size-usage">du: Display object size usage</h3>
+<p>Displays space in bytes used by objects. Equivalent to <code>gcloud storage du</code>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-0</td>
+<td>–zero-terminator, -0</td>
+<td>Ends each output line with a 0 byte.</td>
+</tr>
+<tr class="even">
+<td>-a</td>
+<td>–all-versions, -a</td>
+<td>Includes live and noncurrent object versions.</td>
+</tr>
+<tr class="odd">
+<td>-c</td>
+<td>–total, -c</td>
+<td>Includes a total size at the end.</td>
+</tr>
+<tr class="even">
+<td>-e</td>
+<td>–exclude-name-pattern, -e</td>
+<td>Excludes a pattern. Can be specified multiple times.</td>
+</tr>
+<tr class="odd">
+<td>-h</td>
+<td>–readable-sizes, -r</td>
+<td>Prints sizes in human-readable format (e.g., 1 KiB, 234 MiB).</td>
+</tr>
+<tr class="even">
+<td>-s</td>
+<td>–summarize, -s</td>
+<td>Displays only the total size for each URL argument.</td>
+</tr>
+<tr class="odd">
+<td>-X</td>
+<td>–exclude-name-pattern-file, -X</td>
+<td>Excludes patterns from a file.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="acl-get-set-or-change-acls" class="level3">
+<h3 class="anchored" data-anchor-id="acl-get-set-or-change-acls">acl: Get, set, or change ACLs</h3>
+<p>Replaced by <code>gcloud storage {buckets|objects} describe</code> and <code>gcloud storage {buckets|objects} update</code>.</p>
+<p><strong><code>gsutil acl get</code> -&gt; <code>gcloud storage &lt;RESOURCE&gt; describe</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Command</th>
+<th>gcloud storage Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>get</td>
+<td>describe –format=“multi(acl:format=json)”</td>
+<td>Specify <code>buckets</code> or <code>objects</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil acl set</code> -&gt; <code>gcloud storage &lt;RESOURCE&gt; update</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Applies To</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>&lt;file-path&gt;</code></td>
+<td>–acl-file=<acl_file_path></acl_file_path></td>
+<td>Buckets/Objects</td>
+<td>Specifies a file containing ACL data.</td>
+</tr>
+<tr class="even">
+<td><code>&lt;predefined&gt;</code></td>
+<td>–predefined-acl=<predefined_acl></predefined_acl></td>
+<td>Buckets/Objects</td>
+<td>Specifies a predefined (canned) ACL.</td>
+</tr>
+<tr class="odd">
+<td>-a</td>
+<td>–all-versions, -a</td>
+<td>Objects Only</td>
+<td>Apply to all object versions.</td>
+</tr>
+<tr class="even">
+<td>-r, -R</td>
+<td>–recursive, -r</td>
+<td>Objects Only</td>
+<td>Recursively apply.</td>
+</tr>
+<tr class="odd">
+<td>-f</td>
+<td>–continue-on-error</td>
+<td>Buckets/Objects</td>
+<td>Continue on error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil acl ch</code> -&gt; <code>gcloud storage &lt;RESOURCE&gt; update</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Applies To</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-u</td>
+<td>–add-acl-grant=GRANT</td>
+<td>Buckets/Objects</td>
+<td>Adds grant for a user. Format: ENTITY:ROLE</td>
+</tr>
+<tr class="even">
+<td>-g</td>
+<td>–add-acl-grant=GRANT</td>
+<td>Buckets/Objects</td>
+<td>Adds grant for a group. Format: ENTITY:ROLE</td>
+</tr>
+<tr class="odd">
+<td>-p</td>
+<td>–add-acl-grant=GRANT</td>
+<td>Buckets/Objects</td>
+<td>Adds grant for a project role. Format: ENTITY:ROLE</td>
+</tr>
+<tr class="even">
+<td>-d</td>
+<td>–remove-acl-grant=<entity></entity></td>
+<td>Buckets/Objects</td>
+<td>Removes all roles for the entity.</td>
+</tr>
+<tr class="odd">
+<td>-a</td>
+<td>–all-versions, -a</td>
+<td>Objects Only</td>
+<td>Apply to all object versions.</td>
+</tr>
+<tr class="even">
+<td>-r, -R</td>
+<td>–recursive, -r</td>
+<td>Objects Only</td>
+<td>Recursively apply.</td>
+</tr>
+<tr class="odd">
+<td>-f</td>
+<td>–continue-on-error</td>
+<td>Buckets/Objects</td>
+<td>Continue on error.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="defacl-get-set-or-change-default-object-acls" class="level3">
+<h3 class="anchored" data-anchor-id="defacl-get-set-or-change-default-object-acls">defacl: Get, set, or change default object ACLs</h3>
+<p>Replaced by <code>gcloud storage buckets describe</code> and <code>gcloud storage buckets update</code>.</p>
+<p><strong><code>gsutil defacl get</code> -&gt; <code>gcloud storage buckets describe</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Command</th>
+<th>gcloud storage Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>get</td>
+<td>describe –format=“default(defaultObjectAcl)”</td>
+<td>Displays the default object ACL.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil defacl set</code> -&gt; <code>gcloud storage buckets update</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Argument</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>&lt;file-path&gt;</code></td>
+<td>–default-object-acl-file=<acl_file></acl_file></td>
+<td>Specifies a file with the default object ACL.</td>
+</tr>
+<tr class="even">
+<td><code>&lt;predefined-acl&gt;</code></td>
+<td>–predefined-default-object-acl=<acl></acl></td>
+<td>Specifies a predefined default object ACL.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil defacl ch</code> -&gt; <code>gcloud storage buckets update</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-u</td>
+<td>–add-default-object-acl-grant=GRANT</td>
+<td>Adds grant for a user. Format: ENTITY:ROLE.</td>
+</tr>
+<tr class="even">
+<td>-g</td>
+<td>–add-default-object-acl-grant=GRANT</td>
+<td>Adds grant for a group. Format: ENTITY:ROLE.</td>
+</tr>
+<tr class="odd">
+<td>-p</td>
+<td>–add-default-object-acl-grant=GRANT</td>
+<td>Adds grant for a project role.</td>
+</tr>
+<tr class="even">
+<td>-d</td>
+<td>–remove-default-object-acl-grant=<entity></entity></td>
+<td>Removes all grants for the entity.</td>
+</tr>
+<tr class="odd">
+<td>-f</td>
+<td>–continue-on-error</td>
+<td>Continues on error.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="autoclass-configure-autoclass-feature" class="level3">
+<h3 class="anchored" data-anchor-id="autoclass-configure-autoclass-feature">autoclass: Configure Autoclass feature</h3>
+<p>Replaced by <code>gcloud storage buckets describe</code> and <code>gcloud storage buckets update</code>.</p>
+<p><strong><code>gsutil autoclass get</code> -&gt; <code>gcloud storage buckets describe</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Command</th>
+<th>gcloud storage Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>get</td>
+<td>describe –format=“default(autoclass)”</td>
+<td>Displays Autoclass config.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil autoclass set</code> -&gt; <code>gcloud storage buckets update</code></strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>set on</td>
+<td>–enable-autoclass</td>
+<td>Enables Autoclass.</td>
+</tr>
+<tr class="even">
+<td>set off</td>
+<td>–no-enable-autoclass</td>
+<td>Disables Autoclass.</td>
+</tr>
+</tbody>
+</table>
+<section id="caveats-and-key-differences-1" class="level4">
+<h4 class="anchored" data-anchor-id="caveats-and-key-differences-1">Caveats and Key Differences</h4>
+<ul>
+<li><code>gcloud storage buckets update</code> only accepts one bucket URL at a time.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="defstorageclass-get-or-set-the-default-storage-class" class="level3">
+<h3 class="anchored" data-anchor-id="defstorageclass-get-or-set-the-default-storage-class">defstorageclass: Get or set the default storage class</h3>
+<p>Replaced by <code>gcloud storage buckets describe</code> and <code>gcloud storage buckets update</code>.</p>
+<p><strong><code>gsutil defstorageclass get</code> -&gt; <code>gcloud storage buckets describe</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Command</th>
+<th>gcloud storage Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>get</td>
+<td>describe –format=“value(storageClass)”</td>
+<td>Displays the default storage class.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil defstorageclass set</code> -&gt; <code>gcloud storage buckets update</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Command</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>set</td>
+<td>–default-storage-class=<storage_class></storage_class></td>
+<td>Sets the default storage class.</td>
+</tr>
+</tbody>
+</table>
+<section id="caveats-and-key-differences-2" class="level4">
+<h4 class="anchored" data-anchor-id="caveats-and-key-differences-2">Caveats and Key Differences</h4>
+<ul>
+<li><strong>Storage Class Abbreviations</strong>: <code>gsutil</code> allows abbreviations (e.g., <code>N</code> for <code>NEARLINE</code>). <code>gcloud storage</code> requires full names.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="compose-concatenate-objects" class="level3">
+<h3 class="anchored" data-anchor-id="compose-concatenate-objects">compose: Concatenate objects</h3>
+<p>Equivalent to <code>gcloud storage objects compose</code>.</p>
+<section id="caveats-and-key-differences-3" class="level4">
+<h4 class="anchored" data-anchor-id="caveats-and-key-differences-3">Caveats and Key Differences</h4>
+<ul>
+<li><strong>Preconditions</strong>: In <code>gcloud storage</code>, preconditions are set using specific flags like <code>--if-generation-match</code>.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="cors-get-or-set-a-buckets-cors-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="cors-get-or-set-a-buckets-cors-configuration">cors: Get or set a bucket’s CORS configuration</h3>
+<p>Replaced by <code>gcloud storage buckets describe</code> and <code>gcloud storage buckets update</code>.</p>
+<p><strong><code>gsutil cors get</code> -&gt; <code>gcloud storage buckets describe</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Command</th>
+<th>gcloud storage Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>get</td>
+<td>describe –format=“default(cors)”</td>
+<td>Displays CORS config in YAML.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil cors set</code> -&gt; <code>gcloud storage buckets update</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Command</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>set</td>
+<td>–cors-file=<cors_file></cors_file></td>
+<td>Specifies a local JSON or YAML file for CORS config. Accepts one bucket URL.</td>
+</tr>
+<tr class="even">
+<td>set []</td>
+<td>–clear-cors</td>
+<td>Clears CORS settings.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="hash-calculate-file-hashes" class="level3">
+<h3 class="anchored" data-anchor-id="hash-calculate-file-hashes">hash: Calculate file hashes</h3>
+<p>Equivalent to <code>gcloud storage hash</code>. <code>gcloud</code> command uses additive flags instead of subtractive flags in <code>gsutil</code>.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-c</td>
+<td>–skip-md5</td>
+<td>gsutil: “calculate CRC32c”. gcloud: “skip MD5”.</td>
+</tr>
+<tr class="even">
+<td>-m</td>
+<td>–skip-crc32c</td>
+<td>gsutil: “calculate MD5”. gcloud: “skip CRC32c”.</td>
+</tr>
+<tr class="odd">
+<td>-h</td>
+<td>–hex</td>
+<td>Outputs hashes in hex. Default is base64.</td>
+</tr>
+<tr class="even">
+<td>Default</td>
+<td>Default</td>
+<td>Calculates both CRC32c and MD5.</td>
+</tr>
+</tbody>
+</table>
+<section id="caveats-and-key-differences-4" class="level4">
+<h4 class="anchored" data-anchor-id="caveats-and-key-differences-4">Caveats and Key Differences</h4>
+<ul>
+<li><strong>Hash Selection</strong>: <code>gsutil</code> uses additive flags (-c, -m). <code>gcloud storage</code> uses subtractive flags (–skip-md5, –skip-crc32c).</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="hmac-crud-operations-on-service-account-hmac-keys" class="level3">
+<h3 class="anchored" data-anchor-id="hmac-crud-operations-on-service-account-hmac-keys">hmac: CRUD operations on service account HMAC keys</h3>
+<p>Mirrored in <code>gcloud storage hmac</code>.</p>
+<p><strong><code>gsutil hmac create</code> -&gt; <code>gcloud storage hmac create</code></strong> <strong><code>gsutil hmac delete</code> -&gt; <code>gcloud storage hmac delete</code></strong> <strong><code>gsutil hmac get</code> -&gt; <code>gcloud storage hmac describe</code></strong></p>
+<p><strong><code>gsutil hmac list</code> -&gt; <code>gcloud storage hmac list</code></strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-a</td>
+<td>–all, -a</td>
+<td>Show all keys, including recently deleted.</td>
+</tr>
+<tr class="even">
+<td>-l</td>
+<td>–long, -l</td>
+<td>Long listing format.</td>
+</tr>
+<tr class="odd">
+<td>-u</td>
+<td>–service-account, -u</td>
+<td>Filter by service account.</td>
+</tr>
+<tr class="even">
+<td>-p</td>
+<td>–project</td>
+<td>Project ID or number.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil hmac update</code> -&gt; <code>gcloud storage hmac update</code></strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-s ACTIVE</td>
+<td>–activate</td>
+<td>Sets key state to ACTIVE.</td>
+</tr>
+<tr class="even">
+<td>-s INACTIVE</td>
+<td>–deactivate</td>
+<td>Sets key state to INACTIVE.</td>
+</tr>
+<tr class="odd">
+<td>-e</td>
+<td>–etag</td>
+<td>Conditional update based on ETag.</td>
+</tr>
+<tr class="even">
+<td>-p</td>
+<td>–project</td>
+<td>Project ID or number.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="iam-get-set-or-change-bucketobject-iam-permissions" class="level3">
+<h3 class="anchored" data-anchor-id="iam-get-set-or-change-bucketobject-iam-permissions">iam: Get, set, or change bucket/object IAM permissions</h3>
+<p>For buckets, functionality is in <code>gcloud storage buckets get-iam-policy</code>, <code>set-iam-policy</code>, <code>add-iam-policy-binding</code>, and <code>remove-iam-policy-binding</code>. Object-level IAM is generally discouraged in favor of bucket-level policies with conditions.</p>
+<p><strong><code>gsutil iam get</code> -&gt; <code>gcloud storage buckets get-iam-policy</code></strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>gsutil Command</th>
+<th>gcloud storage Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>get</td>
+<td>get-iam-policy –format=json</td>
+<td>Matches gsutil JSON output.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil iam set</code> -&gt; <code>gcloud storage buckets set-iam-policy</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-e <etag></etag></td>
+<td>–etag=<etag>, -e</etag></td>
+<td>Conditional set.</td>
+</tr>
+<tr class="even">
+<td>-f</td>
+<td>–continue-on-error, -c</td>
+<td>Continue on error.</td>
+</tr>
+<tr class="odd">
+<td>file</td>
+<td>POLICY_FILE</td>
+<td>Policy file positional argument. Order is reversed: URL first, then file in gcloud.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil iam ch</code> -&gt; <code>gcloud storage buckets add-iam-policy-binding / remove-iam-policy-binding</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Equivalent</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>binding</td>
+<td>–member=<member> –role=<role> on add-iam-policy-binding</role></member></td>
+<td>Grants role to member. Binding format needs parsing.</td>
+</tr>
+<tr class="even">
+<td>-d binding</td>
+<td>–member=<member> –role=<role> on remove-iam-policy-binding</role></member></td>
+<td>Removes role from member.</td>
+</tr>
+<tr class="odd">
+<td>-d entity</td>
+<td>–member=<member> on remove-iam-policy-binding</member></td>
+<td>Removes all roles for the member.</td>
+</tr>
+</tbody>
+</table>
+<section id="caveats-and-key-differences-5" class="level4">
+<h4 class="anchored" data-anchor-id="caveats-and-key-differences-5">Caveats and Key Differences</h4>
+<ul>
+<li><strong><code>iam ch</code> Complexity</strong>: Migrating <code>gsutil iam ch</code> scripts requires replacing with potentially multiple <code>gcloud storage buckets add/remove-iam-policy-binding</code> calls or replicating the read-modify-write loop in your script.</li>
+<li><strong>Conditions</strong>: <code>gsutil iam ch</code> does not support IAM policies with conditions; <code>gcloud storage</code> does.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="kms-configure-cloud-kms-encryption" class="level3">
+<h3 class="anchored" data-anchor-id="kms-configure-cloud-kms-encryption">kms: Configure Cloud KMS encryption</h3>
+<p>Split between <code>gcloud storage service-agent</code> and <code>gcloud storage buckets update / describe</code>.</p>
+<p><strong><code>gsutil kms authorize</code> -&gt; <code>gcloud storage service-agent</code></strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-p</td>
+<td>–project</td>
+<td>Project ID.</td>
+</tr>
+<tr class="even">
+<td>-k</td>
+<td>–authorize-cmek=<kms_key></kms_key></td>
+<td>KMS key to authorize.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil kms encryption</code> -&gt; <code>gcloud storage buckets describe / update</code></strong></p>
+<ul>
+<li><strong>Get</strong>: <code>describe --format="value(encryption.defaultKmsKeyName)"</code></li>
+<li><strong>Set</strong>: <code>update --default-encryption-key=&lt;KMS_KEY&gt;</code></li>
+<li><strong>Clear</strong>: <code>update --clear-default-encryption-key</code></li>
+</ul>
+<p><strong><code>gsutil kms serviceaccount</code> -&gt; <code>gcloud storage service-agent</code></strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-p</td>
+<td>–project</td>
+<td>Project ID.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="label-get-set-or-change-bucket-labels" class="level3">
+<h3 class="anchored" data-anchor-id="label-get-set-or-change-bucket-labels">label: Get, set, or change bucket labels</h3>
+<p>Replaced by <code>gcloud storage buckets describe</code> and <code>gcloud storage buckets update</code>.</p>
+<p><strong><code>gsutil label get</code> -&gt; <code>gcloud storage buckets describe</code></strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>gsutil Command</th>
+<th>gcloud storage Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>get</td>
+<td>describe –format=“gsutiljson(labels)”</td>
+<td>Displays labels.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil label set</code> -&gt; <code>gcloud storage buckets update</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Argument</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>&lt;label-json-file&gt;</code></td>
+<td>–labels-file=<label_file_path></label_file_path></td>
+<td>Specifies a JSON file with labels.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil label ch</code> -&gt; <code>gcloud storage buckets update</code></strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-l</td>
+<td>–update-labels=KEY=VALUE,…</td>
+<td>Adds or updates labels.</td>
+</tr>
+<tr class="even">
+<td>-d</td>
+<td>–remove-labels=KEY,…</td>
+<td>Removes labels by key.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="lifecycle-get-or-set-bucket-lifecycle-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="lifecycle-get-or-set-bucket-lifecycle-configuration">lifecycle: Get or set bucket lifecycle configuration</h3>
+<p>Replaced by <code>gcloud storage buckets describe</code> and <code>gcloud storage buckets update</code>.</p>
+<p><strong><code>gsutil lifecycle get</code> -&gt; <code>gcloud storage buckets describe</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Command</th>
+<th>gcloud storage Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>get</td>
+<td>describe –format=“gsutiljson(lifecycle)”</td>
+<td>Displays lifecycle config.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil lifecycle set</code> -&gt; <code>gcloud storage buckets update</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Argument</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>&lt;config-json-file&gt;</code></td>
+<td>–lifecycle-file=<lifecycle_file></lifecycle_file></td>
+<td>Specifies a local JSON file with lifecycle config.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="logging-get-or-set-bucket-logging-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="logging-get-or-set-bucket-logging-configuration">logging: Get or set bucket logging configuration</h3>
+<p>Replaced by <code>gcloud storage buckets describe</code> and <code>gcloud storage buckets update</code>.</p>
+<p><strong><code>gsutil logging get</code> -&gt; <code>gcloud storage buckets describe</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Command</th>
+<th>gcloud storage Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>get</td>
+<td>describe –format=“default(logging)”</td>
+<td>Displays logging config.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil logging set on</code> -&gt; <code>gcloud storage buckets update</code></strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-b</td>
+<td>–log-bucket</td>
+<td>Specifies the log bucket.</td>
+</tr>
+<tr class="even">
+<td>-o</td>
+<td>–log-object-prefix</td>
+<td>Specifies the log object prefix.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil logging set off</code> -&gt; <code>gcloud storage buckets update</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Command</th>
+<th>gcloud storage Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>set off</td>
+<td>–clear-log-bucket and –clear-log-object-prefix</td>
+<td>Clears logging config.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="mb-make-buckets" class="level3">
+<h3 class="anchored" data-anchor-id="mb-make-buckets">mb: Make buckets</h3>
+<p>Equivalent to <code>gcloud storage buckets create</code>. Aliases like <code>makebucket</code>, <code>createbucket</code>, <code>md</code>, <code>mkdir</code> are not supported in <code>gcloud storage</code>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-p</td>
+<td>–project</td>
+<td>Project ID.</td>
+</tr>
+<tr class="even">
+<td>-c, -s</td>
+<td>–default-storage-class, -c, -s</td>
+<td>Default storage class.</td>
+</tr>
+<tr class="odd">
+<td>-l</td>
+<td>–location, -l</td>
+<td>Bucket location.</td>
+</tr>
+<tr class="even">
+<td>-b on</td>
+<td>–uniform-bucket-level-access, -b</td>
+<td>Enable UBLA.</td>
+</tr>
+<tr class="odd">
+<td>–autoclass</td>
+<td>–enable-autoclass</td>
+<td>Enable Autoclass.</td>
+</tr>
+<tr class="even">
+<td>–retention</td>
+<td>–retention-period</td>
+<td>Retention period.</td>
+</tr>
+<tr class="odd">
+<td>–pap enforced</td>
+<td>–public-access-prevention</td>
+<td>Enforce public access prevention.</td>
+</tr>
+<tr class="even">
+<td>-k</td>
+<td>–default-encryption-key, -k</td>
+<td>Default KMS key.</td>
+</tr>
+<tr class="odd">
+<td>–placement</td>
+<td>–placement</td>
+<td>Regions for custom dual-region.</td>
+</tr>
+<tr class="even">
+<td>–rpo</td>
+<td>–recovery-point-objective, –rpo</td>
+<td>Replication setting for dual/multi-region.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="cp-copy-files-and-objects" class="level3">
+<h3 class="anchored" data-anchor-id="cp-copy-files-and-objects">cp: Copy files and objects</h3>
+<p>Equivalent to <code>gcloud storage cp</code>. Alias <code>copy</code> is not supported.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-a</td>
+<td>–predefined-acl=<predefined_acl>, -a</predefined_acl></td>
+<td>Predefined ACL for uploaded objects.</td>
+</tr>
+<tr class="even">
+<td>-A</td>
+<td>–all-versions, -A</td>
+<td>Copies all source versions. Disables parallelism in gcloud.</td>
+</tr>
+<tr class="odd">
+<td>-c</td>
+<td>–continue-on-error, -c</td>
+<td>Continue on error.</td>
+</tr>
+<tr class="even">
+<td>-D</td>
+<td>–daisy-chain, -D</td>
+<td>Copy between buckets via local machine.</td>
+</tr>
+<tr class="odd">
+<td>-e</td>
+<td>–ignore-symlinks</td>
+<td>Excludes symbolic links.</td>
+</tr>
+<tr class="even">
+<td>-I</td>
+<td>–read-paths-from-stdin, -I</td>
+<td>Read paths from stdin.</td>
+</tr>
+<tr class="odd">
+<td>-j &lt;ext,…&gt;</td>
+<td>–gzip-in-flight=“&lt;ext,…&gt;”, -j</td>
+<td>Gzip transport encoding for matching extensions.</td>
+</tr>
+<tr class="even">
+<td>-J</td>
+<td>–gzip-in-flight-all, -J</td>
+<td>Gzip transport encoding for all uploads.</td>
+</tr>
+<tr class="odd">
+<td>-L <file></file></td>
+<td>–manifest-path=<file>, -L</file></td>
+<td>Output manifest log file.</td>
+</tr>
+<tr class="even">
+<td>-n</td>
+<td>–no-clobber, -n</td>
+<td>Don’t replace existing files.</td>
+</tr>
+<tr class="odd">
+<td>-p</td>
+<td>–preserve-acl, -p</td>
+<td>Preserve ACLs when copying in the cloud.</td>
+</tr>
+<tr class="even">
+<td>-P</td>
+<td>–preserve-posix, -P</td>
+<td>Preserve POSIX attributes.</td>
+</tr>
+<tr class="odd">
+<td>-r, -R</td>
+<td>–recursive, -r, -R</td>
+<td>Recursive copy.</td>
+</tr>
+<tr class="even">
+<td>-s <class></class></td>
+<td>–storage-class=<class>, -s</class></td>
+<td>Storage class of destination.</td>
+</tr>
+<tr class="odd">
+<td>-U</td>
+<td>–skip-unsupported, -U</td>
+<td>Skip unsupported types (e.g., S3 Glacier).</td>
+</tr>
+<tr class="even">
+<td>-v</td>
+<td>–print-created-message, -v</td>
+<td>Print version-specific URL for uploads.</td>
+</tr>
+<tr class="odd">
+<td>-z &lt;ext,…&gt;</td>
+<td>–gzip-local=“&lt;ext,…&gt;”, -z</td>
+<td>Compress local files with matching extensions before upload.</td>
+</tr>
+<tr class="even">
+<td>-Z</td>
+<td>–gzip-local-all, -Z</td>
+<td>Compress all local files before upload.</td>
+</tr>
+<tr class="odd">
+<td>–stet</td>
+<td>(Not supported)</td>
+<td>Split-trust encryption tool flag.</td>
+</tr>
+</tbody>
+</table>
+<section id="caveats-and-key-differences-6" class="level4">
+<h4 class="anchored" data-anchor-id="caveats-and-key-differences-6">Caveats and Key Differences</h4>
+<ul>
+<li><strong>Parallelism</strong>: <code>gcloud storage cp</code> is parallel by default. <code>gsutil</code> requires top-level <code>-m</code> flag.</li>
+<li><strong>Empty Directories</strong>: <code>gcloud storage cp</code> copies 0-byte placeholder objects created by Cloud Console, <code>gsutil cp</code> skips them.</li>
+<li><strong>Error Handling</strong>: <code>gcloud storage cp</code> attempts to copy all valid sources even if some are invalid. <code>gsutil cp</code> may halt on the first invalid source.</li>
+<li><strong>Local Directory Creation</strong>: <code>gcloud storage cp</code> creates missing local directories in the destination path during downloads. <code>gsutil cp</code> fails if the directory doesn’t exist.</li>
+<li><strong>Support for Local Copy</strong>: Gcloud Storage is meant as a tool to work with GCS (cloud). So it does not support local copying (where both source and destination are local files/folders). Trying to use the tool this way will cause an error.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="mv-move-or-rename-objects" class="level3">
+<h3 class="anchored" data-anchor-id="mv-move-or-rename-objects">mv: Move or rename objects</h3>
+<p>Equivalent to <code>gcloud storage mv</code>. Aliases <code>move</code>, <code>ren</code>, <code>rename</code> are not supported. Most <code>gsutil cp</code> flags are available, except not applicable ones like <code>-r</code>.</p>
+<section id="caveats-and-key-differences-7" class="level4">
+<h4 class="anchored" data-anchor-id="caveats-and-key-differences-7">Caveats and Key Differences</h4>
+<ul>
+<li><strong>Non-Atomic</strong>: Like <code>gsutil mv</code>, <code>gcloud storage mv</code> is a copy followed by a delete.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="notification-configure-object-change-notifications" class="level3">
+<h3 class="anchored" data-anchor-id="notification-configure-object-change-notifications">notification: Configure object change notifications</h3>
+<p>Pub/Sub notifications are managed via <code>gcloud storage buckets notifications</code>. Legacy Object Change Notifications (<code>watchbucket</code>, <code>stopchannel</code>) are not supported in <code>gcloud storage</code>.</p>
+<p><strong><code>gsutil notification create</code> -&gt; <code>gcloud storage buckets notifications create</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-f</td>
+<td>–payload-format=<payload_format>, -f</payload_format></td>
+<td>Payload format (json or none).</td>
+</tr>
+<tr class="even">
+<td>-p</td>
+<td>–object-prefix=<object_prefix>, -p</object_prefix></td>
+<td>Filter by object prefix.</td>
+</tr>
+<tr class="odd">
+<td>-t</td>
+<td>–topic=<topic>, -t</topic></td>
+<td>Cloud Pub/Sub topic.</td>
+</tr>
+<tr class="even">
+<td>-m</td>
+<td>–custom-attributes=KEY=VALUE,…, -m</td>
+<td>Custom key:value attributes.</td>
+</tr>
+<tr class="odd">
+<td>-e</td>
+<td>–event-types=<event_type>,…, -e</event_type></td>
+<td>Filter by event type (e.g., OBJECT_FINALIZE).</td>
+</tr>
+<tr class="even">
+<td>-s</td>
+<td>–skip-topic-setup, -s</td>
+<td>Skip topic creation/permission setup.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil notification list</code> -&gt; <code>gcloud storage buckets notifications list</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-o</td>
+<td>(Not supported)</td>
+<td>Listing legacy Object Change Notification channels not supported.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil notification delete</code> -&gt; <code>gcloud storage buckets notifications delete</code></strong></p>
+<p>Deletes a specific notification by name or all notifications on a bucket.</p>
+<hr>
+</section>
+<section id="pap-get-or-set-public-access-prevention" class="level3">
+<h3 class="anchored" data-anchor-id="pap-get-or-set-public-access-prevention">pap: Get or set Public Access Prevention</h3>
+<p>Replaced by <code>gcloud storage buckets describe</code> and <code>gcloud storage buckets update</code>.</p>
+<p><strong><code>gsutil pap get</code> -&gt; <code>gcloud storage buckets describe</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Command</th>
+<th>gcloud storage Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>get</td>
+<td>describe –format=“default(iamConfiguration.publicAccessPrevention)”</td>
+<td>Displays PAP config.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil pap set</code> -&gt; <code>gcloud storage buckets update</code></strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>gsutil Argument</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>enforced</td>
+<td>–public-access-prevention</td>
+<td>Enforces PAP.</td>
+</tr>
+<tr class="even">
+<td>inherited</td>
+<td>–no-public-access-prevention</td>
+<td>Sets PAP to inherited.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="rb-remove-buckets" class="level3">
+<h3 class="anchored" data-anchor-id="rb-remove-buckets">rb: Remove buckets</h3>
+<p>Equivalent to <code>gcloud storage buckets delete</code>. Aliases <code>deletebucket</code>, <code>removebucket</code>, etc., are not supported.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-f</td>
+<td>–continue-on-error</td>
+<td>Continues despite errors.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="requesterpays-configure-requester-pays" class="level3">
+<h3 class="anchored" data-anchor-id="requesterpays-configure-requester-pays">requesterpays: Configure requester pays</h3>
+<p>Replaced by <code>gcloud storage buckets describe</code> and <code>gcloud storage buckets update</code>.</p>
+<p><strong><code>gsutil requesterpays set</code> -&gt; <code>gcloud storage buckets update</code></strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>on</td>
+<td>–requester-pays</td>
+<td>Enables Requester Pays.</td>
+</tr>
+<tr class="even">
+<td>off</td>
+<td>–no-requester-pays</td>
+<td>Disables Requester Pays.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil requesterpays get</code> -&gt; <code>gcloud storage buckets describe</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Command</th>
+<th>gcloud storage Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>get</td>
+<td>describe –format=“default(requesterPays)”</td>
+<td>Displays Requester Pays config.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="retention-manage-retention-policies-and-holds" class="level3">
+<h3 class="anchored" data-anchor-id="retention-manage-retention-policies-and-holds">retention: Manage retention policies and holds</h3>
+<p>Split across <code>gcloud storage buckets</code> and <code>gcloud storage objects</code> commands.</p>
+<ul>
+<li><strong>Set/Clear/Get Bucket Retention Policy</strong>: <code>gcloud storage buckets update --retention-period</code>, <code>gcloud storage buckets update --clear-retention-period</code>, <code>gcloud storage buckets describe --format="default(retentionPolicy)"</code></li>
+<li><strong>Lock Bucket Retention Policy</strong>: <code>gcloud storage buckets update --lock-retention-period</code></li>
+<li><strong>Default Event-Based Hold</strong>: <code>gcloud storage buckets update --default-event-based-hold / --no-default-event-based-hold</code></li>
+<li><strong>Object Event-Based Hold</strong>: <code>gcloud storage objects update --event-based-hold / --no-event-based-hold</code></li>
+<li><strong>Object Temporary Hold</strong>: <code>gcloud storage objects update --temporary-hold / --no-temporary-hold</code></li>
+</ul>
+<hr>
+</section>
+<section id="rewrite-rewrite-objects-in-place" class="level3">
+<h3 class="anchored" data-anchor-id="rewrite-rewrite-objects-in-place">rewrite: Rewrite objects in place</h3>
+<p>Equivalent to <code>gcloud storage objects update</code>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-k</td>
+<td>–encryption-key=KEY, –clear-encryption-key</td>
+<td>Complex behavior, see Caveats.</td>
+</tr>
+<tr class="even">
+<td>-s <class></class></td>
+<td>–storage-class=<class>, -s</class></td>
+<td>Rewrite to specified storage class.</td>
+</tr>
+<tr class="odd">
+<td>-r, -R</td>
+<td>–recursive, -r</td>
+<td>Recursive rewrite.</td>
+</tr>
+<tr class="even">
+<td>-f</td>
+<td>–continue-on-error</td>
+<td>Continue on error.</td>
+</tr>
+<tr class="odd">
+<td>-I</td>
+<td>–read-paths-from-stdin, -I</td>
+<td>Read paths from stdin.</td>
+</tr>
+<tr class="even">
+<td>-O</td>
+<td>–no-preserve-acl</td>
+<td>Use bucket’s default object ACL.</td>
+</tr>
+</tbody>
+</table>
+<section id="caveats-and-key-differences-8" class="level4">
+<h4 class="anchored" data-anchor-id="caveats-and-key-differences-8">Caveats and Key Differences</h4>
+<ul>
+<li><strong>Encryption Handling</strong>: <code>gsutil rewrite -k</code> behavior depends on <code>boto</code> config. If <code>encryption_key</code> is set in boto, that key is applied. If not set, it’s equivalent to <code>gcloud storage objects update --clear-encryption-key</code>, potentially removing CSEK/CMEK.</li>
+<li><strong>Redundancy Checks</strong>: <code>gsutil rewrite</code> skips no-op transformations. <code>gcloud storage objects update</code> might not, potentially causing unnecessary operations.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="rm-remove-objects" class="level3">
+<h3 class="anchored" data-anchor-id="rm-remove-objects">rm: Remove objects</h3>
+<p>Equivalent to <code>gcloud storage rm</code>. Aliases <code>del</code>, <code>delete</code>, <code>remove</code> are not supported.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-f</td>
+<td>–continue-on-error</td>
+<td>Continue on error.</td>
+</tr>
+<tr class="even">
+<td>-I</td>
+<td>–read-paths-from-stdin, -I</td>
+<td>Read paths from stdin.</td>
+</tr>
+<tr class="odd">
+<td>-R, -r</td>
+<td>–recursive, -r</td>
+<td>Recursive delete.</td>
+</tr>
+<tr class="even">
+<td>-a</td>
+<td>–all-versions, -a</td>
+<td>Delete all versions.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="rpo-get-or-set-a-buckets-replication-setting" class="level3">
+<h3 class="anchored" data-anchor-id="rpo-get-or-set-a-buckets-replication-setting">rpo: Get or set a bucket’s replication setting</h3>
+<p>Replaced by <code>gcloud storage buckets describe</code> and <code>gcloud storage buckets update</code>.</p>
+<p><strong><code>gsutil rpo get</code> -&gt; <code>gcloud storage buckets describe</code></strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>gsutil Command</th>
+<th>gcloud storage Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>get</td>
+<td>describe –format=“default(rpo)”</td>
+<td>Displays RPO setting.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil rpo set</code> -&gt; <code>gcloud storage buckets update</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Argument</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ASYNC_TURBO or DEFAULT</td>
+<td>–recovery-point-objective=RPO, –rpo=RPO</td>
+<td>Sets replication setting.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="rsync-synchronize-content" class="level3">
+<h3 class="anchored" data-anchor-id="rsync-synchronize-content">rsync: Synchronize content</h3>
+<p>Equivalent to <code>gcloud storage rsync</code>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-a</td>
+<td>–predefined-acl=<predefined_acl></predefined_acl></td>
+<td>Sets predefined ACL on uploads.</td>
+</tr>
+<tr class="even">
+<td>-c</td>
+<td>–checksums-only</td>
+<td>Compare checksums only.</td>
+</tr>
+<tr class="odd">
+<td>-C</td>
+<td>–continue-on-error</td>
+<td>Continue on error.</td>
+</tr>
+<tr class="even">
+<td>-d</td>
+<td>–delete-unmatched-destination-objects</td>
+<td>Delete destination files not in source.</td>
+</tr>
+<tr class="odd">
+<td>-e</td>
+<td>–ignore-symlinks</td>
+<td>Exclude symlinks.</td>
+</tr>
+<tr class="even">
+<td>-i</td>
+<td>–no-clobber</td>
+<td>Skip existing destination files.</td>
+</tr>
+<tr class="odd">
+<td>-j &lt;ext,…&gt;</td>
+<td>–gzip-in-flight=“&lt;ext,…&gt;”</td>
+<td>Gzip transport encoding.</td>
+</tr>
+<tr class="even">
+<td>-J</td>
+<td>–gzip-in-flight-all</td>
+<td>Gzip all uploads.</td>
+</tr>
+<tr class="odd">
+<td>-n</td>
+<td>–dry-run</td>
+<td>Dry run.</td>
+</tr>
+<tr class="even">
+<td>-p</td>
+<td>–preserve-acl</td>
+<td>Preserve ACLs.</td>
+</tr>
+<tr class="odd">
+<td>-P</td>
+<td>–preserve-posix</td>
+<td>Preserve POSIX attributes.</td>
+</tr>
+<tr class="even">
+<td>-r, -R</td>
+<td>–recursive, -r, -R</td>
+<td>Recursive sync.</td>
+</tr>
+<tr class="odd">
+<td>-u</td>
+<td>–skip-if-dest-has-newer-mtime</td>
+<td>Skip if destination is newer.</td>
+</tr>
+<tr class="even">
+<td>-U</td>
+<td>–skip-unsupported</td>
+<td>Skip unsupported storage classes.</td>
+</tr>
+<tr class="odd">
+<td>-x</td>
+<td>–exclude=<pattern></pattern></td>
+<td>Exclude files matching pattern.</td>
+</tr>
+</tbody>
+</table>
+<section id="caveats-and-key-differences-9" class="level4">
+<h4 class="anchored" data-anchor-id="caveats-and-key-differences-9">Caveats and Key Differences</h4>
+<ul>
+<li><strong>Change Detection</strong>: <code>gsutil rsync</code> defaults to size and mtime. <code>gcloud storage rsync</code> also uses size and mtime, but falls back to checksums if sizes match but mtimes differ or are missing.</li>
+<li><strong>Parallelism</strong>: <code>gcloud storage rsync</code> is parallel by default. <code>gsutil rsync</code> requires top-level <code>-m</code>.</li>
+<li><strong>Symlink Handling</strong>: <code>gsutil rsync</code> follows symlinks by default. <code>gcloud storage rsync</code> ignores them by default (use <code>--no-ignore-symlinks</code>).</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="setmeta-set-metadata-on-objects" class="level3">
+<h3 class="anchored" data-anchor-id="setmeta-set-metadata-on-objects">setmeta: Set metadata on objects</h3>
+<p>Equivalent to <code>gcloud storage objects update</code>, but with different flag structure.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>gsutil setmeta Example</th>
+<th>gcloud storage objects update Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Set Metadata</td>
+<td>-h “Content-Type:text/html”</td>
+<td>–content-type=“text/html”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>-h “Cache-Control:no-cache”</td>
+<td>–cache-control=“no-cache”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>-h “Content-Language:en”</td>
+<td>–content-language=“en”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>-h “x-goog-meta-foo:bar”</td>
+<td>–update-custom-metadata=foo=bar</td>
+</tr>
+<tr class="odd">
+<td>Remove Metadata</td>
+<td>-h “Content-Type”</td>
+<td>–clear-content-type</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>-h “Cache-Control”</td>
+<td>–clear-cache-control</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>-h “x-goog-meta-foo”</td>
+<td>–remove-custom-metadata=foo</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="signurl-create-a-signed-url" class="level3">
+<h3 class="anchored" data-anchor-id="signurl-create-a-signed-url">signurl: Create a signed URL</h3>
+<p>Equivalent to <code>gcloud storage sign-url</code>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>&lt;private-key-file&gt;</code></td>
+<td>–private-key-file=<private_key_file></private_key_file></td>
+<td>Path to private key file. Positional in gsutil.</td>
+</tr>
+<tr class="even">
+<td>-u, –use-service-account</td>
+<td>(No flag needed)</td>
+<td>Default behavior in gcloud if –private-key-file not used.</td>
+</tr>
+<tr class="odd">
+<td>-d</td>
+<td>–duration=<duration></duration></td>
+<td>URL validity duration. Different format (e.g., 10m).</td>
+</tr>
+<tr class="even">
+<td>-m</td>
+<td>–http-verb=<method></method></td>
+<td>HTTP method (e.g., GET, PUT).</td>
+</tr>
+<tr class="odd">
+<td>-c</td>
+<td>–headers=content-type=<content_type></content_type></td>
+<td>Content-Type header. Part of repeatable –headers flag.</td>
+</tr>
+<tr class="even">
+<td>-p</td>
+<td>–private-key-password=<password></password></td>
+<td>Password for encrypted private key.</td>
+</tr>
+<tr class="odd">
+<td>-r</td>
+<td>–region=<region></region></td>
+<td>Resource region.</td>
+</tr>
+<tr class="even">
+<td>-b</td>
+<td>–query-params=userProject=<project></project></td>
+<td>Billing project for Requester Pays.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="stat-display-object-status" class="level3">
+<h3 class="anchored" data-anchor-id="stat-display-object-status">stat: Display object status</h3>
+<p>Equivalent to <code>gcloud storage objects list --stat --fetch-encrypted-object-hashes</code>.</p>
+<section id="caveats-and-key-differences-10" class="level4">
+<h4 class="anchored" data-anchor-id="caveats-and-key-differences-10">Caveats and Key Differences</h4>
+<ul>
+<li><strong>Output Formatting</strong>: Output format differs, with known spacing issues. Scripts parsing <code>gsutil stat</code> output may need adjustments.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="ubla-configure-uniform-bucket-level-access" class="level3">
+<h3 class="anchored" data-anchor-id="ubla-configure-uniform-bucket-level-access">ubla: Configure Uniform bucket-level access</h3>
+<p>Replaced by <code>gcloud storage buckets describe</code> and <code>gcloud storage buckets update</code>.</p>
+<p><strong><code>gsutil ubla get</code> -&gt; <code>gcloud storage buckets describe</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Command</th>
+<th>gcloud storage Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>get</td>
+<td>describe –format=“default(iamConfiguration.uniformBucketLevelAccess)”</td>
+<td>Displays UBLA config.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil ubla set</code> -&gt; <code>gcloud storage buckets update</code></strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>gsutil Argument</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>on</td>
+<td>–uniform-bucket-level-access</td>
+<td>Enables UBLA.</td>
+</tr>
+<tr class="even">
+<td>off</td>
+<td>–no-uniform-bucket-level-access</td>
+<td>Disables UBLA.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="versioning-enable-or-suspend-versioning" class="level3">
+<h3 class="anchored" data-anchor-id="versioning-enable-or-suspend-versioning">versioning: Enable or suspend versioning</h3>
+<p>Replaced by <code>gcloud storage buckets describe</code> and <code>gcloud storage buckets update</code>.</p>
+<p><strong><code>gsutil versioning get</code> -&gt; <code>gcloud storage buckets describe</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Command</th>
+<th>gcloud storage Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>get</td>
+<td>describe –format=“default(versioning)”</td>
+<td>Displays versioning config.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil versioning set</code> -&gt; <code>gcloud storage buckets update</code></strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>gsutil Argument</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>on</td>
+<td>–versioning</td>
+<td>Enables versioning.</td>
+</tr>
+<tr class="even">
+<td>off</td>
+<td>–no-versioning</td>
+<td>Disables (suspends) versioning.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="web-set-a-website-configuration-for-a-bucket" class="level3">
+<h3 class="anchored" data-anchor-id="web-set-a-website-configuration-for-a-bucket">web: Set a website configuration for a bucket</h3>
+<p>Replaced by <code>gcloud storage buckets describe</code> and <code>gcloud storage buckets update</code>.</p>
+<p><strong><code>gsutil web get</code> -&gt; <code>gcloud storage buckets describe</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Command</th>
+<th>gcloud storage Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>get</td>
+<td>describe –format=“default(website)”</td>
+<td>Displays website config.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>gsutil web set</code> -&gt; <code>gcloud storage buckets update</code></strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>gsutil Flag</th>
+<th>gcloud storage Flag</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-m <main_page_suffix></main_page_suffix></td>
+<td>–web-main-page-suffix=<main_page_suffix></main_page_suffix></td>
+<td>Main page suffix.</td>
+</tr>
+<tr class="even">
+<td>-e <error_page></error_page></td>
+<td>–web-error-page=<error_page></error_page></td>
+<td>Not-found (404) page.</td>
+</tr>
+<tr class="odd">
+<td>(no flags)</td>
+<td>–clear-web-main-page-suffix and –clear-web-error-page</td>
+<td>Clears website config.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="other-commands" class="level3">
+<h3 class="anchored" data-anchor-id="other-commands">Other Commands</h3>
+<p>The following <code>gsutil</code> commands do not have direct translations in <code>gcloud storage</code> as their functionality is gsutil-specific or handled differently within the gcloud ecosystem:</p>
+<ul>
+<li><strong>config</strong>: Manages gsutil-specific configurations. <code>gcloud</code> has its own <code>config</code> group.</li>
+<li><strong>version</strong>: Displays gsutil version. You can use <code>gcloud -v</code> instead.</li>
+<li><strong>help</strong>: gsutil-specific help. You can use <code>gcloud help</code>.</li>
+<li><strong>perfdiag</strong>: gsutil-specific performance diagnostics. While not a direct mapping, <code>gcloud alpha storage diagnose</code> can be used instead.</li>
+<li><strong>test</strong>: Runs gsutil tests.</li>
+<li><strong>update</strong>: Updates gsutil. gcloud components are updated via <code>gcloud components update</code>.</li>
+</ul>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

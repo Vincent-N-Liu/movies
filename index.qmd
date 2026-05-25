@@ -1,0 +1,133 @@
+---
+title: "ggplot2movies 電影資料分析"
+date: "2026-05-25"
+format:
+  html:
+    toc: true
+    toc-title: "目錄"
+    fig-width: 8
+    fig-height: 5
+---
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(ggplot2movies)
+```
+
+## 資料簡介
+
+`ggplot2movies` 資料集收錄來自 IMDb 的 **`r nrow(movies)` 部電影**，涵蓋年份、評分、預算、票數及類型等欄位，資料區間約為 1893–2005 年。
+
+------------------------------------------------------------------------
+
+## 1. 評分分佈
+
+```{r}
+#| label: rating-hist
+#| message: false
+
+ggplot(movies, aes(x = rating)) +
+  geom_histogram(binwidth = 0.5, boundary = 0) +
+  labs(
+    title = "電影評分分佈",
+    x = "評分 (1–10)",
+    y = "電影數量"
+  )
+```
+
+評分集中於 5–7 分之間，分佈接近常態，略呈右偏（高評分尾部較長）。
+
+------------------------------------------------------------------------
+
+## 2. 各年代平均評分趨勢
+
+```{r}
+#| label: decade-trend
+#| message: false
+
+movies |>
+  filter(year >= 1920, votes >= 100) |>
+  mutate(decade = floor(year / 10) * 10) |>
+  summarise(avg_rating = mean(rating), n = n(), .by = decade) |>
+  ggplot(aes(x = decade, y = avg_rating)) +
+  geom_line() +
+  geom_point(aes(size = n)) +
+  scale_size_continuous(name = "電影數", range = c(1, 6)) +
+  labs(
+    title = "各年代平均評分趨勢（≥ 100 票）",
+    x = "年代",
+    y = "平均評分"
+  )
+```
+
+1920 年代平均評分最高（約 7.5），此後持續下滑，至 1970–80 年代跌至谷底。近年略有回升。值得注意的是，早期電影數量較少（點的大小代表電影數），選樣偏差可能使早期平均偏高。
+
+------------------------------------------------------------------------
+
+## 3. 各類型電影評分分佈
+
+```{r}
+#| label: genre-boxplot
+#| message: false
+
+movies |>
+  filter(votes >= 50) |>
+  pivot_longer(
+    cols = c(Action, Animation, Comedy, Drama, Documentary, Romance, Short),
+    names_to = "genre",
+    values_to = "is_genre"
+  ) |>
+  filter(is_genre == 1) |>
+  ggplot(aes(x = reorder(genre, rating, median), y = rating)) +
+  geom_boxplot() +
+  labs(
+    title = "各類型電影評分分佈（≥ 50 票）",
+    x = "類型",
+    y = "評分"
+  )
+```
+
+Documentary、Short 與 Animation 的中位數評分最高；Action 類型中位數最低，且評分範圍最廣。
+
+------------------------------------------------------------------------
+
+## 4. 預算 vs. 評分
+
+```{r}
+#| label: budget-rating
+#| message: false
+#| warning: false
+
+movies |>
+  filter(!is.na(budget), votes >= 100, budget > 0) |>
+  ggplot(aes(x = budget, y = rating)) +
+  geom_point(alpha = 0.4, size = 1.5) +
+  scale_x_log10(labels = scales::label_dollar(scale = 1e-6, suffix = "M")) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "預算 vs. 評分（≥ 100 票）",
+    x = "預算（對數軸，百萬美元）",
+    y = "評分"
+  )
+```
+
+迴歸線幾乎水平，顯示預算高低與評分之間幾乎沒有線性關係——高預算並不保證高評分。
+
+------------------------------------------------------------------------
+
+## 小結
+
+| 面向     | 主要發現                                                |
+|----------|---------------------------------------------------------|
+| 評分分佈 | 集中於 5–7 分，略右偏                                   |
+| 年代趨勢 | 早期評分高，1970–80 年代最低，近年回升                  |
+| 類型比較 | Documentary / Short 評分較高；Action 評分最低且變異最大 |
+| 預算關聯 | 預算與評分幾乎無線性關係                                |
+
+------------------------------------------------------------------------
+
+
